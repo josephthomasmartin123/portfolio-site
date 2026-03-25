@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Joseph Martin</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a class="nav-brand" href="index.html">Joseph Martin</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html" aria-current="page">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="cv.html">CV</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <header class="page-header">
+        <h1>Projects</h1>
+        <p>A selection of hardware builds and AI experiments.</p>
+      </header>
+
+      <div class="projects-grid">
+
+        <!-- ── Hardware projects ──────────────────────────────── -->
+
+        <article class="card" id="speakers-nixie">
+          <img class="card-image" src="assets/projects/Nixie%20speakers/Photos-3-001/IMG_9110.jpg" alt="Nixie tube clock amplifier and speakers" />
+          <div class="card-body">
+            <span class="card-tag">Hardware</span>
+            <h2 class="card-title">Nixie Tube Clock Amplifier &amp; Speakers</h2>
+            <p class="card-desc">
+              A post-graduation build — stereo 2-way bookshelf speakers using
+              the Dayton Audio PS95-8, paired with a handbuilt nixie tube clock
+              and digital amplifier module.
+            </p>
+            <a class="card-link" href="assets/projects/Nixie%20speakers/nixie-speakers.html">View project &rarr;</a>
+          </div>
+        </article>
+
+        <article class="card" id="speakers-3d">
+          <img class="card-image" src="assets/projects/Speaker%20project%202/ai%20gen%20ref%20image.jpg" alt="3D printed speaker system" />
+          <div class="card-body">
+            <span class="card-tag">Hardware</span>
+            <h2 class="card-title">3D-Printed 3-Way Speaker System</h2>
+            <p class="card-desc">
+              A fully active stereo speaker system built in a London flat using a
+              desktop 3D printer. Plaster-loaded composite cabinets, JAB5 DSP
+              amplifier boards in cascade, tuned to 40Hz.
+            </p>
+            <a class="card-link" href="assets/projects/Speaker%20project%202/3d-speakers.html">View project &rarr;</a>
+          </div>
+        </article>
+
+        <!-- ── Concept / Medical projects ───────────────────────── -->
+
+        <article class="card" id="knotpulse">
+          <div class="card-image-placeholder">Interactive concept</div>
+          <div class="card-body">
+            <span class="card-tag">Concept</span>
+            <h2 class="card-title">KnotPulse</h2>
+            <p class="card-desc">
+              A concept for targeted resonant electrical muscle therapy —
+              using frequency sweeps to selectively activate and release
+              deep muscle knots with minimal discomfort.
+            </p>
+            <a class="card-link" href="assets/projects/knotpulse/index.html">View project &rarr;</a>
+          </div>
+        </article>
+
+        <!-- ── Data / Software projects ──────────────────────── -->
+
+        <article class="card" id="fitnessinsights">
+          <div class="card-image-placeholder">Interactive dashboard</div>
+          <div class="card-body">
+            <span class="card-tag">Data</span>
+            <h2 class="card-title">Fitness Insights</h2>
+            <p class="card-desc">
+              Years of workout history buried inside a Google Calendar —
+              logged inconsistently across different naming conventions and mixed
+              in with thousands of unrelated events. Extracted, classified, and
+              analysed entirely from scratch.
+            </p>
+            <a class="card-link" href="assets/projects/Fitnessinsights/fitness_portfolio.html">View project &rarr;</a>
+          </div>
+        </article>
+
+        <!-- ── AI / Simulation projects ───────────────────────── -->
+
+        <article class="card" id="sim-safety">
+          <img class="card-image" src="assets/projects/Multi%20agent%20eval%20arena/v3%20image.png" alt="Multi Agent Arena — V3 AGI game" />
+          <div class="card-body">
+            <span class="card-tag">AI &amp; Simulation</span>
+            <h2 class="card-title">Multi Agent Arena</h2>
+            <p class="card-desc">
+              A sandbox where AI agents compete, deceive, and reason about each
+              other's capabilities. Emergent alliances, elimination votes, and
+              an AGI identity game — with full private reasoning visible to the observer.
+            </p>
+            <a class="card-link" href="assets/projects/Multi%20agent%20eval%20arena/multi-agent-arena.html">View project &rarr;</a>
+          </div>
+        </article>
+
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; <span id="yr"></span> Joseph Martin &mdash;
+      <a href="https://www.linkedin.com/in/joseph-martin1/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+  <script src="lightbox.js"></script>
+</body>
+</html>

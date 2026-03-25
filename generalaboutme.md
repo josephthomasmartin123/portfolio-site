@@ -1,0 +1,3 @@
+This file is to describe me and what the site should aim to communicate.
+I am a professional inventor who works at the intersection of science, engineering and creativity and AI. I spend my time consulting for large enterprises, making inventions for them by making inveintions using cross domain invention theory. This is one of my main professional obligations.
+in my spare time, i really enjoy to tinker and I try to document some of my work on this site, though its generally informal and rough. an objective with this site was to try keep me accountable to keep building things in my spare time, learning new skills and having some fun with it as well.

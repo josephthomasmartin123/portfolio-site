@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D-Printed 3-Way Speaker System — Joseph Martin</title>
+  <link rel="stylesheet" href="../../../style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a class="nav-brand" href="../../../index.html">Joseph Martin</a>
+      <ul class="nav-links">
+        <li><a href="../../../index.html">Home</a></li>
+        <li><a href="../../../projects.html" aria-current="page">Projects</a></li>
+        <li><a href="../../../about.html">About</a></li>
+        <li><a href="../../../cv.html">CV</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <header class="page-header">
+        <h1>3D-Printed 3-Way Speaker System</h1>
+        <p>A fully active stereo speaker system built from scratch in a London flat — 3D printed, plaster-loaded cabinets driven by DSP amplifier boards.</p>
+      </header>
+
+      <div class="project-meta">
+        <span><strong>Status</strong> Operational — tuned, playing to 40Hz</span>
+        <span><strong>Amplifier</strong> JAB5 (2× boards, cascade)</span>
+        <span><strong>Workhorse</strong> Bambu A1 Mini (180mm³)</span>
+      </div>
+
+      <div class="project-body">
+
+        <p>
+          After finishing the Nixie speaker project I wanted something with more
+          low-end output — but it had to be manufacturable in a small London flat
+          with minimal tools. The constraint shaped everything: no CNC, no large
+          workshop, just a desktop 3D printer and whatever could be sourced or
+          improvised.
+        </p>
+
+        <!-- ── Concept & Design ───────────────────────────────── -->
+        <h2>Concept</h2>
+        <p>
+          I started with a few rough concepts. The first was an omnidirectional
+          design — interesting acoustically, but ruled out immediately: omnidirectional
+          speakers are great, unless you put them up against a wall, which is generally
+          the best place to put a speaker.
+        </p>
+
+        <div class="project-image-pair">
+          <img src="v1%20concept.png" alt="V1 omnidirectional concept sketch" loading="lazy" />
+          <img src="v2%20concept.png" alt="V2 three-way concept sketch" loading="lazy" />
+        </div>
+
+        <p>
+          The second concept was more promising: a 3-way design with a 3D-printed
+          shell that could be infilled with plaster of paris for mass loading, with
+          a bent bass reflex port for low-end extension and wire channels routed
+          through the structure. This was interesting enough to prototype.
+        </p>
+
+        <!-- ── V1 Prototype ───────────────────────────────────── -->
+        <h2>V1 — First prototype</h2>
+        <p>
+          The manufacturing approach was simple in principle: 3D print a set of
+          interlocking shells, bond them together, and fill with a gypsum and PVA
+          mixture for mass loading. The electronics choice was the JAB5 amplifier
+          board — integrated DSP, signal processing, 4×100W channels, Bluetooth,
+          and daisy-chainable for an 8×100W cascade system.
+        </p>
+
+        <div class="project-gallery">
+          <figure>
+            <img src="initial%20prototype%2C%20with%20pots%20and%20pans%20loading.jpg" alt="First prototype weighted down with pots, pans and Guinness cans while bonding" loading="lazy" />
+            <figcaption>Shells bonded and loaded under whatever was heavy enough to keep pressure while setting</figcaption>
+          </figure>
+          <figure>
+            <img src="initial%20prototype%20img%202.jpg" alt="V1 prototype build" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="initial%20prototype%20img%203.jpg" alt="V1 prototype build" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="initial%20prototype%20img%204.jpg" alt="V1 prototype detail" loading="lazy" />
+          </figure>
+        </div>
+
+        <p>
+          Filling with liquid plaster from the top turned out to be a much bigger
+          challenge than anticipated. Getting the viscosity right is a non-trivial
+          problem: too thin and it leaks through every gap; too thick and it blocks
+          the flow channels. Gypsum also thickens during pouring, making the whole
+          process a nonlinear nightmare. The leak below was noticed early — it got
+          considerably worse as the reservoir of plaster gradually found every exit.
+        </p>
+
+        <img class="project-image" src="leak.jpg" alt="Plaster leak during V1 infill — it got much worse" loading="lazy" />
+
+        <!-- ── V2 Design ──────────────────────────────────────── -->
+        <h2>V2 — Redesign</h2>
+        <p>
+          V1 taught several clear lessons. The continuous-wall design meant that a
+          single leak could compromise the whole build, and the interconnected fill
+          channels made viscosity management extremely difficult. The screw-free
+          assembly using epoxy was expensive and not very effective.
+        </p>
+        <p>
+          V2 addressed all of this. Shells became modular — each infilled
+          individually before assembly, so a failed pour means replacing one shell
+          rather than starting over. Height was reduced by incorporating the bass
+          reflex port as one of the structural walls. Angled screw mounts replaced
+          epoxy, providing proper clamping force between pieces.
+        </p>
+
+        <div class="project-gallery">
+          <figure>
+            <img src="cad%20v3%20img1.png" alt="CAD — V3 assembly view" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="cad%20v3%20img2.png" alt="CAD — V3 shell detail" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="cad%20v3%20img3.png" alt="CAD — V3 port integration" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="cad%20v3%20img4.png" alt="CAD — V3 section view" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="cad%20v3%20img5.png" alt="CAD — V3 screw mount detail" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="screw%20mounting%20diagram.png" alt="Screw mount clamping diagram" loading="lazy" />
+            <figcaption>Angled screw mounts provide clamping force between shells without relying on adhesive alone</figcaption>
+          </figure>
+        </div>
+
+        <!-- ── Wall Design ────────────────────────────────────── -->
+        <h2>Wall construction</h2>
+        <p>
+          Each wall is a multilayer composite. From inside to outside: acoustic foam
+          liner, 3D-printed shell, gypsum/PVA infill, vinyl wrap as the outer
+          airtight envelope.
+        </p>
+
+        <img class="project-image" src="wall%20design%20schematic.png" alt="Section view of composite wall — inside left, outside right" loading="lazy" />
+
+        <p>The build sequence for each shell:</p>
+        <ol style="color: var(--muted); font-size: 0.95rem; margin-left: 1.25rem; margin-bottom: 0.85rem; line-height: 1.8;">
+          <li>Print shells</li>
+          <li>Mix gypsum and PVA with water, pour into individual shell, allow to dry</li>
+          <li>Bond infilled shells together with screws and Stixall sealing adhesive</li>
+          <li>Stick acoustic foam liner to inside wall</li>
+          <li>Vinyl wrap the outside — airtight envelope and structural tension layer</li>
+          <li>Stuff with wool</li>
+          <li>Exterior finishing to follow</li>
+        </ol>
+
+        <p>
+          Stixall handles air sealing, adhesion, and gap filling between shells. The
+          vinyl wrap is the primary airtight barrier and also adds a tensioned outer
+          face that stiffens the whole assembly. Screws ensure rigidity during cure
+          and prevent shells separating when the speaker is handled — a failure mode
+          observed with V1, where the gypsum (unsurprisingly) had no tensile strength.
+        </p>
+
+        <!-- ── Build ──────────────────────────────────────────── -->
+        <h2>Build</h2>
+
+        <div class="project-gallery">
+          <figure>
+            <img src="v3%20prototype%20iso.jpg" alt="V3 prototype isometric view" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="box%20infilled%20with%20plaster.jpg" alt="Shell infilled with plaster, drying" loading="lazy" />
+            <figcaption>Individual shells infilled and drying before assembly</figcaption>
+          </figure>
+          <figure>
+            <img src="woofer%20mounted%20in%203d%20shell.jpg" alt="Woofer driver mounted in printed shell" loading="lazy" />
+          </figure>
+        </div>
+
+        <p>
+          Vinyl wrapping provided an airtight seal and covered the rough plaster fills,
+          though it was not intended as the final aesthetic — that comes later.
+          Getting an even wrap on an irregular multi-part 3D-printed surface was
+          genuinely difficult. The conclusion: a future career in vinyl wrapping
+          is firmly off the table.
+        </p>
+
+        <div class="project-gallery">
+          <figure>
+            <img src="wrapping%20in%20vinyyl%201.jpg" alt="Vinyl wrapping in progress" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="wrapping%20in%20vinyyl%203.jpg" alt="Vinyl wrapping — subwoofer chamber" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="wrapping%20in%20vinyyl%205.jpg" alt="Vinyl wrapping progress" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="wrapping%20in%20vinyyl%206.jpg" alt="Wrapped speaker box" loading="lazy" />
+          </figure>
+        </div>
+
+        <!-- ── Electronics ────────────────────────────────────── -->
+        <h2>Electronics</h2>
+        <p>
+          Programming the JAB5 boards was done in Sigma Studio. Getting the PC to
+          recognise the programming board required a few hours of troubleshooting —
+          the board itself needed reprogramming first. Once connected, dialling in
+          the DSP filters was straightforward and the system sounded good early on.
+        </p>
+
+        <div class="project-gallery">
+          <figure>
+            <img src="sigma%20v1.png" alt="Sigma Studio DSP program — initial" loading="lazy" />
+            <figcaption>Sigma Studio — initial DSP configuration</figcaption>
+          </figure>
+          <figure>
+            <img src="sigma%20v2.png" alt="Sigma Studio DSP program — revised" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="sigma%20v3.png" alt="Sigma Studio DSP program — final" loading="lazy" />
+            <figcaption>Final DSP program with crossover filters and EQ</figcaption>
+          </figure>
+        </div>
+
+        <p>
+          The original plan was a JAB5 board mounted to the back of each speaker,
+          linked over I²S in master-slave configuration. The discovery that I²S
+          cables max out at around 10cm was an unexpected blocker — not ideal for
+          a stereo pair. The solution: mount both boards on one speaker and run
+          speaker-level cables to the other, making it a passive satellite. Less
+          elegant, but it works well and keeps the cascade system intact.
+        </p>
+
+        <div class="project-gallery">
+          <figure>
+            <img src="schematic%20for%20cascade.jpg" alt="Cascade wiring schematic — both JAB5 boards on one speaker" loading="lazy" />
+            <figcaption>Both JAB5 boards mounted on one speaker; passive cables run to the second</figcaption>
+          </figure>
+          <figure>
+            <img src="elec%20mounting%201.jpg" alt="Electronics mounting — rear of speaker" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="elec%20mounting%202.jpg" alt="Electronics mounting detail" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="safety%20third.jpg" alt="Electronics wiring — safety third" loading="lazy" />
+            <figcaption>Safety: third priority</figcaption>
+          </figure>
+          <figure>
+            <img src="elecs.jpg" alt="Completed electronics assembly" loading="lazy" />
+          </figure>
+        </div>
+
+        <!-- ── Aesthetics ─────────────────────────────────────── -->
+        <h2>Aesthetics — concepts</h2>
+        <p>
+          With the system functional, attention turned to how the speakers should
+          look in their final form. The vinyl-wrapped boxes were never going to be
+          permanent. Using a reference photo of the two wrapped speakers, I used
+          AI image generation to explore a range of finishing concepts — parametric
+          3D-printed panels, block patterns, and print-based surface treatments.
+        </p>
+
+        <img class="project-image" src="ai%20gen%20ref%20image.jpg" alt="Reference image used for AI concept generation — the two rough-wrapped speakers" loading="lazy" />
+
+        <div class="project-gallery">
+          <figure>
+            <img src="ai%20gen%20concept%20block%201.jpg" alt="AI generated concept — parametric panel design 1" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="ai%20gen%20concept%20block%202.jpg" alt="AI generated concept — parametric panel design 2" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="ai%20gen%20concept%20block%203.jpg" alt="AI generated concept — block wrap 1" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="ai%20gen%20concept%20block%204.jpg" alt="AI generated concept — block wrap 2" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="ai%20gen%20concept%20block%205.jpg" alt="AI generated concept — print design 1" loading="lazy" />
+          </figure>
+          <figure>
+            <img src="ai%20gen%20concept%20block%206.jpg" alt="AI generated concept — print design 2" loading="lazy" />
+          </figure>
+        </div>
+
+        <!-- ── Current Status ─────────────────────────────────── -->
+        <h2>Current status</h2>
+        <p>
+          Both speakers are tuned and fully operational. The cascade system is
+          implemented — two JAB5 boards running in master-slave configuration,
+          8×100W total, with the system tuned down to 40Hz. For a pair of
+          3D-printed boxes built on a kitchen table, the output is significant.
+        </p>
+        <p>
+          Next steps, when time allows:
+        </p>
+        <ul>
+          <li>Acoustic measurement and calibration (REW + measurement mic)</li>
+          <li>Exterior finishing — vinyl wrap or 3D-printed parametric panels bonded to the outside</li>
+        </ul>
+
+      </div>
+
+      <div class="project-nav">
+        <a href="../../../projects.html">&larr; All projects</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; <span id="yr"></span> Joseph Martin &mdash;
+      <a href="https://www.linkedin.com/in/joseph-martin1/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+  <script src="../../../lightbox.js"></script>
+</body>
+</html>
