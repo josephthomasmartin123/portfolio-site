@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResoKnot Therapy Simulation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --panel-bg: rgba(255, 255, 255, 0.85);
+            --text-main: #2d3748;
+            --text-muted: #718096;
+            --accent-blue: #3182ce;
+            --knot-color: #822727;
+            --muscle-color: #fc8181;
+            --lymph-color: #48bb78;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #sim-container {
+            position: relative;
+            width: 1000px;
+            height: 600px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Overlay UI */
+        #ui-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--panel-bg);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.4);
+            width: 250px;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin: 0 0 15px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .metric {
+            margin-bottom: 12px;
+        }
+
+        .metric-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .metric-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            transition: color 0.3s;
+        }
+
+        #controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        button {
+            padding: 10px 24px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            background-color: var(--accent-blue);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(49, 130, 206, 0.3);
+            transition: transform 0.1s, background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #2b6cb0;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        #btn-reset {
+            background-color: #cbd5e0;
+            color: var(--text-main);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        #btn-reset:hover {
+            background-color: #a0aec0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sim-container">
+        <div id="ui-panel">
+            <h1>ResoKnot Demo</h1>
+            <div class="metric">
+                <div class="metric-label">Current Phase</div>
+                <div class="metric-value" id="ui-phase">Idle</div>
+            </div>
+            <div class="metric">
+                <div class="metric-label">Stimulation Freq</div>
+                <div class="metric-value" id="ui-freq">0.0 Hz</div>
+            </div>
+            <div class="metric">
+                <div class="metric-label">Muscle Amplitude</div>
+                <div class="metric-value" id="ui-amp">0%</div>
+            </div>
+        </div>
+
+        <div id="controls">
+            <button id="btn-start">Start Therapy</button>
+            <button id="btn-reset">Reset</button>
+        </div>
+
+        <canvas id="simCanvas"></canvas>
+    </div>
+
+<script>
+    const canvas = document.getElementById('simCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = 1000;
+    canvas.height = 600;
+
+    // UI Elements
+    const uiPhase = document.getElementById('ui-phase');
+    const uiFreq = document.getElementById('ui-freq');
+    const uiAmp = document.getElementById('ui-amp');
+
+    // Simulation State
+    let simulationTime = 0;
+    let isRunning = false;
+    let currentPhase = 0; // 0: Idle, 1: Sweep, 2: Resonance, 3: Disruption, 4: Drainage
+
+    // Physics & Metrics
+    let currentFreq = 0;
+    let targetResonance = 45; // 45 Hz is our magic resonant frequency
+    let amplitude = 0;
+    let maxAmplitude = 40;
+
+    // Entities
+    let knotParticles = [];
+    let lymphParticles = [];
+
+    class Particle {
+        constructor(x, y, isKnot = true) {
+            this.originX = x;
+            this.originY = y;
+            this.x = x;
+            this.y = y;
+            this.vx = (Math.random() - 0.5) * 2;
+            this.vy = (Math.random() - 0.5) * 2;
+            this.size = isKnot ? Math.random() * 3 + 2 : Math.random() * 4 + 2;
+            this.alpha = 1;
+            this.isKnot = isKnot;
+        }
+
+        update() {
+            if (currentPhase === 2 && this.isKnot) {
+                // Resonance: vibrate violently
+                this.x = this.originX + (Math.random() - 0.5) * (amplitude * 0.5);
+                this.y = this.originY + (Math.random() - 0.5) * (amplitude * 0.5);
+            } 
+            else if (currentPhase >= 3 && this.isKnot) {
+                // Disruption: explode outwards and slowly drift
+                this.x += this.vx;
+                this.y += this.vy;
+                this.vx *= 0.95; // Fluid friction
+                this.vy *= 0.95;
+            }
+            
+            if (currentPhase === 4) {
+                // Drainage: Flow left and right away from center
+                let direction = this.x > canvas.width / 2 ? 1 : -1;
+                this.x += direction * 2 * (Math.random() + 0.5);
+                this.alpha -= 0.005; // Fade out as it drains
+            }
+        }
+
+        draw() {
+            if (this.alpha <= 0) return;
+            ctx.globalAlpha = Math.max(0, this.alpha);
+            ctx.fillStyle = this.isKnot ? '#822727' : '#48bb78';
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.globalAlpha = 1;
+        }
+    }
+
+    function initSimulation() {
+        simulationTime = 0;
+        currentPhase = 0;
+        currentFreq = 0;
+        amplitude = 2;
+        knotParticles = [];
+        lymphParticles = [];
+        isRunning = false;
+
+        uiPhase.innerText = "Idle";
+        uiFreq.innerText = "0.0 Hz";
+        uiAmp.innerText = "0%";
+        uiPhase.style.color = "var(--text-main)";
+
+        // Generate dense knot
+        for(let i=0; i<150; i++) {
+            // Distribute in a circle
+            let angle = Math.random() * Math.PI * 2;
+            let radius = Math.random() * 35;
+            let px = canvas.width/2 + Math.cos(angle)*radius;
+            let py = canvas.height/2 + Math.sin(angle)*radius;
+            knotParticles.push(new Particle(px, py, true));
+        }
+    }
+
+    function drawMuscleFibers() {
+        ctx.lineWidth = 4;
+        ctx.lineCap = 'round';
+        
+        let numFibers = 12;
+        let spacing = 20;
+        let startY = canvas.height/2 - (numFibers/2 * spacing);
+
+        for (let i = 0; i < numFibers; i++) {
+            ctx.beginPath();
+            let yOffset = startY + (i * spacing);
+            
+            for (let x = 0; x <= canvas.width; x += 10) {
+                let y = yOffset;
+
+                // Create the physical wave deformation
+                if (currentPhase > 0) {
+                    // Standing wave formula
+                    let wave = Math.sin(x * 0.01) * Math.sin(simulationTime * currentFreq * 0.1);
+                    // Dampen the wave at the edges so the muscle remains attached
+                    let edgeDamping = Math.sin((x / canvas.width) * Math.PI); 
+                    
+                    y += wave * amplitude * edgeDamping;
+                }
+
+                // Initial Knot Bulge (disappears when knot breaks)
+                if (currentPhase < 3) {
+                    let distToCenter = Math.abs(x - canvas.width/2);
+                    if (distToCenter < 100) {
+                        let bulge = Math.cos((distToCenter/100) * (Math.PI/2)) * 15;
+                        y += (i < numFibers/2) ? -bulge : bulge;
+                    }
+                }
+
+                if (x === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            
+            // Color shifts slightly during drainage phase
+            if (currentPhase === 4) {
+                ctx.strokeStyle = `rgba(167, 243, 208, 0.6)`; // Healing green tint
+            } else {
+                ctx.strokeStyle = `rgba(252, 129, 129, ${0.4 + (i/numFibers)*0.3})`;
+            }
+            ctx.stroke();
+        }
+    }
+
+    function drawDevice() {
+        let devWidth = 120;
+        let devHeight = 60;
+        let devX = canvas.width/2 - devWidth/2;
+        let devY = canvas.height/2 - 140;
+
+        // Device Body
+        ctx.fillStyle = '#ffffff';
+        ctx.shadowColor = 'rgba(0,0,0,0.1)';
+        ctx.shadowBlur = 15;
+        ctx.shadowOffsetY = 5;
+        ctx.beginPath();
+        ctx.roundRect(devX, devY, devWidth, devHeight, 15);
+        ctx.fill();
+        ctx.shadowColor = 'transparent'; // reset
+
+        // Electrodes touching muscle
+        ctx.fillStyle = '#cbd5e0';
+        ctx.beginPath();
+        ctx.roundRect(devX + 20, devY + devHeight, 15, 20, 5);
+        ctx.roundRect(devX + devWidth - 35, devY + devHeight, 15, 20, 5);
+        ctx.fill();
+
+        // LED Indicator
+        ctx.beginPath();
+        ctx.arc(devX + devWidth/2, devY + devHeight/2, 6, 0, Math.PI*2);
+        
+        if (currentPhase === 0) ctx.fillStyle = '#cbd5e0';
+        else if (currentPhase === 1) ctx.fillStyle = '#ecc94b'; // Scanning (Yellow)
+        else if (currentPhase === 2) ctx.fillStyle = '#e53e3e'; // Resonance (Red)
+        else if (currentPhase === 3) ctx.fillStyle = '#3182ce'; // Breaking (Blue)
+        else if (currentPhase === 4) ctx.fillStyle = '#48bb78'; // Lymph (Green)
+        
+        ctx.fill();
+
+        // Electrical Arcs / Waves coming from device
+        if (currentPhase > 0 && currentPhase < 4) {
+            ctx.strokeStyle = currentPhase === 2 ? '#fc8181' : '#90cdf4';
+            ctx.lineWidth = 2;
+            ctx.globalAlpha = (Math.sin(simulationTime * 10) + 1) / 2;
+            
+            ctx.beginPath();
+            ctx.arc(devX + 27, devY + devHeight + 25, 10 + (simulationTime%30), Math.PI, 0, true);
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.arc(devX + devWidth - 27, devY + devHeight + 25, 10 + (simulationTime%30), Math.PI, 0, true);
+            ctx.stroke();
+            ctx.globalAlpha = 1;
+        }
+    }
+
+    function generateLymphFlow() {
+        if (Math.random() > 0.8) {
+            let y = canvas.height/2 + (Math.random() - 0.5) * 100;
+            lymphParticles.push(new Particle(canvas.width/2, y, false));
+        }
+    }
+
+    function updateState() {
+        if (!isRunning) return;
+        simulationTime++;
+
+        // Phase 1: Frequency Sweep (0 to 150 ticks)
+        if (simulationTime < 200) {
+            currentPhase = 1;
+            uiPhase.innerText = "Freq Sweep...";
+            uiPhase.style.color = "#d69e2e";
+            currentFreq = 10 + (simulationTime / 200) * 40; // Sweeps up to 50Hz
+            amplitude = 5; // Minimal mechanical effect
+        } 
+        // Phase 2: Resonance Hit (200 to 350 ticks)
+        else if (simulationTime < 350) {
+            currentPhase = 2;
+            uiPhase.innerText = "Resonance Hit!";
+            uiPhase.style.color = "#e53e3e";
+            
+            // Lock frequency to target
+            currentFreq = targetResonance;
+            
+            // Exponentially scale amplitude to max
+            amplitude = Math.min(maxAmplitude, amplitude * 1.1);
+        }
+        // Phase 3: Knot Disruption (350 to 500 ticks)
+        else if (simulationTime < 500) {
+            currentPhase = 3;
+            uiPhase.innerText = "Knot Disruption";
+            uiPhase.style.color = "#3182ce";
+            
+            // Maintain frequency but amplitude slowly drops as knot breaks
+            amplitude = Math.max(10, amplitude * 0.98);
+        }
+        // Phase 4: Lymphatic Drainage (500+ ticks)
+        else if (simulationTime < 800) {
+            currentPhase = 4;
+            uiPhase.innerText = "Lymph Drainage";
+            uiPhase.style.color = "#48bb78";
+            
+            // Switch to slow peristaltic frequency
+            currentFreq = 2.5; 
+            amplitude = 15;
+            
+            generateLymphFlow();
+        } 
+        else {
+            // End simulation cycle
+            isRunning = false;
+            uiPhase.innerText = "Therapy Complete";
+            uiPhase.style.color = "#2d3748";
+            currentFreq = 0;
+            amplitude = 0;
+        }
+
+        // Update UI
+        uiFreq.innerText = currentFreq.toFixed(1) + " Hz";
+        uiAmp.innerText = Math.round((amplitude / maxAmplitude) * 100) + "%";
+
+        // Update Particles
+        knotParticles.forEach(p => p.update());
+        lymphParticles.forEach(p => p.update());
+    }
+
+    function draw() {
+        // Clear canvas with a subtle gradient background
+        let bgGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+        bgGradient.addColorStop(0, '#ffffff');
+        bgGradient.addColorStop(1, '#edf2f7');
+        ctx.fillStyle = bgGradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        updateState();
+
+        drawMuscleFibers();
+        
+        knotParticles.forEach(p => p.draw());
+        lymphParticles.forEach(p => p.draw());
+
+        drawDevice();
+
+        requestAnimationFrame(draw);
+    }
+
+    // Event Listeners
+    document.getElementById('btn-start').addEventListener('click', () => {
+        if (!isRunning && currentPhase === 0) {
+            isRunning = true;
+        } else if (!isRunning) {
+            // If finished, reset and start
+            initSimulation();
+            isRunning = true;
+        }
+    });
+
+    document.getElementById('btn-reset').addEventListener('click', () => {
+        initSimulation();
+    });
+
+    // Start rendering loop
+    initSimulation();
+    draw();
+
+</script>
+</body>
+</html>

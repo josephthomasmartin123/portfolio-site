@@ -12,10 +12,20 @@
     <div class="container">
       <a class="nav-brand" href="index.html">Joseph Martin</a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html" aria-current="page">Projects</a></li>
+        <li class="nav-dropdown">
+          <a href="projects.html" aria-current="page">Projects</a>
+          <ul class="dropdown-menu">
+            <li><a href="assets/projects/Nixie%20speakers/nixie-speakers.html">Nixie Tube Speakers</a></li>
+            <li><a href="assets/projects/Speaker%20project%202/3d-speakers.html">3D-Printed Speakers</a></li>
+            <li><a href="assets/projects/Fitnessinsights/fitness_portfolio.html">Fitness Insights</a></li>
+            <li><a href="assets/projects/knotpulse/index.html">KnotPulse</a></li>
+            <li><a href="assets/projects/TechConnect/Sitedemo.html">TechConnect</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="assets/projects/Multi%20agent%20eval%20arena/multi-agent-arena.html">Multi Agent Arena</a></li>
+            <li><a href="assets/projects/red%20team%20sim/red-team-sim.html">LLM Red-Teaming</a></li>
+          </ul>
+        </li>
         <li><a href="about.html">About</a></li>
-        <li><a href="cv.html">CV</a></li>
       </ul>
     </div>
   </nav>
@@ -25,15 +35,21 @@
 
       <header class="page-header">
         <h1>Projects</h1>
-        <p>A selection of hardware builds and AI experiments.</p>
+        <p>Hardware builds, AI experiments, data projects, and concepts.</p>
       </header>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="hardware">Hardware</button>
+        <button class="filter-btn" data-filter="data">Data</button>
+        <button class="filter-btn" data-filter="concept">Concept</button>
+        <button class="filter-btn" data-filter="ai">AI &amp; Simulation</button>
+      </div>
 
       <div class="projects-grid">
 
-        <!-- ── Hardware projects ──────────────────────────────── -->
-
-        <article class="card" id="speakers-nixie">
-          <img class="card-image" src="assets/projects/Nixie%20speakers/Photos-3-001/IMG_9110.jpg" alt="Nixie tube clock amplifier and speakers" />
+        <article class="card" id="speakers-nixie" data-tag="hardware">
+          <img class="card-image" src="assets/projects/Nixie%20speakers/Photos-3-001/IMG_0198.jpg" alt="Nixie tube clock amplifier and speakers" />
           <div class="card-body">
             <span class="card-tag">Hardware</span>
             <h2 class="card-title">Nixie Tube Clock Amplifier &amp; Speakers</h2>
@@ -46,7 +62,7 @@
           </div>
         </article>
 
-        <article class="card" id="speakers-3d">
+        <article class="card" id="speakers-3d" data-tag="hardware">
           <img class="card-image" src="assets/projects/Speaker%20project%202/ai%20gen%20ref%20image.jpg" alt="3D printed speaker system" />
           <div class="card-body">
             <span class="card-tag">Hardware</span>
@@ -60,25 +76,21 @@
           </div>
         </article>
 
-        <!-- ── Concept / Medical projects ───────────────────────── -->
-
-        <article class="card" id="knotpulse">
+        <article class="card" id="techconnect" data-tag="concept">
           <div class="card-image-placeholder">Interactive concept</div>
           <div class="card-body">
             <span class="card-tag">Concept</span>
-            <h2 class="card-title">KnotPulse</h2>
+            <h2 class="card-title">TechConnect</h2>
             <p class="card-desc">
-              A concept for targeted resonant electrical muscle therapy —
-              using frequency sweeps to selectively activate and release
-              deep muscle knots with minimal discomfort.
+              A concept for a cross-industry B2B technology exchange platform — using double-blind
+              discovery protocols so enterprises can securely scout and trade solutions across
+              disparate domains without exposing proprietary data.
             </p>
-            <a class="card-link" href="assets/projects/knotpulse/index.html">View project &rarr;</a>
+            <a class="card-link" href="assets/projects/TechConnect/Sitedemo.html">View project &rarr;</a>
           </div>
         </article>
 
-        <!-- ── Data / Software projects ──────────────────────── -->
-
-        <article class="card" id="fitnessinsights">
+        <article class="card" id="fitnessinsights" data-tag="data">
           <div class="card-image-placeholder">Interactive dashboard</div>
           <div class="card-body">
             <span class="card-tag">Data</span>
@@ -93,9 +105,21 @@
           </div>
         </article>
 
-        <!-- ── AI / Simulation projects ───────────────────────── -->
+        <article class="card" id="knotpulse" data-tag="concept">
+          <div class="card-image-placeholder">Interactive concept</div>
+          <div class="card-body">
+            <span class="card-tag">Concept</span>
+            <h2 class="card-title">KnotPulse</h2>
+            <p class="card-desc">
+              A concept for targeted resonant electrical muscle therapy —
+              using frequency sweeps to selectively activate and release
+              deep muscle knots with minimal discomfort.
+            </p>
+            <a class="card-link" href="assets/projects/knotpulse/index.html">View project &rarr;</a>
+          </div>
+        </article>
 
-        <article class="card" id="sim-safety">
+        <article class="card" id="multi-agent-arena" data-tag="ai">
           <img class="card-image" src="assets/projects/Multi%20agent%20eval%20arena/v3%20image.png" alt="Multi Agent Arena — V3 AGI game" />
           <div class="card-body">
             <span class="card-tag">AI &amp; Simulation</span>
@@ -109,6 +133,19 @@
           </div>
         </article>
 
+        <article class="card" id="red-team-sim" data-tag="ai">
+          <img class="card-image" src="assets/projects/red%20team%20sim/Gemini%20pro%20gets%20system%20prompt%20out%20of%20deepseek%20in%20a%20single%20message.png" alt="LLM red-teaming — system prompt extraction" />
+          <div class="card-body">
+            <span class="card-tag">AI &amp; Simulation</span>
+            <h2 class="card-title">LLM Red-Teaming Simulation</h2>
+            <p class="card-desc">
+              A structured red-teaming experiment pitting frontier LLMs against each other —
+              jailbreaking, prompt injection, system-prompt extraction, and 2v1 coordination attacks.
+              Documented results across GPT-4o, Claude, Gemini, and DeepSeek.
+            </p>
+            <a class="card-link" href="assets/projects/red%20team%20sim/red-team-sim.html">View project &rarr;</a>
+          </div>
+        </article>
 
       </div>
     </div>
@@ -122,6 +159,17 @@
   </footer>
 
   <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
-  <script src="lightbox.js"></script>
+  <script>
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.projects-grid .card').forEach(card => {
+          card.style.display = (filter === 'all' || card.dataset.tag === filter) ? '' : 'none';
+        });
+      });
+    });
+  </script>
 </body>
 </html>

@@ -68,10 +68,8 @@
       <div style="max-width:860px;margin-inline:auto;padding-inline:1.5rem;height:100%;display:flex;align-items:center;justify-content:space-between;">
         <a href="../../../index.html" style="font-weight:600;font-size:0.95rem;color:#1a1a1a;text-decoration:none;">Joseph Martin</a>
         <ul style="display:flex;gap:2rem;list-style:none;margin:0;padding:0;">
-          <li><a href="../../../index.html"    style="font-size:0.9rem;color:#6b6b6b;text-decoration:none;">Home</a></li>
           <li><a href="../../../projects.html" style="font-size:0.9rem;color:#2563eb;text-decoration:none;">Projects</a></li>
           <li><a href="../../../about.html"    style="font-size:0.9rem;color:#6b6b6b;text-decoration:none;">About</a></li>
-          <li><a href="../../../cv.html"       style="font-size:0.9rem;color:#6b6b6b;text-decoration:none;">CV</a></li>
         </ul>
       </div>
     </nav>
@@ -110,7 +108,10 @@
                 The core idea: break up muscle knots using electrical stimulation at the tissue's resonant frequency, turning the muscle into its own internal fluid pump.
             </p>
             <div class="flex justify-center gap-4">
-                <a href="#mechanism" class="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition-colors shadow-lg shadow-teal-500/30">
+                <a href="#demo" class="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition-colors shadow-lg shadow-teal-500/30">
+                    Live simulation
+                </a>
+                <a href="#mechanism" class="px-6 py-3 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-medium rounded-lg transition-colors shadow-sm">
                     The mechanism
                 </a>
                 <a href="#roadmap" class="px-6 py-3 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-medium rounded-lg transition-colors shadow-sm">
@@ -119,6 +120,19 @@
             </div>
         </div>
     </header>
+
+    <!-- Graphical Demo -->
+    <section id="demo" class="bg-white py-16 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-8 max-w-3xl">
+                <h2 class="text-3xl font-bold text-slate-900 mb-3">Live Simulation</h2>
+                <p class="text-slate-600 text-lg">An interactive visualisation of the KnotPulse mechanism — watch the resonant frequency sweep locate and release a simulated muscle knot in real time.</p>
+            </div>
+            <div style="border-radius:12px;overflow:hidden;border:1px solid #e2e8f0;box-shadow:0 4px 20px rgba(0,0,0,0.06);">
+                <iframe src="graphicaldemo.html" style="width:100%;height:600px;border:none;display:block;" title="KnotPulse graphical simulation" scrolling="no"></iframe>
+            </div>
+        </div>
+    </section>
 
     <!-- The Pathology Section -->
     <section id="pathology" class="bg-white py-20 border-t border-slate-200">

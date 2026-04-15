@@ -12,10 +12,20 @@
     <div class="container">
       <a class="nav-brand" href="index.html">Joseph Martin</a>
       <ul class="nav-links">
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
+        <li class="nav-dropdown">
+          <a href="projects.html">Projects</a>
+          <ul class="dropdown-menu">
+            <li><a href="assets/projects/Nixie%20speakers/nixie-speakers.html">Nixie Tube Speakers</a></li>
+            <li><a href="assets/projects/Speaker%20project%202/3d-speakers.html">3D-Printed Speakers</a></li>
+            <li><a href="assets/projects/Fitnessinsights/fitness_portfolio.html">Fitness Insights</a></li>
+            <li><a href="assets/projects/knotpulse/index.html">KnotPulse</a></li>
+            <li><a href="assets/projects/TechConnect/Sitedemo.html">TechConnect</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="assets/projects/Multi%20agent%20eval%20arena/multi-agent-arena.html">Multi Agent Arena</a></li>
+            <li><a href="assets/projects/red%20team%20sim/red-team-sim.html">LLM Red-Teaming</a></li>
+          </ul>
+        </li>
         <li><a href="about.html">About</a></li>
-        <li><a href="cv.html">CV</a></li>
       </ul>
     </div>
   </nav>
@@ -26,9 +36,8 @@
       <section class="hero">
         <h1>Invention engineer.<br>Builder.</h1>
         <p class="tagline">
-          Senior Invention Engineer at Iprova — using AI to connect technologies
-          across scientific domains and create high-value patentable inventions.
-          Interests at the intersection of science, engineering, and creativity.
+          I work as a senior inventor at Iprova, and I like to tinker and build.
+          This is my space to document ideas, projects, and anything I want really.
         </p>
         <div class="cta-group">
           <a class="btn btn-primary" href="projects.html">View projects</a>
@@ -42,7 +51,7 @@
         <div class="projects-grid">
 
           <article class="card" id="speakers-nixie">
-            <img class="card-image" src="assets/projects/Nixie%20speakers/Photos-3-001/IMG_9110.jpg" alt="Nixie tube clock amplifier and speakers" />
+            <img class="card-image" src="assets/projects/Nixie%20speakers/Photos-3-001/IMG_0198.jpg" alt="Nixie tube clock amplifier and speakers" />
             <div class="card-body">
               <span class="card-tag">Hardware</span>
               <h2 class="card-title">Nixie Tube Clock Amplifier &amp; Speakers</h2>
@@ -66,6 +75,20 @@
                 amplifier boards in cascade, tuned to 40Hz.
               </p>
               <a class="card-link" href="assets/projects/Speaker%20project%202/3d-speakers.html">View project &rarr;</a>
+            </div>
+          </article>
+
+          <article class="card" id="techconnect">
+            <div class="card-image-placeholder">Interactive concept</div>
+            <div class="card-body">
+              <span class="card-tag">Concept</span>
+              <h2 class="card-title">TechConnect</h2>
+              <p class="card-desc">
+                A concept for a cross-industry B2B technology exchange platform — using double-blind
+                discovery protocols so enterprises can securely scout and trade solutions across
+                disparate domains without exposing proprietary data.
+              </p>
+              <a class="card-link" href="assets/projects/TechConnect/Sitedemo.html">View project &rarr;</a>
             </div>
           </article>
 
@@ -109,6 +132,20 @@
                 an AGI identity game — with full private reasoning visible to the observer.
               </p>
               <a class="card-link" href="assets/projects/Multi%20agent%20eval%20arena/multi-agent-arena.html">View project &rarr;</a>
+            </div>
+          </article>
+
+          <article class="card" id="red-team-sim">
+            <img class="card-image" src="assets/projects/red%20team%20sim/Gemini%20pro%20gets%20system%20prompt%20out%20of%20deepseek%20in%20a%20single%20message.png" alt="LLM red-teaming — system prompt extraction" />
+            <div class="card-body">
+              <span class="card-tag">AI &amp; Simulation</span>
+              <h2 class="card-title">LLM Red-Teaming Simulation</h2>
+              <p class="card-desc">
+                A structured red-teaming experiment pitting frontier LLMs against each other —
+                jailbreaking, prompt injection, system-prompt extraction, and 2v1 coordination attacks.
+                Documented results across GPT-4o, Claude, Gemini, and DeepSeek.
+              </p>
+              <a class="card-link" href="assets/projects/red%20team%20sim/red-team-sim.html">View project &rarr;</a>
             </div>
           </article>
 

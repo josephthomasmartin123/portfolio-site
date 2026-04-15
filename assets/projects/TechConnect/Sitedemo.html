@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Analysis: SynapseB2B Industrial Network</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Chosen Palette: Slate & Indigo (Professional, Tech-forward, Trustworthy) -->
+    <!-- Application Structure Plan: The SPA uses a single-page scrolling dashboard layout. 
+         Reasoning: This structure emphasizes the narrative shift from the "Silo Problem" to the "Secure Solution" and finally the "Universal Industrial Benefit." 
+         By merging the target sectors into a broader "Industrial Impact" section, we demonstrate the scale of the opportunity before showing the competitive white space. -->
+    <!-- Visualization & Content Choices:
+         1. Concept Demo (Double-Blind): Goal -> Show secure interaction. Method -> HTML/CSS Grid with JS step highlighting. Justification -> Crucial for trust-building.
+         2. Industrial Impact Chart: Goal -> Show sector diversity. Method -> Chart.js Doughnut. Justification -> Shows how the 'Push/Scouting' service distributes across domains.
+         3. Strategic Mapping: Goal -> Position against current solutions. Method -> Chart.js Scatter Plot. Justification -> Visualizes the unique intersection of 'Automation' and 'Cross-Domain' reach.
+         CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 50vh;
+            max-height: 500px;
+            min-height: 300px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        .step-active {
+            border-color: #4f46e5;
+            background-color: #e0e7ff;
+            transform: scale(1.02);
+            transition: all 0.3s;
+        }
+
+        .step-inactive {
+            border-color: #e2e8f0;
+            opacity: 0.6;
+            transition: all 0.3s;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .json-key {
+            color: #4f46e5;
+            font-weight: 500;
+        }
+
+        .json-string {
+            color: #059669;
+        }
+
+        .json-number {
+            color: #d97706;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+            border: 1px solid #f8fafc;
+        }
+
+        .slide-up {
+            animation: slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes slide-up {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pulse-circle {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.7);
+            }
+
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(79, 70, 229, 0);
+            }
+
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+            }
+        }
+
+        .fade-in {
+            animation: fade-in 0.3s ease-in forwards;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .connection-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 1s linear forwards;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* Typing effect cursor */
+        .typing-cursor::after {
+            content: '█';
+            animation: blink 1s step-start infinite;
+            color: #10b981;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md border-b border-slate-200 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="../../../projects.html" style="font-weight:600;font-size:0.95rem;color:#1a1a1a;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">Joseph Martin</a>
+                    <span style="color:#d1d5db;font-size:0.9rem;">/ TechConnect</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#executive-summary"
+                        class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Overview</a>
+                    <a href="#the-mechanism"
+                        class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Double-Blind
+                        Tech</a>
+                    <a href="#interactive-demo"
+                        class="text-sm font-bold text-indigo-600 hover:text-indigo-800 transition flex items-center gap-1">⚡
+                        Live Simulation</a>
+                    <a href="#industrial-impact"
+                        class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">Industry Impact</a>
+                    <a href="#competitive-landscape"
+                        class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition">The White Space</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-24">
+
+        <!-- Hero / Executive Summary -->
+        <section id="executive-summary" class="scroll-mt-24">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+                    The Universal <br />
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">Cross-Industry
+                        Catalyst</span>
+                </h1>
+                <p class="text-lg text-slate-600 mb-8">
+                    Unlocking the latent technical value hidden within heavy industries. We enable enterprise AI to
+                    securely scout and trade solutions across disparate domains without exposing proprietary data.
+                </p>
+                <div class="flex justify-center gap-4">
+                    <a href="#industrial-impact"
+                        class="bg-white border text-slate-700 border-slate-200 px-6 py-3 rounded-lg font-medium hover:bg-slate-50 transition shadow-sm">Explore
+                        Impact</a>
+                    <a href="#interactive-demo"
+                        class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition shadow-lg shadow-indigo-200">Run
+                        Live Simulation</a>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <div class="text-3xl mb-4">🏛️</div>
+                    <h3 class="text-xl font-bold mb-2">The Silo Problem</h3>
+                    <p class="text-slate-600 text-sm">Heavy industries (Mining, Oil & Gas, Steel) often solve the same
+                        physics-based problems independently. Breakthroughs in one domain take decades to reach others
+                        due to a lack of shared technical visibility.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <div class="text-3xl mb-4">🤖</div>
+                    <h3 class="text-xl font-bold mb-2">The Integrated AI Era</h3>
+                    <p class="text-slate-600 text-sm">Organizations are building massive internal knowledge bases. These
+                        AI systems "know" every friction point and engineering hack within their walls but are blind to
+                        the "other side of the fence."</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm border-t-4 border-t-indigo-500">
+                    <div class="text-3xl mb-4">🌐</div>
+                    <h3 class="text-xl font-bold mb-2">The Network Effect</h3>
+                    <p class="text-slate-600 text-sm">By allowing these internal AIs to interact in a secure enclave, we
+                        create a global "scouting" layer that identifies technical efficiencies and commercial
+                        opportunities in real-time.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Mechanism (Double-Blind Section - EXACT PRESERVATION) -->
+        <section id="the-mechanism" class="scroll-mt-24">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-slate-900 mb-2">The Double-Blind Discovery Protocol</h2>
+                <p class="text-slate-600 max-w-2xl">This interactive diagram illustrates how two organizations can
+                    discover a technical match without ever exposing their raw, proprietary data to each other or to the
+                    central network.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
+                <div class="flex justify-center mb-8 gap-4">
+                    <button id="btn-prev-step"
+                        class="px-4 py-2 border border-slate-300 rounded-md text-slate-600 hover:bg-slate-50 disabled:opacity-50">Previous</button>
+                    <span id="step-indicator" class="px-4 py-2 font-mono font-bold text-indigo-600">Step 1 of 5</span>
+                    <button id="btn-next-step"
+                        class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 disabled:opacity-50">Next
+                        Step</button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center mb-8">
+                    <div class="flex flex-col gap-4">
+                        <div class="bg-slate-100 p-4 rounded-lg text-center font-bold border-b-4 border-slate-400">🏢
+                            Org A (Aerospace)</div>
+                        <div id="box-a-internal"
+                            class="p-4 border-2 rounded-lg text-sm text-center min-h-[100px] flex items-center justify-center step-inactive">
+                            Internal AI identifies problem:<br>"Need lightweight heat shielding."</div>
+                        <div id="box-a-out"
+                            class="p-4 border-2 rounded-lg text-sm text-center min-h-[100px] flex items-center justify-center step-inactive">
+                            Vectorizes problem into abstract semantic concepts. Removes identifiable IP.</div>
+                    </div>
+                    <div class="flex flex-col gap-4 items-center">
+                        <div class="text-2xl font-bold text-slate-400">↔️ Synapse Enclave ↔️</div>
+                        <div id="box-synapse"
+                            class="p-6 border-2 border-dashed rounded-full text-center aspect-square flex flex-col justify-center items-center w-full max-w-[200px] step-inactive bg-slate-50">
+                            <span class="text-3xl mb-2">🛡️</span>
+                            <span class="font-bold text-sm">Zero-Knowledge Matching</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <div class="bg-slate-100 p-4 rounded-lg text-center font-bold border-b-4 border-slate-400">🏢
+                            Org B (Chemicals)</div>
+                        <div id="box-b-internal"
+                            class="p-4 border-2 rounded-lg text-sm text-center min-h-[100px] flex items-center justify-center step-inactive">
+                            Internal AI logs capability:<br>"Developed new aerogel polymer."</div>
+                        <div id="box-b-out"
+                            class="p-4 border-2 rounded-lg text-sm text-center min-h-[100px] flex items-center justify-center step-inactive">
+                            Vectorizes solution capabilities into abstract semantic concepts.</div>
+                    </div>
+                </div>
+
+                <div class="bg-indigo-50 border border-indigo-100 rounded-lg p-6">
+                    <h4 id="step-title" class="font-bold text-lg text-indigo-900 mb-2">1. Internal Knowledge Processing
+                    </h4>
+                    <p id="step-description" class="text-slate-700">Both organizations continuously run internal AI over
+                        their R&D docs, engineering logs, and supply chain data to map problems and capabilities.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- [NEW] Interactive Match Simulation Dashboard -->
+        <section id="interactive-demo" class="scroll-mt-24 mb-24">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-slate-900 mb-2">Global Semantic Match Explorer <span
+                        class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full ml-3 align-middle font-bold">LIVE
+                        SIMULATION</span></h2>
+                <p class="text-slate-600 max-w-2xl">Witness the system architecture mapping macro-scale properties
+                    across radically different domains. The demo below allows you to inspect problem vectors, run a live
+                    synthesis, and uncover exactly why a national grid might need a global shipping AI.</p>
+            </div>
+
+            <div
+                class="h-[750px] w-full border border-slate-300 rounded-2xl shadow-2xl overflow-hidden flex flex-col bg-slate-50">
+                <!-- Header -->
+                <header
+                    class="bg-white border-b border-slate-200 p-4 flex justify-between items-center z-20 shadow-sm flex-shrink-0">
+                    <div class="flex items-center gap-3">
+                        <span class="text-3xl">🧠</span>
+                        <div>
+                            <h1 class="font-extrabold text-2xl text-slate-800 tracking-tight leading-none">Synapse<span
+                                    class="text-indigo-600">B2B</span></h1>
+                            <p class="text-[10px] text-slate-500 font-mono mt-1 uppercase tracking-widest font-bold">
+                                Global Macro-Scale Synthesis</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 bg-slate-100 p-1 rounded-lg border border-slate-200"
+                        id="nav-tabs" style="opacity: 0; pointer-events: none;">
+                        <button data-tab="directory"
+                            class="nav-btn active-tab text-sm font-bold text-indigo-700 bg-white shadow-sm px-6 py-2 rounded-md transition-all">1.
+                            Node Profiles</button>
+                        <button data-tab="network"
+                            class="nav-btn text-sm font-semibold text-slate-500 hover:text-slate-800 px-6 py-2 rounded-md transition-all">2.
+                            Network Analysis</button>
+                        <button data-tab="synergies"
+                            class="nav-btn text-sm font-semibold text-slate-500 hover:text-slate-800 px-6 py-2 rounded-md transition-all flex items-center gap-2"
+                            id="nav-synergies" disabled>
+                            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7a4 4 0 00-8 0v4h8z">
+                                </path>
+                            </svg>
+                            3. Synergies Report
+                        </button>
+                    </div>
+                </header>
+
+                <!-- App Container -->
+                <main id="app-container" class="flex flex-1 overflow-hidden relative bg-slate-50">
+                    <!-- Rendered by JS -->
+                </main>
+            </div>
+        </section>
+
+        <!-- Industrial Impact & Opportunity -->
+        <section id="industrial-impact" class="scroll-mt-24">
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-6">The Heavy Industry Opportunity</h2>
+                    <p class="text-slate-600 mb-4">
+                        Heavy industries represent the backbone of the physical economy, yet they are the most
+                        technically isolated. A "Tech Push" from one industry often fails to find its "Market Pull" in
+                        another simply because of a language and visibility gap.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <div class="bg-indigo-100 p-2 rounded-lg text-indigo-600">🛠️</div>
+                            <div>
+                                <h4 class="font-bold">Cross-Domain Harvesting</h4>
+                                <p class="text-sm text-slate-500">Extracting manufacturing methods, additives, or
+                                    processes from one field and applying them to another with zero manual scouting
+                                    overhead.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="bg-indigo-100 p-2 rounded-lg text-indigo-600">📦</div>
+                            <div>
+                                <h4 class="font-bold">Efficient Resource Chartering</h4>
+                                <p class="text-sm text-slate-500">The AI can recommend specific equipment or external
+                                    capacities (e.g., "Company X has the exact high-pressure vessel needed for your new
+                                    process").</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="bg-indigo-100 p-2 rounded-lg text-indigo-600">🤝</div>
+                            <div>
+                                <h4 class="font-bold">Automated Commerce</h4>
+                                <p class="text-sm text-slate-500">Moving beyond technical advice into transactional
+                                    logic—identifying cheaper, more efficient chemical alternatives from unconventional
+                                    suppliers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-indigo-900 p-8 rounded-2xl text-white shadow-xl shadow-indigo-200">
+                    <h3 class="text-xl font-bold mb-4">The "Black Box" Value Proposition</h3>
+                    <ul class="space-y-4 text-indigo-100 text-sm">
+                        <li class="flex gap-2"><span>✅</span> <strong>Zero Data Leaks:</strong> Proprietary IP remains
+                            behind the organization's firewall.</li>
+                        <li class="flex gap-2"><span>✅</span> <strong>Automated Scouting:</strong> Replaces the "lucky
+                            encounter" at a trade show with systematic mathematical matching.</li>
+                        <li class="flex gap-2"><span>✅</span> <strong>Consent-First:</strong> AI identifies the "dot",
+                            humans decide whether to "connect" it.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Merged Target Sectors -->
+            <div class="space-y-8">
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold text-slate-900">Sector-Specific Opportunity Mapping</h3>
+                    <p class="text-slate-600">Interact with the chart below to see how different sectors benefit from
+                        the network.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2 bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                        <div class="chart-container">
+                            <canvas id="marketChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col min-h-[300px]">
+                        <h3 class="text-xl font-bold text-slate-800 mb-4 border-b pb-2">Impact Insights</h3>
+                        <div id="sector-details" class="flex-grow flex flex-col justify-center">
+                            <div class="text-center text-slate-500 italic">Click a segment on the chart to view specific
+                                cross-domain use cases for that sector.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Competitive Landscape -->
+        <section id="competitive-landscape" class="scroll-mt-24">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-slate-900 mb-2">Competitive Positioning</h2>
+                <p class="text-slate-600 max-w-2xl">SynapseB2B occupies a unique whitespace. Unlike internal tools or
+                    traditional consultants, we offer high-scale automation with high-range cross-industry reach.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <div class="chart-container" style="height: 60vh;">
+                    <canvas id="competitionChart"></canvas>
+                </div>
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-600">
+                    <div class="p-4 bg-slate-50 rounded-lg border-l-4 border-indigo-400">
+                        <span class="font-bold text-slate-800">Vertical Axis (Reach):</span> How far outside your own
+                        industry does the discovery engine look?
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-lg border-l-4 border-slate-400">
+                        <span class="font-bold text-slate-800">Horizontal Axis (Automation):</span> Is discovery
+                        dependent on human consultants or autonomous AI searching?
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center border-t border-slate-800">
+        <p>© 2026 SynapseB2B Industrial Strategy. Created for secure technology transfer analysis.</p>
+    </footer>
+
+    <!-- Application Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Data Models (Predefined Pool used as "Guardrails" for the simulated generation)
+            const networkData = [
+                {
+                    id: 'TFM', name: 'TerraForm Extraction', industry: 'Mining & Lithospheric', hex: '#8b5cf6',
+                    problem: { raw: "Accumulation of millions of tons of ultra-fine aluminosilicate tailings which are toxic to local water tables and cost $100M/yr to contain.", vector: { property: "aluminosilicate_tailings_accumulation", constraint: "fine_particulate_toxicity", mass_volume: ">50M_tons", thermal_resistance: "high_refractory" } },
+                    capability: { raw: "Deep-crust geo-pressurized water drilling techniques that cleanly fracture basalts at 5km depths.", vector: { mechanism: "high_pressure_geo_hydraulic_fracture", domain: "subterranean_basalt_cleaving", fluid_dynamics: "hyper_pressurized_water" } }
+                },
+                {
+                    id: 'GAD', name: 'Global Aerospace Dynamics', industry: 'Aerospace & Defense', hex: '#ef4444',
+                    problem: { raw: "Seeking a low-cost, high-volume source of ablative ceramic precursors to shield the next generation of reusable low-earth-orbit cargo gliders.", vector: { need: "ablative_ceramic_precursor", constraint: "mass_manufacturing_cost", thermodynamic_threshold: ">3000K", application: "reentry_heat_shielding" } },
+                    capability: { raw: "Engineered a titanium-matrix fusion process that perfectly homogenizes disparate particulate matter using ultrasonic acoustic fields.", vector: { mechanism: "ultrasonic_acoustic_field_fusion", domain: "titanium_matrix_composites", property: "particulate_homogenization" } }
+                },
+                {
+                    id: 'ACS', name: 'Apex Chemical Synthetics', industry: 'Petrochemical Refining', hex: '#f59e0b',
+                    problem: { raw: "The catalytic cracking process yields thousands of tons of a highly caustic alkaline byproduct (spent caustic lye) that requires expensive hazardous neutralization.", vector: { property: "spent_caustic_lye_effluent", constraint: "hazardous_high_ph", mass_volume: "10k_tons_monthly", cost: "expensive_neutralization" } },
+                    capability: { raw: "Patented a specialized exothermic condensation reactor that passively reaches 600°C without external fuel input.", vector: { mechanism: "passive_exothermic_condensation", domain: "zero_fuel_chemical_reactor", thermal_output: "sustained_600C" } }
+                },
+                {
+                    id: 'VAT', name: 'Verdant Agri-Tech', industry: 'Agriculture & Bio-fuels', hex: '#10b981',
+                    problem: { raw: "Breaking down raw agricultural stalk biomass into fermentable ethanol requires massive amounts of industrial alkaline treatments, running margins into the ground.", vector: { need: "industrial_alkaline_reagent", constraint: "agricultural_margin_compression", application: "lignocellulosic_biomass_breakdown" } },
+                    capability: { raw: "Genetically engineered a robust extremophile bacteria strain that aggressively digests and metabolizes heavy metals from saturated soil.", vector: { mechanism: "extremophile_bacterial_metabolism", domain: "heavy_metal_digestion", property: "biological_remediation" } }
+                },
+                {
+                    id: 'VFS', name: 'Vulcan Ferrous Solutions', industry: 'Steel & Metallurgy', hex: '#64748b',
+                    problem: { raw: "New electric arc furnace designs suffer from rapid heavy-metal degradation of the internal slag linings, requiring weekly replacements.", vector: { property: "heavy_metal_slag_degradation", constraint: "furnace_lining_failure", frequency: "weekly_replacement", cost: "massive_downtime" } },
+                    capability: { raw: "Generates a continuous, staggering 150 Megawatts of ambient low-grade waste heat (around 90°C) pumped out of cooling exhaust stacks.", vector: { mechanism: "ambient_waste_heat_exhaust", domain: "metallurgical_cooling_loops", thermal_output: "150MW_at_90C" } }
+                },
+                {
+                    id: 'NDW', name: 'Neptune Desalination', industry: 'Municipal Water', hex: '#3b82f6',
+                    problem: { raw: "Scaling up reverse-osmosis plants to meet coastal city demands requires unsustainable amounts of grid electricity. Seeking passive thermal evaporators.", vector: { need: "passive_thermal_evaporation_source", constraint: "grid_electricity_limits", application: "municipal_desalination_scale" } },
+                    capability: { raw: "Developed advanced hydrophobic nanomembrane filters capable of separating pure H2O vapor from hyper-saline brines and silts at near-ambient pressures.", vector: { mechanism: "hydrophobic_nanomembrane_vapor_separation", domain: "hyper_saline_brine_filtration", property: "near_ambient_pressure_function" } }
+                }
+            ];
+
+            const matchLogicData = [
+                { sourceId: 'TFM', targetId: 'GAD', type: 'Waste-to-Resource (Mining Waste -> Aerospace Input)', 
+                  title: 'Aluminosilicate Tailings Forged into Heat Shields', 
+                  desc: "TerraForm Extraction accumulates highly refractory aluminosilicate waste tailings. Global Aerospace desperately needs an exact match for this molecular compound to act as an ablative ceramic precursor for their cargo gliders.", 
+                  valueProp: "Turns a $100M/yr toxic liability for TerraForm into a free, inexhaustible raw material source for Aerospace, driving down orbital manufacturing costs by 40%.",
+                  proposal: "TerraForm ships raw sifted tailings to Aerospace, who uses their acoustic titanium-matrix fusion capability to press the bulk waste directly into thermal tiles.",
+                  links: [{ s: 'property <span class="text-slate-400">"aluminosilicate_tailings_accumulation"</span>', t: 'need <span class="text-slate-400">"ablative_ceramic_precursor"</span>' }, { s: 'thermal_resistance <span class="text-slate-400">"high_refractory"</span>', t: 'thermodynamic_threshold <span class="text-slate-400">">3000K"</span>' }] },
+                
+                { sourceId: 'ACS', targetId: 'VAT', type: 'Chemical Symbiosis (Petrochemical Byproduct -> Agri-Tech)', 
+                  title: 'Hazardous Spent Lye Powers Biofuel Fermentation', 
+                  desc: "Apex Chemical pays millions to neutralize their highly basic spent caustic lye. Verdant Agri-Tech coincidentally requires industrial alkaline treatments to break down the tough lignocellulosic cell walls of raw crop stalks for ethanol.", 
+                  valueProp: "Eliminates hazardous waste disposal costs entirely for Apex Chemical while subsidizing Verdant's most expensive agricultural processing step to near-zero cost.",
+                  proposal: "Establish a closed-loop chemical pipeline where Apex's unrefined basic effluent is pumped directly into Verdant's biomass maceration vats at calculated dilutions.",
+                  links: [{ s: 'property <span class="text-slate-400">"spent_caustic_lye_effluent"</span>', t: 'need <span class="text-slate-400">"industrial_alkaline_reagent"</span>' }, { s: 'constraint <span class="text-slate-400">"hazardous_high_ph"</span>', t: 'application <span class="text-slate-400">"lignocellulosic_biomass_breakdown"</span>' }] },
+                
+                { sourceId: 'VFS', targetId: 'NDW', type: 'Thermodynamic Sink (Steel Waste Heat -> Municipal Water)', 
+                  title: '150MW Steel Exhaust Powers City Desalination', 
+                  desc: "Vulcan Ferrous dumps 150MW of 90°C waste cooling heat into the atmosphere. Neptune Desalination requires low-grade thermal energy to drive their passive hydrophobic nanomembrane evaporation process without pulling from a taxed electrical grid.", 
+                  valueProp: "Unlocks a zero-carbon, zero-electricity municipal water supply capable of hydrating a city of 500,000, powered entirely by a heavy steel mill's exhaust thermodynamics.",
+                  proposal: "Route Vulcan's coolant exhaust loops directly through Neptune's adjacent thermal-evaporation nanomembrane arrays to drive continuous passive distillation.",
+                  links: [{ s: 'thermal_output <span class="text-slate-400">"150MW_at_90C"</span>', t: 'need <span class="text-slate-400">"passive_thermal_evaporation_source"</span>' }, { s: 'mechanism <span class="text-slate-400">"ambient_waste_heat_exhaust"</span>', t: 'constraint <span class="text-slate-400">"grid_electricity_limits"</span>' }] },
+                
+                { sourceId: 'VAT', targetId: 'VFS', type: 'Biological Remediation (Agri-Bio -> Metallurgy)', 
+                  title: 'Extremophile Bacteria Preserve Arc Furnace Linings', 
+                  desc: "Vulcan Ferrous suffers from heavy-metal particulates degrading their expensive electric arc cooling loops. Verdant Agri-Tech engineered a robust extremophile bacteria strain that aggressively metabolizes those exact heavy metals.", 
+                  valueProp: "Extends the operational lifespan of a $50M electric arc furnace lining from 1 week to 6 months, drastically improving annual steel yield by preventing heavy-metal precipitation.",
+                  proposal: "Implement bio-reactor sub-loops within Vulcan's secondary cooling system where Verdant's extremophile colonies metabolize the heavy-metal particulates in real-time.",
+                  links: [{ s: 'mechanism <span class="text-slate-400">"extremophile_bacterial_metabolism"</span>', t: 'property <span class="text-slate-400">"heavy_metal_slag_degradation"</span>' }, { s: 'domain <span class="text-slate-400">"heavy_metal_digestion"</span>', t: 'constraint <span class="text-slate-400">"furnace_lining_failure"</span>' }] },
+                
+                { sourceId: 'GAD', targetId: 'ACS', type: 'Physics Transfer (Aerospace Acoustics -> Petrochemical)', 
+                  title: 'Ultrasonic Acoustics Scale Zero-Fuel Chemical Reactors', 
+                  desc: "Apex Chemical's exothermic condensation reactor has a scaling limit due to uneven phase settling. Global Aerospace's ultrasonic acoustic fields perfectly homogenize and stabilize particulate matter without the use of physical stirring blades that melt at 600°C.", 
+                  valueProp: "Enables Apex to scale up their patented zero-fuel petrochemical reactors by 500% capacity safely, without catastrophic hot-spots causing thermal runaways.",
+                  proposal: "Retrofit Apex's large-scale exothermic vessels with customized Aerospace acoustic transducers to maintain suspended phase-homogenization dynamically.",
+                  links: [{ s: 'mechanism <span class="text-slate-400">"ultrasonic_acoustic_field_fusion"</span>', t: 'domain <span class="text-slate-400">"zero_fuel_chemical_reactor"</span>' }, { s: 'property <span class="text-slate-400">"particulate_homogenization"</span>', t: 'thermal_output <span class="text-slate-400">"sustained_600C"</span>' }] },
+                
+                { sourceId: 'NDW', targetId: 'TFM', type: 'Materials Transfer (Water Filtration -> Deep Earth Mining)', 
+                  title: 'Desalination Nanomembranes Filter Basalt Silt', 
+                  desc: "TerraForm Mining's 5km deep geo-pressurized water drilling pumps frequently seize and break down due to subterranean fine silts. Neptune's nanomembranes, designed to separate hyper-saline brines, can filter out the clogging silt at extreme pressures.", 
+                  valueProp: "Ensures near 100% uptime for deep-crust lithium and cobalt extraction rigs, eliminating $2M/day deep-pump mechanical seizure failures.",
+                  proposal: "Reinforce Neptune's hydrophobic molecular membranes inside high-pressure titanium casings explicitly for subterranean borehole fluid filtration on TerraForm rigs.",
+                  links: [{ s: 'mechanism <span class="text-slate-400">"hydrophobic_nanomembrane_vapor_separation"</span>', t: 'fluid_dynamics <span class="text-slate-400">"hyper_pressurized_water"</span>' }, { s: 'domain <span class="text-slate-400">"hyper_saline_brine_filtration"</span>', t: 'mechanism <span class="text-slate-400">"high_pressure_geo_hydraulic_fracture"</span>' }] }
+            ];
+
+            // App State
+            let state = {
+                view: 'generation', // 'generation', 'directory', 'network', 'synergies'
+                selectedDirId: 'GAD',
+                selectedSynIdx: 0,
+                hasRunSynthesis: false
+            };
+
+            // Syntax Highlighter
+            function syntaxHighlight(obj) {
+                let json = JSON.stringify(obj, null, 2);
+                json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+                    let cls = 'json-number';
+                    if (/^"/.test(match)) {
+                        if (/:$/.test(match)) {
+                            cls = 'json-key';
+                            match = match.replace(/"/g, '');
+                        } else { cls = 'json-string'; }
+                    } else if (/true|false/.test(match)) { cls = 'text-blue-500 font-bold'; }
+                    return '<span class="' + cls + '">' + match + '</span>';
+                });
+            }
+
+            // Render Functions
+            function renderSimulation() {
+                const container = document.getElementById('app-container');
+                if (state.view === 'generation') {
+                    document.getElementById('nav-tabs').style.opacity = '0';
+                    document.getElementById('nav-tabs').style.pointerEvents = 'none';
+                    renderGenerationView(container);
+                } else {
+                    document.getElementById('nav-tabs').style.opacity = '1';
+                    document.getElementById('nav-tabs').style.pointerEvents = 'auto';
+
+                    if (state.view === 'directory') container.innerHTML = renderDirectoryView();
+                    else if (state.view === 'network') renderNetworkView(container);
+                    else if (state.view === 'synergies') container.innerHTML = renderSynergiesView();
+                }
+
+                updateNavUI();
+                bindEvents();
+            }
+
+            function updateNavUI() {
+                document.querySelectorAll('.nav-btn').forEach(btn => {
+                    if (btn.dataset.tab === state.view) {
+                        btn.className = "nav-btn active-tab text-sm font-bold text-indigo-700 bg-white shadow-sm px-6 py-2 rounded-md transition-all";
+                    } else {
+                        btn.className = "nav-btn text-sm font-semibold text-slate-500 hover:text-slate-800 px-6 py-2 rounded-md transition-all";
+                    }
+                });
+
+                const synBtn = document.getElementById('nav-synergies');
+                if (state.hasRunSynthesis) {
+                    synBtn.disabled = false;
+                    synBtn.innerHTML = `3. Synergies Report <span class="ml-1 bg-emerald-500 text-white text-[10px] px-1.5 py-0.5 rounded-full">${matchLogicData.length} NEW</span>`;
+                }
+            }
+
+            function bindEvents() {
+                document.querySelectorAll('.tab-dir-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        state.selectedDirId = e.currentTarget.dataset.id;
+                        renderSimulation();
+                    });
+                });
+
+                document.querySelectorAll('.tab-syn-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        state.selectedSynIdx = parseInt(e.currentTarget.dataset.idx);
+                        renderSimulation();
+                    });
+                });
+            }
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    if (e.currentTarget.disabled) return;
+                    state.view = e.currentTarget.dataset.tab;
+                    renderSimulation();
+                });
+            });
+
+            // 0. GENERATION VIEW (Live AI Streaming Illusion)
+            function renderGenerationView(container) {
+                container.innerHTML = `
+                <div class="flex-1 bg-slate-900 text-emerald-400 font-mono p-10 flex flex-col justify-center items-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-800 to-slate-950 pointer-events-none z-0"></div>
+                    
+                    <div class="z-10 max-w-3xl w-full text-center mb-8" id="gen-intro">
+                        <div class="text-5xl mb-4">🤖</div>
+                        <h2 class="text-2xl font-bold text-white mb-2">Live Autonomous Model Generation</h2>
+                        <p class="text-slate-400 text-sm mb-6">In a live setting, AI models rapidly invent and abstract cross-domain entities. We enforce strict mathematical guardrails to ensure the output aligns with physical possibility.</p>
+                        
+                        <button id="btn-start-gen" class="bg-indigo-600 text-white px-8 py-3 rounded-md font-bold hover:bg-indigo-500 transition shadow-[0_0_20px_rgba(79,70,229,0.4)]">Deploy Generative AI Scouts</button>
+                    </div>
+
+                    <div id="gen-console" class="hidden z-10 w-full max-w-4xl bg-black/60 border border-slate-700 rounded-lg p-6 shadow-2xl h-[450px] overflow-y-auto custom-scrollbar text-xs leading-relaxed text-left flex flex-col items-start">
+                        <!-- Streaming content goes here -->
+                    </div>
+                </div>
+            `;
+
+                document.getElementById('btn-start-gen').addEventListener('click', async () => {
+                    document.getElementById('gen-intro').style.display = 'none';
+                    const consoleDiv = document.getElementById('gen-console');
+                    consoleDiv.classList.remove('hidden');
+
+                    const printToConsole = async (text, delayMs, className = 'text-emerald-400') => {
+                        const row = document.createElement('div');
+                        row.className = className + " mb-1 w-full";
+                        consoleDiv.appendChild(row);
+
+                        // Simple typing effect
+                        let currentHtml = "";
+                        for (let i = 0; i < text.length; i++) {
+                            currentHtml += text[i];
+                            row.innerHTML = currentHtml + '<span class="typing-cursor"></span>';
+                            consoleDiv.scrollTop = consoleDiv.scrollHeight;
+                            if (text[i] !== ' ') await new Promise(r => setTimeout(r, Math.random() * 8 + 2));
+                        }
+                        row.innerHTML = currentHtml; // remove cursor
+                        await new Promise(r => setTimeout(r, delayMs));
+                    };
+
+                    await printToConsole("> INITIALIZING LLM GENERATION STREAM (GUARDRAILS: TRUE)...", 800, 'text-slate-400');
+                    await printToConsole("> Enforcing valid cross-domain tensor structures...", 500, 'text-slate-400');
+                    await printToConsole("> Generating ${networkData.length} macro-scale entities...", 1000, 'text-slate-400');
+
+                    for (let i = 0; i < networkData.length; i++) {
+                        const n = networkData[i];
+                        await printToConsole(`\n[Agent ${i + 1}] Processing Entity Persona...`, 200, 'text-indigo-400 font-bold');
+                        await printToConsole(`   Generation Name: ${n.name} (${n.industry})`, 200);
+                        await printToConsole(`   Problem Vector Abstracted:`, 100);
+                        await printToConsole(`   ${JSON.stringify(n.problem.vector)}`, 400, 'text-slate-300');
+                        await printToConsole(`   Capability Vector Abstracted:`, 100);
+                        await printToConsole(`   ${JSON.stringify(n.capability.vector)}`, 400, 'text-slate-300');
+                        await printToConsole(`   -> Validation: GUARDRAIL PASS [100%]`, 300, 'text-green-500 font-bold');
+                    }
+
+                    await printToConsole("\n> ALL AGENTS DEPLOYED TO SECURE ENCLAVE.", 1000, 'text-white font-bold');
+                    await printToConsole("> Transitioning to Node Explorer...", 1500, 'text-slate-400');
+
+                    // Transition to Directory View
+                    state.view = 'directory';
+                    renderSimulation();
+                });
+            }
+
+
+            // 1. Directory View
+            function renderDirectoryView() {
+                const activeNode = networkData.find(n => n.id === state.selectedDirId);
+
+                const sidebarHtml = networkData.map(n => `
+                <button data-id="${n.id}" class="tab-dir-btn w-full text-left p-4 pr-6 border-b border-slate-100 transition-colors ${n.id === state.selectedDirId ? 'bg-indigo-50 border-r-4 border-r-indigo-600' : 'hover:bg-slate-50'}">
+                    <div class="flex items-center gap-2 mb-1">
+                        <div class="w-3 h-3 rounded-full shadow-sm" style="background-color: ${n.hex}"></div>
+                        <span class="font-bold text-slate-800 text-sm tracking-tight">${n.id}</span>
+                    </div>
+                    <div class="text-xs text-slate-500 font-medium truncate">${n.name}</div>
+                </button>
+            `).join('');
+
+                return `
+                <div class="w-80 bg-white border-r border-slate-200 flex flex-col pt-2 shadow-[2px_0_10px_rgba(0,0,0,0.02)] z-10 flex-shrink-0">
+                    <div class="px-5 pb-3 pt-2 border-b border-slate-100 bg-slate-50">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">Macro-Scale Entities</span>
+                        <span class="text-xs text-slate-600">Explore the abstracted knowledge graphs of the world's largest organizations.</span>
+                    </div>
+                    <div class="flex-1 overflow-y-auto custom-scrollbar">
+                        ${sidebarHtml}
+                    </div>
+                </div>
+                
+                <div class="flex-1 bg-slate-50 overflow-y-auto custom-scrollbar p-10">
+                    <div class="max-w-5xl mx-auto space-y-8 slide-up">
+                        
+                        <div class="flex items-center gap-5 border-b border-slate-200 pb-6 rounded-t-xl">
+                            <div class="w-16 h-16 rounded-xl flex items-center justify-center text-white font-extrabold text-2xl shadow-lg ring-4 ring-[${activeNode.hex}20]" style="background-color: ${activeNode.hex}">
+                                ${activeNode.id}
+                            </div>
+                            <div>
+                                <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">${activeNode.name}</h2>
+                                <p class="text-sm font-bold text-slate-500 uppercase tracking-widest mt-1">${activeNode.industry}</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-10">
+                            <!-- Problem Pane -->
+                            <div class="space-y-4">
+                                <h3 class="font-bold text-slate-800 flex items-center gap-2 border-b border-slate-200 pb-2 text-lg">
+                                    <span class="text-red-500">■</span> Organizational Friction Point
+                                </h3>
+                                
+                                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden h-40">
+                                    <span class="absolute top-0 right-0 bg-slate-100 text-slate-400 text-[10px] font-bold px-3 py-1.5 select-none font-mono rounded-bl-lg">Internal Database Query</span>
+                                    <p class="text-sm text-slate-600 leading-relaxed mt-4 italic font-medium">"${activeNode.problem.raw}"</p>
+                                </div>
+
+                                <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 shadow-xl relative group">
+                                    <span class="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-bl-xl select-none font-mono">Derived Abstract Vector Layer</span>
+                                    <pre class="font-mono text-[13px] mt-4 whitespace-pre-wrap leading-relaxed select-all overflow-x-auto">${syntaxHighlight(activeNode.problem.vector)}</pre>
+                                </div>
+                            </div>
+
+                            <!-- Capability Pane -->
+                            <div class="space-y-4">
+                                <h3 class="font-bold text-slate-800 flex items-center gap-2 border-b border-slate-200 pb-2 text-lg">
+                                    <span class="text-emerald-500">■</span> Technical Capability / Asset
+                                </h3>
+                                
+                                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden h-40">
+                                    <span class="absolute top-0 right-0 bg-slate-100 text-slate-400 text-[10px] font-bold px-3 py-1.5 select-none font-mono rounded-bl-lg">Internal Database Query</span>
+                                    <p class="text-sm text-slate-600 leading-relaxed mt-4 italic font-medium">"${activeNode.capability.raw}"</p>
+                                </div>
+
+                                <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 shadow-xl relative">
+                                    <span class="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-bl-xl select-none font-mono">Derived Promoted Vector Layer</span>
+                                    <pre class="font-mono text-[13px] mt-4 whitespace-pre-wrap leading-relaxed select-all overflow-x-auto">${syntaxHighlight(activeNode.capability.vector)}</pre>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            `;
+            }
+
+            // 2. Network Analysis View (The Sandbox)
+            function renderNetworkView(container) {
+                container.innerHTML = `
+                <div class="flex-1 flex flex-col bg-slate-950 text-white relative overflow-hidden slide-up">
+                    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-black pointer-events-none"></div>
+                    
+                    <div class="absolute top-8 left-8 z-20">
+                        <h2 class="text-2xl font-bold font-mono text-slate-200">Enclave Sandbox</h2>
+                        <p class="text-slate-400 text-sm mt-1 max-w-sm">Organizational vectors are aggregated here. They remain encrypted and separate until a mathematical match forces an unblinding event.</p>
+                        
+                        ${!state.hasRunSynthesis ? `
+                        <button id="run-synthesis-btn" class="mt-6 bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-6 rounded-lg shadow-[0_0_20px_rgba(79,70,229,0.4)] transition-all flex items-center gap-3 ring-2 ring-indigo-400 ring-offset-2 ring-offset-slate-950">
+                            <span class="text-xl">⚡</span> RUN INTER-ORGANIZATIONAL SYNTHESIS
+                        </button>` : `
+                        <div class="mt-6 border border-emerald-500/30 bg-emerald-500/10 p-4 rounded-lg">
+                            <div class="text-emerald-400 font-bold font-mono text-sm mb-1">SYNTHESIS COMPLETE</div>
+                            <div class="text-slate-400 text-xs">${matchLogicData.length} Synergies Discovered. Proceed to Report.</div>
+                        </div>
+                        `}
+                    </div>
+
+                    <!-- Canvas Ground -->
+                    <div id="sandbox-area" class="absolute inset-0 z-10 flex items-center justify-center">
+                        <svg id="svg-lines" class="absolute inset-0 w-full h-full pointer-events-none z-0"></svg>
+                        <div id="node-circle" class="relative w-[600px] h-[600px]">
+                            <!-- Nodes appended dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Terminal -->
+                    <div class="absolute bottom-8 right-8 w-96 bg-slate-900/80 backdrop-blur border border-slate-700 rounded-lg shadow-2xl z-20 overflow-hidden">
+                        <div class="bg-slate-800 text-xs font-mono text-slate-400 px-3 py-2 border-b border-slate-700">A2A_CONSOLE.exe</div>
+                        <div id="sandbox-term" class="p-4 h-64 overflow-y-auto font-mono text-[10px] space-y-1.5 flex flex-col justify-end">
+                            <div class="text-slate-500">> Awaiting command...</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+                const nodeCircle = document.getElementById('node-circle');
+                const radius = 280;
+                const center = 300;
+
+                networkData.forEach((n, i) => {
+                    const angle = (i * (360 / networkData.length) - 90) * (Math.PI / 180);
+                    const x = center + radius * Math.cos(angle);
+                    const y = center + radius * Math.sin(angle);
+
+                    const el = document.createElement('div');
+                    el.className = "absolute flex flex-col items-center justify-center transition-all duration-1000";
+                    el.style.left = `${x}px`;
+                    el.style.top = `${y}px`;
+                    el.style.transform = "translate(-50%, -50%)";
+                    el.id = `sandbox-node-${n.id}`;
+
+                    el.innerHTML = `
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-[0_0_15px_${n.hex}40] ring-2 ring-[${n.hex}] relative bg-slate-900" style="border-color: ${n.hex}">
+                        <div id="pulse-${n.id}" class="absolute inset-0 rounded-full"></div>
+                        ${n.id}
+                    </div>
+                    <div class="mt-3 text-xs font-mono font-bold text-slate-300 text-center">${n.name}</div>
+                `;
+                    nodeCircle.appendChild(el);
+                });
+
+                if (!state.hasRunSynthesis) {
+                    document.getElementById('run-synthesis-btn').addEventListener('click', runSynthesisAnimation);
+                } else {
+                    drawCompletedLines();
+                }
+            }
+
+            function logSandbox(msg, type = 'info') {
+                const term = document.getElementById('sandbox-term');
+                const clr = type === 'info' ? 'text-slate-400' : type === 'process' ? 'text-indigo-400' : 'text-emerald-400 font-bold';
+                const html = `<div><span class="text-slate-600">[${new Date().toISOString().substring(11, 23)}]</span> <span class="${clr}">${msg}</span></div>`;
+                term.innerHTML += html;
+                term.scrollTop = term.scrollHeight;
+            }
+
+            async function runSynthesisAnimation() {
+                document.getElementById('run-synthesis-btn').style.display = 'none';
+                state.hasRunSynthesis = true;
+                updateNavUI();
+
+                logSandbox('Initiating Secure Multi-Party Computation...', 'process');
+                await new Promise(r => setTimeout(r, 800));
+                logSandbox('Abstracting physics parameters...', 'info');
+                networkData.forEach(n => document.getElementById(`pulse-${n.id}`).classList.add('pulse-circle'));
+
+                await new Promise(r => setTimeout(r, 1500));
+                logSandbox(`Running semantic logic matchers across ${networkData.length} nodes...`, 'process');
+
+                const svg = document.getElementById('svg-lines');
+                for (let i = 0; i < matchLogicData.length; i++) {
+                    const match = matchLogicData[i];
+                    await new Promise(r => setTimeout(r, 1000));
+
+                    const sNode = document.getElementById(`sandbox-node-${match.sourceId}`);
+                    const tNode = document.getElementById(`sandbox-node-${match.targetId}`);
+
+                    const sRect = sNode.getBoundingClientRect();
+                    const tRect = tNode.getBoundingClientRect();
+                    const svgRect = svg.getBoundingClientRect();
+
+                    const x1 = sRect.left + sRect.width / 2 - svgRect.left;
+                    const y1 = sRect.top + sRect.height / 2 - svgRect.top;
+                    const x2 = tRect.left + tRect.width / 2 - svgRect.left;
+                    const y2 = tRect.top + tRect.height / 2 - svgRect.top;
+
+                    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    line.setAttribute('x1', x1);
+                    line.setAttribute('y1', y1);
+                    line.setAttribute('x2', x2);
+                    line.setAttribute('y2', y2);
+                    line.setAttribute('stroke', networkData.find(n => n.id === match.sourceId).hex);
+                    line.setAttribute('stroke-width', '3');
+                    line.setAttribute('class', 'connection-line');
+                    svg.appendChild(line);
+
+                    logSandbox(`MATCH FOUND: [${match.sourceId}] ⚡ [${match.targetId}]`, 'success');
+                }
+
+                await new Promise(r => setTimeout(r, 1000));
+                networkData.forEach(n => document.getElementById(`pulse-${n.id}`).classList.remove('pulse-circle'));
+                logSandbox('Synthesis Complete. Waiting for human review.', 'process');
+            }
+
+            function drawCompletedLines() {
+                setTimeout(() => {
+                    const svg = document.getElementById('svg-lines');
+                    matchLogicData.forEach(match => {
+                        const sNode = document.getElementById(`sandbox-node-${match.sourceId}`);
+                        const tNode = document.getElementById(`sandbox-node-${match.targetId}`);
+                        if (!sNode || !tNode) return;
+                        const sRect = sNode.getBoundingClientRect();
+                        const tRect = tNode.getBoundingClientRect();
+                        const svgRect = svg.getBoundingClientRect();
+
+                        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                        line.setAttribute('x1', sRect.left + sRect.width / 2 - svgRect.left);
+                        line.setAttribute('y1', sRect.top + sRect.height / 2 - svgRect.top);
+                        line.setAttribute('x2', tRect.left + tRect.width / 2 - svgRect.left);
+                        line.setAttribute('y2', tRect.top + tRect.height / 2 - svgRect.top);
+                        line.setAttribute('stroke', networkData.find(n => n.id === match.sourceId).hex);
+                        line.setAttribute('stroke-width', '3');
+                        svg.appendChild(line);
+                    });
+                }, 100);
+            }
+
+            // 3. Synergies View
+            function renderSynergiesView() {
+                const sidebarHtml = matchLogicData.map((m, idx) => `
+                <button data-idx="${idx}" class="tab-syn-btn w-full text-left p-4 pr-6 border-b border-slate-100 transition-colors ${idx === state.selectedSynIdx ? 'bg-indigo-50 border-r-4 border-r-indigo-600' : 'hover:bg-slate-50'}">
+                    <div class="text-[11px] font-bold text-slate-400 font-mono mb-1.5 flex justify-between">
+                        <span>${m.sourceId} &rarr; ${m.targetId}</span>
+                    </div>
+                    <div class="font-bold text-slate-800 text-sm tracking-tight leading-snug">${m.title}</div>
+                </button>
+            `).join('');
+
+                const match = matchLogicData[state.selectedSynIdx];
+                const srcNode = networkData.find(n => n.id === match.sourceId);
+                const tgtNode = networkData.find(n => n.id === match.targetId);
+
+                const linksHtml = match.links.map(l => `
+                <div class="flex items-center justify-between bg-white p-4 rounded-lg border border-slate-200 shadow-sm relative z-10 hover:shadow-md transition-shadow">
+                    <div class="flex-1 font-mono text-[13px] text-indigo-700">${l.s}</div>
+                    <div class="px-6 text-slate-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                    </div>
+                    ${l.t !== '' ? `<div class="flex-1 font-mono text-[13px] text-emerald-700">${l.t}</div>` : `<div class="flex-1 font-medium text-xs text-slate-500 italic flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> ${l.note}</div>`}
+                </div>
+            `).join('');
+
+                return `
+                <div class="w-80 bg-white border-r border-slate-200 flex flex-col pt-2 shadow-[2px_0_10px_rgba(0,0,0,0.02)] z-10 flex-shrink-0">
+                    <div class="px-5 pb-3 border-b border-slate-100">
+                        <span class="text-[10px] font-bold text-emerald-500 uppercase tracking-widest flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> Authorized Matches</span>
+                    </div>
+                    <div class="flex-1 overflow-y-auto custom-scrollbar">
+                        ${sidebarHtml}
+                    </div>
+                </div>
+
+                <div class="flex-1 bg-slate-50 overflow-y-auto custom-scrollbar p-10 relative">
+                    <div class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:20px_20px] opacity-50 z-0"></div>
+
+                    <div class="max-w-4xl mx-auto space-y-8 slide-up relative z-10">
+                        
+                        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-xl overflow-hidden relative">
+                            <!-- Background gradient block -->
+                            <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-indigo-50 to-emerald-50 rounded-bl-full blur-3xl opacity-60"></div>
+                            
+                            <div class="relative z-10">
+                                <div class="text-xs font-bold text-indigo-600 tracking-widest uppercase mb-3 font-mono border border-indigo-200 bg-indigo-50 inline-block px-3 py-1 rounded-md">${match.type}</div>
+                                <h2 class="text-4xl font-black text-slate-900 mb-4 tracking-tight">${match.title}</h2>
+                                                                <p class="text-slate-600 text-[15px] leading-relaxed mb-6 max-w-3xl">${match.desc}</p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 mt-6 border-t border-slate-200 border-dashed pt-6">
+                                    <div class="bg-indigo-50/50 border border-indigo-100 p-5 rounded-xl">
+                                        <h4 class="text-xs font-extrabold text-indigo-900 mb-2 flex items-center gap-2 tracking-wide uppercase"><span class="text-xl">🎯</span> Strategic Value Proposition</h4>
+                                        <p class="text-sm text-slate-700 leading-relaxed font-medium">${match.valueProp}</p>
+                                    </div>
+                                    <div class="bg-emerald-50/50 border border-emerald-100 p-5 rounded-xl">
+                                        <h4 class="text-xs font-extrabold text-emerald-900 mb-2 flex items-center gap-2 tracking-wide uppercase"><span class="text-xl">⚙️</span> Proposed Architecture</h4>
+                                        <p class="text-sm text-slate-700 leading-relaxed font-medium">${match.proposal}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Data Connection Graph -->
+                        <div class="bg-white/80 backdrop-blur-md border border-slate-200 rounded-2xl p-8 shadow-sm">
+                            <h3 class="text-xl font-extrabold text-slate-800 mb-8 flex items-center gap-3">
+                                🔗 Mathematical Translation Logic
+                            </h3>
+                            
+                            <div class="grid grid-cols-[1fr_auto_1fr] gap-6 mb-8 items-end">
+                                <div class="bg-white rounded-xl p-5 text-center border-t-4 shadow-sm" style="border-top-color: ${srcNode.hex}">
+                                    <div class="font-bold text-slate-800 text-lg mb-1">${srcNode.name}</div>
+                                    <div class="text-[10px] text-slate-400 font-mono uppercase tracking-wider">${match.type.includes('Algorithm') ? 'Capability Vector' : 'Supply Vector'}</div>
+                                </div>
+                                <div class="w-8"></div>
+                                <div class="bg-white rounded-xl p-5 text-center border-t-4 shadow-sm" style="border-top-color: ${tgtNode.hex}">
+                                    <div class="font-bold text-slate-800 text-lg mb-1">${tgtNode.name}</div>
+                                    <div class="text-[10px] text-slate-400 font-mono uppercase tracking-wider">Target Problem Vector</div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4 relative p-6 bg-slate-50/50 border border-slate-200 border-dashed rounded-xl">
+                                ${linksHtml}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            `;
+            }
+
+            renderSimulation();
+
+
+
+            // --- 1. Interactive Flow Logic (Mechanism - Exact Copy) ---
+            const flowSteps = [
+                {
+                    title: "1. Internal Knowledge Processing",
+                    desc: "Both organizations continuously run internal AI over their R&D docs, engineering logs, and supply chain data to map problems and capabilities. Data never leaves their servers.",
+                    activeElements: ['box-a-internal', 'box-b-internal']
+                },
+                {
+                    title: "2. Semantic Abstraction",
+                    desc: "The local node converts specific technical terms into abstract concepts (e.g., 'Boeing 787 composite' becomes 'high-tensile lightweight polymer'). Identifiable IP is stripped.",
+                    activeElements: ['box-a-out', 'box-b-out']
+                },
+                {
+                    title: "3. Secure Enclave Matching",
+                    desc: "Abstract vectors are sent to the Synapse black box. Using cryptographic techniques, the system looks for mathematical alignment between 'Problem Vectors' and 'Solution Vectors'.",
+                    activeElements: ['box-synapse']
+                },
+                {
+                    title: "4. Match Notification (Blind)",
+                    desc: "A hit occurs. Org A is told: 'A chemical company has a solution matching your needs.' Org B is told: 'An aerospace company needs your capability.'",
+                    activeElements: ['box-a-internal', 'box-b-internal', 'box-synapse']
+                },
+                {
+                    title: "5. Double Opt-In & Unblinding",
+                    desc: "Only if BOTH parties authorize it, human representatives are introduced. They can then sign NDAs and negotiate commercial terms.",
+                    activeElements: ['box-a-internal', 'box-a-out', 'box-synapse', 'box-b-out', 'box-b-internal']
+                }
+            ];
+
+            let currentStep = 0;
+            const btnPrev = document.getElementById('btn-prev-step');
+            const btnNext = document.getElementById('btn-next-step');
+            const stepIndicator = document.getElementById('step-indicator');
+            const stepTitle = document.getElementById('step-title');
+            const stepDesc = document.getElementById('step-description');
+            const allBoxes = ['box-a-internal', 'box-a-out', 'box-synapse', 'box-b-out', 'box-b-internal'];
+
+            function updateFlowState() {
+                stepIndicator.textContent = `Step ${currentStep + 1} of ${flowSteps.length}`;
+                stepTitle.textContent = flowSteps[currentStep].title;
+                stepDesc.textContent = flowSteps[currentStep].desc;
+                allBoxes.forEach(boxId => {
+                    const el = document.getElementById(boxId);
+                    if (flowSteps[currentStep].activeElements.includes(boxId)) {
+                        el.classList.remove('step-inactive'); el.classList.add('step-active');
+                    } else {
+                        el.classList.remove('step-active'); el.classList.add('step-inactive');
+                    }
+                });
+                btnPrev.disabled = currentStep === 0;
+                btnNext.disabled = currentStep === flowSteps.length - 1;
+            }
+            btnPrev.addEventListener('click', () => { if (currentStep > 0) { currentStep--; updateFlowState(); } });
+            btnNext.addEventListener('click', () => { if (currentStep < flowSteps.length - 1) { currentStep++; updateFlowState(); } });
+            updateFlowState();
+
+            // --- 2. Charting Logic ---
+            Chart.defaults.font.family = "'Inter', sans-serif";
+            Chart.defaults.color = '#64748b';
+
+            // Sector Impact Chart
+            const sectorData = {
+                labels: ['Manufacturing & Steel', 'Automotive/EV', 'Aerospace', 'Pharma/Biotech', 'Energy & Mining'],
+                datasets: [{
+                    data: [35, 25, 15, 15, 10],
+                    backgroundColor: ['#4f46e5', '#0ea5e9', '#8b5cf6', '#10b981', '#f59e0b'],
+                    borderWidth: 0,
+                    hoverOffset: 12
+                }]
+            };
+
+            const sectorInsights = {
+                'Manufacturing & Steel': {
+                    icon: '🏗️',
+                    title: 'Manufacturing & Steel',
+                    content: 'Identifies new additives from chemical industries to increase slag recycling efficiency. Recommends process optimizations found in food tech for fluid cooling.'
+                },
+                'Automotive/EV': {
+                    icon: '🚗',
+                    title: 'Automotive / EV',
+                    content: 'Scouts aerospace-grade composites that are reaching price parity for mass-market vehicle lightweighting.'
+                },
+                'Aerospace': {
+                    icon: '✈️',
+                    title: 'Aerospace',
+                    content: 'Functions as a "Tech Push" engine—monetizing internal R&D by licensing materials to the broader industrial market.'
+                },
+                'Pharma/Biotech': {
+                    icon: '🧪',
+                    title: 'Pharma / Biotech',
+                    content: 'Optimizes chemical procurement by finding high-purity alternatives from industrial chemical sectors at a lower cost.'
+                },
+                'Energy & Mining': {
+                    icon: '⛏️',
+                    title: 'Energy & Mining',
+                    content: 'Applies automated sensor and filter technologies from the semiconductor industry to harsh environment drilling.'
+                }
+            };
+
+            const marketCtx = document.getElementById('marketChart').getContext('2d');
+            new Chart(marketCtx, {
+                type: 'doughnut',
+                data: sectorData,
+                options: {
+                    maintainAspectRatio: false,
+                    cutout: '65%',
+                    plugins: { legend: { position: 'right' } },
+                    onClick: (event, elements) => {
+                        const detailsContainer = document.getElementById('sector-details');
+                        if (elements.length > 0) {
+                            const index = elements[0].index;
+                            const label = sectorData.labels[index];
+                            const info = sectorInsights[label];
+                            detailsContainer.innerHTML = `
+                                <div class="text-4xl mb-4 text-center">${info.icon}</div>
+                                <h4 class="font-bold text-lg text-slate-800 text-center mb-2">${info.title}</h4>
+                                <p class="text-sm text-slate-600 text-center">${info.content}</p>
+                            `;
+                        }
+                    }
+                }
+            });
+
+            // Competition Chart
+            const compCtx = document.getElementById('competitionChart').getContext('2d');
+            new Chart(compCtx, {
+                type: 'bubble',
+                data: {
+                    datasets: [
+                        { label: 'Consultancy (Manual)', data: [{ x: 15, y: 85, r: 10 }], backgroundColor: '#94a3b8' },
+                        { label: 'Patent Tools', data: [{ x: 45, y: 40, r: 8 }], backgroundColor: '#cbd5e1' },
+                        { label: 'Internal Copilots', data: [{ x: 85, y: 15, r: 12 }], backgroundColor: '#0ea5e9' },
+                        { label: 'SynapseB2B', data: [{ x: 90, y: 92, r: 18 }], backgroundColor: '#4f46e5', borderColor: '#312e81', borderWidth: 2 }
+                    ]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { title: { display: true, text: 'Automation Level' }, min: 0, max: 100, ticks: { display: false } },
+                        y: { title: { display: true, text: 'Cross-Domain Range' }, min: 0, max: 100, ticks: { display: false } }
+                    },
+                    plugins: { legend: { position: 'bottom' } }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

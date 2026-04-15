@@ -6,8 +6,8 @@
 }
 
 :root {
-  --bg:        #fafafa;
-  --surface:   #ffffff;
+  --bg:        #f0faf0;
+  --surface:   #f7fdf7;
   --border:    #e4e4e4;
   --text:      #1a1a1a;
   --muted:     #6b6b6b;
@@ -295,6 +295,34 @@ footer {
 }
 
 /* ── About page ─────────────────────────────────────────────── */
+.about-body {
+  max-width: 620px;
+}
+
+.about-body h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-body p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.about-body ul {
+  margin-left: 1.25rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.about-body ul li {
+  margin-bottom: 0.3rem;
+}
+
 .about-intro {
   max-width: 620px;
   margin-bottom: 3rem;
@@ -823,6 +851,43 @@ summary:hover {
 .sp-gemini         { background: #dbeafe; color: #1e3a8a; }
 .sp-oracle         { background: #f3e8ff; color: #4a044e; }
 
+/* ── Project page extras ─────────────────────────────────────── */
+.project-body h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.project-callout {
+  background: #eff6ff;
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.25rem;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.private-label {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+  background: #fff1f2;
+  padding: 0.05rem 0.3rem;
+  border-radius: 3px;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
 /* ── Code blocks ─────────────────────────────────────────────── */
 .code-block {
   background: #1e1e2e;
@@ -952,6 +1017,88 @@ summary:hover {
 
 main img:not(.card-image) {
   cursor: zoom-in;
+}
+
+/* ── Nav dropdown ────────────────────────────────────────────── */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown > a::after {
+  content: ' ▾';
+  font-size: 0.65rem;
+  opacity: 0.55;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  list-style: none;
+  min-width: 210px;
+  z-index: 200;
+  padding: 0.35rem 0;
+}
+
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
+  color: var(--accent);
+  background: var(--bg);
+  text-decoration: none;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0.35rem 0;
+}
+
+/* ── Project filters ─────────────────────────────────────────── */
+.filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.75rem;
+}
+
+.filter-btn {
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.filter-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
 }
 
 /* ── Responsive ─────────────────────────────────────────────── */
