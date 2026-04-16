@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Far UVC Glasses — Joseph Martin</title>
+  <link rel="stylesheet" href="../../../style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a class="nav-brand" href="../../../index.html">Joseph Martin</a>
+      <ul class="nav-links">
+        <li class="nav-dropdown">
+          <a href="../../../projects.html">Projects</a>
+          <ul class="dropdown-menu">
+            <li><a href="../../../assets/projects/Nixie%20speakers/nixie-speakers.html">Nixie Tube Speakers</a></li>
+            <li><a href="../../../assets/projects/Speaker%20project%202/3d-speakers.html">3D-Printed Speakers</a></li>
+            <li><a href="../../../assets/projects/Fitnessinsights/fitness_portfolio.html">Fitness Insights</a></li>
+            <li><a href="../../../assets/projects/knotpulse/index.html">KnotPulse</a></li>
+            <li><a href="../../../assets/projects/TechConnect/Sitedemo.html">TechConnect</a></li>
+            <li><a href="../../../assets/projects/UVCGlasses/index.html">Far UVC Glasses</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="../../../assets/projects/Multi%20agent%20eval%20arena/multi-agent-arena.html">Multi Agent Arena</a></li>
+            <li><a href="../../../assets/projects/red%20team%20sim/red-team-sim.html">LLM Red-Teaming</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <header class="page-header">
+        <h1>Far UVC Glasses</h1>
+        <p>A wearable biosecurity concept — using 222nm Far UVC light to sterilise the air you breathe.</p>
+      </header>
+
+      <div class="project-body">
+
+        <div class="project-meta">
+          <span><strong>Date</strong> Apr 2026</span>
+          <span><strong>Type</strong> Concept</span>
+        </div>
+
+        <p>
+          This is an idea I had after taking the <a href="https://www.bluedot.org/" target="_blank" rel="noopener">Bluedot Impact</a> biosecurity course. Part of my site's purpose is to be somewhere I can dump ideas — here's one of them.
+        </p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
+
+        <h2>Background</h2>
+
+        <p>
+          The Bluedot course covers a bunch of technologies for hardening spaces against biological threats. One that stood out to me was Far UVC light (specifically 222nm wavelength). The research shows it can inactivate viruses and bacteria in seconds as it's rapidly absorbed by proteins, and unlike regular UVC, it doesn't penetrate past the dead outer layer of skin.
+        </p>
+
+        <img class="gallery-img" src="uvc-content/images/image8.png" alt="Skin penetration depth of UV radiation 200–300nm" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);margin:1rem 0;" />
+        <p style="font-size:0.8rem;color:var(--muted);margin-top:-0.5rem;margin-bottom:1rem;font-style:italic;">From Görlitz et al., 2024. Skin penetration depth of UV radiation (200–300nm). The lines show where 50%, 10%, and 1% of radiation intensity remains after accounting for absorption and scattering.</p>
+
+        <img class="gallery-img" src="uvc-content/images/image4.png" alt="UVC absorbance spectra — nucleic acid vs protein" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);margin:1rem 0;" />
+        <p style="font-size:0.8rem;color:var(--muted);margin-top:-0.5rem;margin-bottom:1rem;font-style:italic;">UVC is absorbed by proteins much more than by nucleic acid. Extracted from Blueprint Biosecurity; original sources Setlow and Doyle, 1957 and Voet et al., 1963.</p>
+
+        <p>
+          The course also covered PPE. Masks work in theory, but I keep thinking about a pattern I've noticed in both biosecurity and cybersecurity: security that requires active human compliance tends to fail. People wear masks wrong, or take them off because they're uncomfortable, or just forget. Also, somewhat pessimistically I simply don't believe in people doing stuff properly, especially in a game scenario like biodefence: if you're defending against 1000 threats and you slip once, you lose. It's not about winning — it's about not losing. Vigilance is key, and people suck at that.
+        </p>
+
+        <p>
+          This is why I liked the idea of Far UVC in rooms: it's proposed to be set up with big projector systems to irradiate the whole room. The full <a href="https://blueprintbiosecurity.org/u/2025/06/Blueprint-for-Far-UVC-V1.0-9.22.25.pdf" target="_blank" rel="noopener">Blueprint for Far UVC</a> has lots more details on this.
+        </p>
+
+        <p>
+          But room-scale UVC has its own issues — it degrades materials, uses a lot of power, and only works in spaces that have it installed. Which got me thinking about whether you could make it personal.
+        </p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
+
+        <h2>The Concept</h2>
+
+        <p>
+          Put a Far UVC emitter on the underside of a wearable — such as smart glasses — pointed downward toward the nose and mouth, creating an irradiation zone in the air being breathed in and out. All airflow passes through a UVC sterilisation screen which kills bacteria and viruses. The use of Far UVC focuses the light into a region that is non-harmful for prolonged human exposure, while being highly efficient at killing pathogens. Other embodiments include dedicated visors, headgear, helmets, etc.
+        </p>
+
+        <p>
+          To solve power consumption problems, a sharply focused linear array may be considered, along with pulsing, scanning, or timing with breath. Headgear such as visors and helmets may be advantageous for housing larger power supplies.
+        </p>
+
+        <p>The advantages as I see them:</p>
+
+        <ol>
+          <li>Masks suck because they cover your mouth, which is just annoying.</li>
+          <li>Room-scale UVC systems work, but they irradiate everything — which degrades plastics, fabrics, and materials over time. A personal device only hits a small zone of air.</li>
+          <li>Power draw is lower. You're sanitising maybe a 10cm band of air instead of an entire room's volume.</li>
+          <li>The downward-pointing orientation helps with eye safety — eyes are above the emitter, not in front of it. And because you're only irradiating the air you're about to breathe, you're not nuking your skin microbiome the way whole-room exposure might.</li>
+          <li>It follows the user. Room UVC only helps in spaces that have it installed. This travels with you.</li>
+        </ol>
+
+        <div class="project-image-pair" style="margin:1.5rem 0;">
+          <figure style="margin:0;">
+            <img class="gallery-img" src="uvc-content/images/image3.png" alt="AI generated concept — glasses with UVC emitter (Grok)" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
+            <figcaption style="font-size:0.78rem;color:var(--muted);margin-top:0.35rem;">AI generated, Grok</figcaption>
+          </figure>
+          <figure style="margin:0;">
+            <img class="gallery-img" src="uvc-content/images/image2.png" alt="AI generated concept — UVC glasses (nanobanana)" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
+            <figcaption style="font-size:0.78rem;color:var(--muted);margin-top:0.35rem;">AI generated, nanobanana</figcaption>
+          </figure>
+        </div>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
+
+        <h2>Things That Need Solving</h2>
+
+        <ul>
+          <li>Can you irradiate bacteria/viruses quickly enough as they pass through the zone?</li>
+          <li>Power — UVC LEDs aren't super efficient yet and power is at a premium in a head-worn device. That said, UVC is very effective at close range — a room cleaner has to overcome the inverse square law, whereas this device is centimetres from the target.</li>
+          <li>Safety at such short distances — manageable with intensity control.</li>
+          <li>Does it actually work? What exposure time and intensity do you need at breathing distance?</li>
+          <li>A lot of transmission happens via sneezing, which is very high speed — difficult to fully cleanse with a brief irradiation pass.</li>
+          <li>Regulatory. Medical devices are hard.</li>
+          <li>When breathing in, it's not clear that airflow comes exclusively from directly in front of the face. Sneezes in particular launch high-velocity jets of infectious droplets in complex patterns.</li>
+        </ul>
+
+        <div class="project-image-pair" style="margin:1.5rem 0;">
+          <figure style="margin:0;">
+            <img class="gallery-img" src="uvc-content/images/image1.png" alt="CFD simulation of droplet viral transmission" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
+          </figure>
+          <figure style="margin:0;">
+            <img class="gallery-img" src="uvc-content/images/image5.png" alt="CFD simulation of droplet viral transmission" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
+          </figure>
+        </div>
+        <p style="font-size:0.78rem;color:var(--muted);margin-top:-0.5rem;margin-bottom:1rem;">CFD images of droplet viral transmission from <a href="https://doi.org/10.1016/j.buildenv.2016.07.005" target="_blank" rel="noopener">doi.org/10.1016/j.buildenv.2016.07.005</a> and <a href="https://cfdflowengineering.com/cfd-analysis-covid-transmission-by-person-to-person-spreading/" target="_blank" rel="noopener">cfdflowengineering.com</a>.</p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
+
+        <h2>Why Not Just Use Masks?</h2>
+
+        <p>Masks work, but they require you to actually wear them correctly, all the time.</p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
+
+        <h2>AI Generated Concepts</h2>
+
+        <p style="color:var(--muted);font-size:0.9rem;">Image gen via Grok.</p>
+
+        <div class="project-image-pair" style="margin:1rem 0;">
+          <img class="gallery-img" src="uvc-content/images/image7.png" alt="AI generated UVC glasses concept" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
+          <img class="gallery-img" src="uvc-content/images/image9.png" alt="AI generated UVC glasses concept" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
+        </div>
+        <div class="project-image-pair" style="margin:1rem 0;">
+          <img class="gallery-img" src="uvc-content/images/image6.png" alt="AI generated UVC glasses concept" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
+          <img class="gallery-img" src="uvc-content/images/image10.png" alt="AI generated UVC glasses concept" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
+        </div>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
+
+        <h2>References</h2>
+
+        <ul>
+          <li><a href="https://blueprintbiosecurity.org/u/2025/06/Blueprint-for-Far-UVC-V1.0-9.22.25.pdf" target="_blank" rel="noopener">Blueprint for Far UVC</a> — good technical overview of the 222nm research</li>
+          <li><a href="https://www.bluedot.org/" target="_blank" rel="noopener">Bluedot Impact</a> — biosecurity course</li>
+        </ul>
+
+        <div class="project-nav">
+          <a href="../../../projects.html">&larr; All projects</a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; <span id="yr"></span> Joseph Martin &mdash;
+      <a href="https://www.linkedin.com/in/joseph-martin1/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+  <script src="../../../lightbox.js"></script>
+</body>
+</html>
