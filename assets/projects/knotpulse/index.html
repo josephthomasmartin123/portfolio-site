@@ -1,634 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KnotPulse | Resonant Muscle Therapy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* slate-50 */
-            color: #1e293b; /* slate-800 */
-        }
-        
-        /* Chart Container Strict Styling */
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 350px;
-            max-height: 400px;
-            background: white;
-            border-radius: 0.75rem;
-            padding: 1rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-        @media (max-width: 640px) {
-            .chart-container { height: 250px; }
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
-
-        .tab-active {
-            border-bottom: 2px solid #0d9488; /* teal-600 */
-            color: #0d9488;
-            font-weight: 600;
-        }
-    </style>
-    <!-- Chosen Palette: Clinical Calm (Slate backgrounds, Teal/Cyan primary accents for a medical/tech feel, White surfaces) -->
-    <!-- Application Structure Plan: 
-         1. Hero/Intro: High-level overview of the KnotPulse concept.
-         2. The Pathology: Interactive cards detailing the biological problem of muscle knots (pH, metabolites) to set the baseline.
-         3. The Mechanism (Innovation): Interactive visualization (Chart.js) demonstrating the core IP—the "Resonant Frequency Sweep" that maximizes fluid pumping.
-         4. Market Context: A comparative grid showing why this is better than existing massage guns and basic TENS units.
-         5. Project Roadmap: An interactive tabbed timeline answering the prompt's request for "a plan to take this project further forward."
-         Reasoning: This structure takes the user logically from Problem -> Proposed Solution -> Market Viability -> Next Steps.
-    -->
-    <!-- Visualization & Content Choices: 
-         - Pathology: Interactive flip/reveal cards (HTML/JS) to show internal biological states without complex SVG diagrams.
-         - Mechanism: Chart.js Line Chart with animation. X-axis is Frequency, Y-axis is Fluid Flow. Allows the user to trigger a "Sweep" to visually understand the concept of finding a resonant peak.
-         - Market Context: CSS Grid comparison table. Clear, concise, standard for tech analysis.
-         - Roadmap: Interactive JS tabs to prevent long scrolling and keep the roadmap modular.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KnotPulse — Joseph Martin</title>
+  <link rel="stylesheet" href="../../../style.css" />
 </head>
-<body class="antialiased selection:bg-teal-200 selection:text-teal-900">
+<body>
 
-    <!-- Portfolio nav -->
-    <nav style="position:sticky;top:0;z-index:200;height:56px;background:#fff;border-bottom:1px solid #e4e4e4;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
-      <div style="max-width:860px;margin-inline:auto;padding-inline:1.5rem;height:100%;display:flex;align-items:center;justify-content:space-between;">
-        <a href="../../../index.html" style="font-weight:600;font-size:0.95rem;color:#1a1a1a;text-decoration:none;">Joseph Martin</a>
-        <ul style="display:flex;gap:2rem;list-style:none;margin:0;padding:0;">
-          <li><a href="../../../projects.html" style="font-size:0.9rem;color:#2563eb;text-decoration:none;">Projects</a></li>
-          <li><a href="../../../about.html"    style="font-size:0.9rem;color:#6b6b6b;text-decoration:none;">About</a></li>
+  <nav>
+    <div class="container">
+      <a class="nav-brand" href="../../../index.html">Joseph Martin</a>
+      <ul class="nav-links">
+        <li class="nav-dropdown">
+          <a href="../../../projects.html">Projects</a>
+          <ul class="dropdown-menu">
+            <li><a href="../../../assets/projects/Nixie%20speakers/nixie-speakers.html">Nixie Tube Speakers</a></li>
+            <li><a href="../../../assets/projects/Speaker%20project%202/3d-speakers.html">3D-Printed Speakers</a></li>
+            <li><a href="../../../assets/projects/Fitnessinsights/fitness_portfolio.html">Fitness Insights</a></li>
+            <li><a href="../../../assets/projects/knotpulse/index.html">KnotPulse</a></li>
+            <li><a href="../../../assets/projects/TechConnect/Sitedemo.html">TechConnect</a></li>
+            <li><a href="../../../assets/projects/UVCGlasses/index.html">Far UVC Glasses</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="../../../assets/projects/Multi%20agent%20eval%20arena/multi-agent-arena.html">Multi Agent Arena</a></li>
+            <li><a href="../../../assets/projects/red%20team%20sim/red-team-sim.html">LLM Red-Teaming</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <header class="page-header">
+        <h1>KnotPulse</h1>
+        <p>A concept for targeted resonant electrical muscle therapy — using the muscle's own elastic resonance to break up knots from the inside.</p>
+      </header>
+
+      <img class="project-banner" src="knotpulse-content/images/image7.png" alt="KnotPulse — AI generated concept" />
+
+      <div class="project-body">
+
+        <div class="project-meta">
+          <span><strong>Date</strong> Apr 2026</span>
+          <span><strong>Type</strong> Concept</span>
+          <span><strong>Status</strong> Pre-prototype</span>
+        </div>
+
+        <p>
+          A muscle knot releasing device that uses the muscles themselves to generate the mechanical deformation required to break up muscle knots — by pulsing them with electricity at their mechanical resonant frequency.
+        </p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
+
+        <h2>Motivation</h2>
+
+        <p>
+          Picture me. A chronic gym-goer for many years, plagued with the disease of "CBA to stretch." This culminated in years of muscle knots I thought were just a fundamental part of my physiology.
+        </p>
+
+        <p>
+          Then I went to Thailand, and got my first Thai massage. Some poor Thai lady was tasked with removing knots I didn't even know I had — apparently some of the biggest she'd ever seen. It was magical, and something I'd love to have on demand. Massage guns don't really do it for me, and prices for actual massage are cooked in the UK.
+        </p>
+
+        <p>
+          So whilst lying on the table in a fairly dreamy state, I started thinking about how to build a device that could melt away muscle knots. What's written here is largely what I came up with in that session — it was nice to brainstorm without any stimulus or internet for once.
+        </p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
+
+        <h2>Background: What Is a Muscle Knot?</h2>
+
+        <p>It's fairly well understood that:</p>
+
+        <ul>
+          <li>Muscles contract when stimulated by nerve impulses — electrical signals through the nervous system.</li>
+          <li>When muscles contract, ATP (the energy currency of cells) is consumed to create work.</li>
+          <li>Muscle knots are localised regions of muscle tissue that can't relax. They're void of ATP but can't cross the energy threshold to release — analogous to a company going under but still accruing debt.</li>
+          <li>Within a knot is a poor biochemical environment: low pH, lots of lactic acid, cut off from normal blood circulation.</li>
+          <li>Massage works partly by mechanically forcing fluid in and out of the knot — flushing it.</li>
         </ul>
+
+        <p>That's a massive oversimplification, but it was my working model on the table, and it holds up at a high level.</p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
+
+        <h2>The Concept</h2>
+
+        <p>
+          The goal is to move fluid through muscle knots using mechanical deformation. External pressure from a massage gun often fails to reach deep fibres. Inspired by a particularly deep thigh massage, I wondered whether you could massage tissue <em>from within</em> — by using electrical stimulation to trigger the muscle's own elastic resonance, creating significant internal deformation and fluid flow without any external compression.
+        </p>
+
+        <p>
+          The challenge is identifying and driving the muscle at its specific resonant frequency, which likely varies by muscle type, hydration, and biochemical state. The answer: run live frequency sweeps with onboard sensors to find the resonant frequency in real time.
+        </p>
+
+        <p>
+          The device is TENS-based with built-in sensors — primarily an accelerometer — to measure the spatial displacement and acceleration of the muscle as it's being stimulated. It sweeps through a range of activation frequencies, identifies resonance from the sensor response, then locks in and drives the muscle at that frequency. The system may also alternate with the resonant frequency of the lymphatic system to encourage lactic acid drainage.
+        </p>
+
+        <div class="project-image-pair" style="margin:1.5rem 0;">
+          <figure style="margin:0;">
+            <img class="gallery-img" src="knotpulse-content/images/image7.png" alt="AI generated concept — KnotPulse device" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
+            <figcaption style="font-size:0.78rem;color:var(--muted);margin-top:0.35rem;">AI generated concept</figcaption>
+          </figure>
+          <figure style="margin:0;">
+            <img class="gallery-img" src="knotpulse-content/images/image8.png" alt="AI generated concept — KnotPulse device" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
+            <figcaption style="font-size:0.78rem;color:var(--muted);margin-top:0.35rem;">AI generated concept</figcaption>
+          </figure>
+        </div>
+
+        <img class="gallery-img" src="knotpulse-content/images/image5.png" alt="Resonant frequencies of individual body parts" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);margin:1rem 0;" />
+        <p style="font-size:0.8rem;color:var(--muted);margin-top:-0.5rem;margin-bottom:1.5rem;font-style:italic;">Resonant frequencies of individual body parts. <a href="https://www.researchgate.net/figure/Biomechanical-human-body-model-showing-the-resonance-frequencies-of-individual-organs-5_fig5_336820094" target="_blank" rel="noopener">Source</a>.</p>
+
+        <div class="project-image-pair" style="margin:1.5rem 0;">
+          <figure style="margin:0;">
+            <img class="gallery-img" src="knotpulse-content/images/image4.png" alt="System interaction diagram" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
+            <figcaption style="font-size:0.78rem;color:var(--muted);margin-top:0.35rem;">System interaction</figcaption>
+          </figure>
+          <figure style="margin:0;">
+            <img class="gallery-img" src="knotpulse-content/images/image2.png" alt="Method flowchart" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
+            <figcaption style="font-size:0.78rem;color:var(--muted);margin-top:0.35rem;">Method</figcaption>
+          </figure>
+        </div>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
+
+        <h2>Prototyping</h2>
+
+        <p>
+          This can be prototyped with an existing TENS machine, a set of relays, a microcontroller, and accelerometers to monitor the resonance response. Fairly accessible parts list.
+        </p>
+
+        <p>
+          I intend to build this once I've finished the speaker project — I'm trying to be disciplined about not running multiple hardware builds at the same time.
+        </p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
+
+        <h2>Similar Products</h2>
+
+        <p>There are existing TENS and NMES devices on the market, though none specifically target knot release via resonant frequency identification.</p>
+
+        <div class="project-image-pair" style="margin:1.5rem 0;">
+          <figure style="margin:0;">
+            <img class="gallery-img" src="knotpulse-content/images/image10.png" alt="Saebostick NMES device" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
+          </figure>
+          <figure style="margin:0;">
+            <img class="gallery-img" src="knotpulse-content/images/image3.png" alt="Saebostick NMES device" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
+          </figure>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1.5rem;"><a href="https://uk.saebo.com/shop/saebostim-one/" target="_blank" rel="noopener">Saebostick</a> — a wireless, wearable NMES device marketed for muscle strengthening and re-education. Closer to the physio end of the spectrum.</p>
+
+        <div class="project-image-pair" style="margin:1.5rem 0;">
+          <figure style="margin:0;">
+            <img class="gallery-img" src="knotpulse-content/images/image1.png" alt="Flowlife TENS device" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
+          </figure>
+          <figure style="margin:0;">
+            <img class="gallery-img" src="knotpulse-content/images/image6.png" alt="Flowlife app" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
+          </figure>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.75rem;"><a href="https://www.flowlife.com/uk/product/tens-by-flowlife/" target="_blank" rel="noopener">Flowlife TENS</a> — broadly marketed for pain and recovery. Most interesting as a proof that these devices can cause significant muscle contractions. The video below shows this clearly.</p>
+
+        <video controls style="width:100%;border-radius:var(--radius);border:1px solid var(--border);margin-bottom:1.5rem;">
+          <source src="../Flowlifevid%20example.mp4" type="video/mp4">
+        </video>
+
+        <img class="gallery-img" src="knotpulse-content/images/image9.png" alt="Amazon TENS devices" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);margin:1rem 0;" />
+        <p style="font-size:0.85rem;color:var(--muted);margin-top:-0.5rem;margin-bottom:1rem;">Generic TENS devices on <a href="https://www.amazon.co.uk/s?k=tens+machine&i=drugstore" target="_blank" rel="noopener">Amazon</a> — now a pure commodity market. One thing I noticed: a wireless charging case design, very AirPods-like. Nice form factor idea for something that has to live in a bag.</p>
+
+        <div class="project-nav">
+          <a href="../../../projects.html">&larr; All projects</a>
+        </div>
+
       </div>
-    </nav>
+    </div>
+  </main>
 
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-full bg-teal-600 flex items-center justify-center text-white font-bold text-xl">K</div>
-                    <span class="font-bold text-xl tracking-tight text-slate-800">KnotPulse</span>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#pathology" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">Pathology</a>
-                    <a href="#mechanism" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">The Mechanism</a>
-                    <a href="#market" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">Market Fit</a>
-                    <a href="#roadmap" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">Development Plan</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+  <footer>
+    <div class="container">
+      &copy; <span id="yr"></span> Joseph Martin &mdash;
+      <a href="https://www.linkedin.com/in/joseph-martin1/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
 
-    <!-- Hero Section -->
-    <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-        <div class="text-center max-w-3xl mx-auto">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-100 text-teal-800 text-xs font-semibold tracking-wide uppercase mb-6">
-                <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span> Concept Stage
-            </div>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
-                Targeted Resonant Electrical <span class="text-teal-600">Muscle Therapy</span>
-            </h1>
-            <p class="text-base text-slate-500 mb-6 leading-relaxed max-w-2xl mx-auto italic">
-                I was travelling and got a massage — the kind that actually works, where someone finds a knot and properly gets rid of it. On the way back I started thinking about how to replicate that on demand without needing someone else to do it. This page is me using AI to document that idea properly, so I can come back to it.
-            </p>
-            <p class="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed">
-                The core idea: break up muscle knots using electrical stimulation at the tissue's resonant frequency, turning the muscle into its own internal fluid pump.
-            </p>
-            <div class="flex justify-center gap-4">
-                <a href="#demo" class="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition-colors shadow-lg shadow-teal-500/30">
-                    Live simulation
-                </a>
-                <a href="#mechanism" class="px-6 py-3 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-medium rounded-lg transition-colors shadow-sm">
-                    The mechanism
-                </a>
-                <a href="#roadmap" class="px-6 py-3 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-medium rounded-lg transition-colors shadow-sm">
-                    Development plan
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Graphical Demo -->
-    <section id="demo" class="bg-white py-16 border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-8 max-w-3xl">
-                <h2 class="text-3xl font-bold text-slate-900 mb-3">Live Simulation</h2>
-                <p class="text-slate-600 text-lg">An interactive visualisation of the KnotPulse mechanism — watch the resonant frequency sweep locate and release a simulated muscle knot in real time.</p>
-            </div>
-            <div style="border-radius:12px;overflow:hidden;border:1px solid #e2e8f0;box-shadow:0 4px 20px rgba(0,0,0,0.06);">
-                <iframe src="graphicaldemo.html" style="width:100%;height:600px;border:none;display:block;" title="KnotPulse graphical simulation" scrolling="no"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Pathology Section -->
-    <section id="pathology" class="bg-white py-20 border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-12 max-w-3xl">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">1. The Biological Problem</h2>
-                <p class="text-slate-600 text-lg">
-                    Before treating a muscle knot, we must understand its environment. A myofascial trigger point isn't just "tight"; it's a localized biochemical crisis. This section details the physiological factors that keep a knot locked in a contracted state.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow cursor-pointer" onclick="toggleCardInfo('info1')">
-                    <div class="w-12 h-12 rounded-full bg-red-100 text-red-600 flex items-center justify-center text-2xl mb-4">
-                        &#x26A0; <!-- Warning icon -->
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Sustained Contraction</h3>
-                    <p class="text-slate-600 mb-4">Sarcomeres (muscle fibers) remain locked in a shortened state, creating palpable tension.</p>
-                    <div id="info1" class="hidden text-sm text-slate-500 border-t border-slate-200 pt-4 mt-2">
-                        <strong>Effect:</strong> This continuous contraction compresses local capillaries, severely restricting vital blood flow (ischemia) to the exact tissue that needs energy to relax.
-                    </div>
-                    <button class="text-teal-600 text-sm font-semibold mt-2 hover:underline">Tap to expand details</button>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow cursor-pointer" onclick="toggleCardInfo('info2')">
-                    <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-2xl mb-4">
-                        &#x2697; <!-- Chemistry icon (alembic) -->
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Metabolite Buildup</h3>
-                    <p class="text-slate-600 mb-4">Due to restricted blood flow, cellular waste products like lactic acid accumulate rapidly.</p>
-                    <div id="info2" class="hidden text-sm text-slate-500 border-t border-slate-200 pt-4 mt-2">
-                        <strong>Effect:</strong> The buildup of these metabolites sensitizes local pain receptors (nociceptors), causing the sharp or aching pain associated with pressing on a knot.
-                    </div>
-                    <button class="text-teal-600 text-sm font-semibold mt-2 hover:underline">Tap to expand details</button>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow cursor-pointer" onclick="toggleCardInfo('info3')">
-                    <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-2xl mb-4">
-                        &#x2193; <!-- Down arrow -->
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Acidic Environment (Low pH)</h3>
-                    <p class="text-slate-600 mb-4">The combination of hypoxia and metabolite accumulation lowers the local tissue pH.</p>
-                    <div id="info3" class="hidden text-sm text-slate-500 border-t border-slate-200 pt-4 mt-2">
-                        <strong>Effect:</strong> An acidic environment inhibits the release of calcium ions required for muscle relaxation, creating a vicious cycle where the muscle cannot physically un-clench.
-                    </div>
-                    <button class="text-teal-600 text-sm font-semibold mt-2 hover:underline">Tap to expand details</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Mechanism Section (Innovation) -->
-    <section id="mechanism" class="py-20 bg-slate-50 border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-12 max-w-3xl">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">2. The Core Innovation: Resonant Pumping</h2>
-                <p class="text-slate-600 text-lg">
-                    Traditional massage relies on external mechanical force to push fluid in and out of the knot. KnotPulse proposes a targeted electrical pulse. By sweeping through stimulation frequencies, the device identifies the specific <strong>resonant frequency</strong> of that local tissue, triggering maximal internal contractions. This turns the muscle itself into an ultra-efficient fluid pump.
-                </p>
-            </div>
-
-            <div class="grid lg:grid-cols-3 gap-10 items-center">
-                <div class="lg:col-span-1 space-y-6">
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                        <h4 class="font-bold text-slate-800 mb-2">Step 1: Placement</h4>
-                        <p class="text-sm text-slate-600">A small electrode pod is placed directly over the identified myofascial trigger point.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm border-l-4 border-l-teal-500">
-                        <h4 class="font-bold text-slate-800 mb-2">Step 2: Frequency Sweep</h4>
-                        <p class="text-sm text-slate-600 mb-3">The device cycles stimulation from low to high Hz. Watch the chart to see how tissue response changes.</p>
-                        <button id="triggerSweepBtn" class="w-full py-2 bg-teal-50 text-teal-700 font-semibold rounded hover:bg-teal-100 transition-colors border border-teal-200">
-                            Run Simulation Sweep
-                        </button>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                        <h4 class="font-bold text-slate-800 mb-2">Step 3: Resonant Pumping</h4>
-                        <p class="text-sm text-slate-600">Once peak resonance is found, the device pulses at that exact frequency, maximizing fluid exchange, flushing metabolites, and restoring pH.</p>
-                    </div>
-                </div>
-                
-                <div class="lg:col-span-2">
-                    <!-- Strict Chart Container -->
-                    <div class="chart-container">
-                        <canvas id="resonanceChart"></canvas>
-                        
-                        <!-- Overlay for scanning effect -->
-                        <div id="scanLine" class="absolute top-0 bottom-0 w-1 bg-teal-500 shadow-[0_0_10px_rgba(20,184,166,0.8)] opacity-0 transition-opacity duration-300" style="left: 10%;"></div>
-                        
-                        <!-- Resonance Indicator -->
-                        <div id="resonanceIndicator" class="absolute hidden flex-col items-center" style="top: 20%; left: 50%; transform: translateX(-50%);">
-                            <div class="bg-slate-800 text-white text-xs font-bold px-2 py-1 rounded shadow-lg mb-1 animate-bounce">
-                                Resonance Found!
-                            </div>
-                            <div class="w-1 h-12 bg-slate-800"></div>
-                        </div>
-                    </div>
-                    <p class="text-center text-xs text-slate-500 mt-4">Interactive Simulation: Muscle Response Amplitude vs. Stimulation Frequency</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Market Context Section -->
-    <section id="market" class="py-20 bg-white border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-12 max-w-3xl">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">3. Market Context & Differentiation</h2>
-                <p class="text-slate-600 text-lg">
-                    Why build this when massage guns and TENS units already exist? Current consumer electrical devices focus on surface pain gating, while mechanical devices apply blunt trauma. KnotPulse bridges the gap by using electricity to perform deep, internal mechanical work.
-                </p>
-            </div>
-
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr>
-                            <th class="p-4 border-b-2 border-slate-200 bg-slate-50 text-slate-800 font-bold w-1/4 rounded-tl-lg">Feature / Mechanism</th>
-                            <th class="p-4 border-b-2 border-slate-200 bg-slate-50 text-slate-800 font-bold w-1/4">Percussion (Massage Guns)</th>
-                            <th class="p-4 border-b-2 border-slate-200 bg-slate-50 text-slate-800 font-bold w-1/4">Standard TENS/EMS Units</th>
-                            <th class="p-4 border-b-2 border-teal-500 bg-teal-50 text-teal-900 font-bold w-1/4 rounded-tr-lg border-l border-r border-teal-200">KnotPulse (Proposed)</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-sm">
-                        <tr class="border-b border-slate-100 hover:bg-slate-50">
-                            <td class="p-4 font-semibold text-slate-700">Primary Mechanism</td>
-                            <td class="p-4 text-slate-600">External mechanical blunt force</td>
-                            <td class="p-4 text-slate-600">Electrical nerve block / basic flex</td>
-                            <td class="p-4 text-teal-800 bg-teal-50/30 border-l border-r border-teal-100 font-medium">Internal electrically-driven fluid pumping</td>
-                        </tr>
-                        <tr class="border-b border-slate-100 hover:bg-slate-50">
-                            <td class="p-4 font-semibold text-slate-700">Frequency Adaptation</td>
-                            <td class="p-4 text-slate-600">Manual speed settings</td>
-                            <td class="p-4 text-slate-600">Pre-set rigid programs</td>
-                            <td class="p-4 text-teal-800 bg-teal-50/30 border-l border-r border-teal-100 font-medium">Automated bio-feedback sweep</td>
-                        </tr>
-                        <tr class="border-b border-slate-100 hover:bg-slate-50">
-                            <td class="p-4 font-semibold text-slate-700">Tissue Depth</td>
-                            <td class="p-4 text-slate-600">Can cause bruising on surface tissue</td>
-                            <td class="p-4 text-slate-600">Mostly superficial nerve targeting</td>
-                            <td class="p-4 text-teal-800 bg-teal-50/30 border-l border-r border-teal-100 font-medium">Penetrates to deep trigger points</td>
-                        </tr>
-                        <tr class="hover:bg-slate-50">
-                            <td class="p-4 font-semibold text-slate-700">Form Factor</td>
-                            <td class="p-4 text-slate-600">Bulky, requires active manual holding</td>
-                            <td class="p-4 text-slate-600">Wires, large external control box</td>
-                            <td class="p-4 text-teal-800 bg-teal-50/30 border-l border-r border-teal-100 font-medium rounded-br-lg">Small, wireless, passive application</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- Development Roadmap Section -->
-    <section id="roadmap" class="py-20 bg-slate-900 text-slate-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-12 max-w-3xl">
-                <h2 class="text-3xl font-bold text-white mb-4">4. Project Development Plan</h2>
-                <p class="text-slate-400 text-lg">
-                    To take this concept from an idea to a viable consumer or medical device, a rigorous R&D process is required. Select a phase below to explore the necessary steps.
-                </p>
-            </div>
-
-            <!-- Interactive Timeline -->
-            <div class="flex flex-col md:flex-row gap-8">
-                <!-- Tabs -->
-                <div class="flex flex-row md:flex-col overflow-x-auto md:w-1/3 gap-2 border-b md:border-b-0 md:border-l border-slate-700 pb-4 md:pb-0 hide-scroll">
-                    <button class="text-left px-4 py-3 rounded-md transition-colors tab-btn active bg-teal-900/40 text-teal-300 border-l-4 border-teal-500" data-target="phase1">
-                        <div class="font-bold text-sm mb-1 uppercase tracking-wider">Phase 1</div>
-                        <div class="text-lg text-white">Feasibility & Research</div>
-                    </button>
-                    <button class="text-left px-4 py-3 rounded-md transition-colors tab-btn hover:bg-slate-800 border-l-4 border-transparent" data-target="phase2">
-                        <div class="font-bold text-sm mb-1 uppercase tracking-wider text-slate-500">Phase 2</div>
-                        <div class="text-lg">Proof of Concept Prototyping</div>
-                    </button>
-                    <button class="text-left px-4 py-3 rounded-md transition-colors tab-btn hover:bg-slate-800 border-l-4 border-transparent" data-target="phase3">
-                        <div class="font-bold text-sm mb-1 uppercase tracking-wider text-slate-500">Phase 3</div>
-                        <div class="text-lg">Clinical Validation</div>
-                    </button>
-                    <button class="text-left px-4 py-3 rounded-md transition-colors tab-btn hover:bg-slate-800 border-l-4 border-transparent" data-target="phase4">
-                        <div class="font-bold text-sm mb-1 uppercase tracking-wider text-slate-500">Phase 4</div>
-                        <div class="text-lg">Regulatory & Commercial</div>
-                    </button>
-                </div>
-
-                <!-- Tab Content -->
-                <div class="md:w-2/3 bg-slate-800 p-6 md:p-10 rounded-xl border border-slate-700 min-h-[300px]">
-                    <!-- Phase 1 Content -->
-                    <div id="phase1" class="tab-content block animate-fade-in">
-                        <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                            <span class="w-8 h-8 rounded bg-teal-600 flex items-center justify-center text-sm">1</span>
-                            Biophysical Research
-                        </h3>
-                        <ul class="space-y-4">
-                            <li class="flex items-start gap-3">
-                                <span class="text-teal-400 mt-1">&#x2714;</span>
-                                <div>
-                                    <strong class="text-white block">Literature Review</strong>
-                                    Examine existing papers on muscle resonance, EMS fluid dynamics, and trigger point physiology. Verify the core assumption: <em>Can external EMS move deep tissue fluid faster than natural circulation?</em>
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-teal-400 mt-1">&#x2714;</span>
-                                <div>
-                                    <strong class="text-white block">Determine Measurement Metrics</strong>
-                                    Identify how to measure "knot dissolution" non-invasively (e.g., diagnostic ultrasound for tissue density, or localized pH/lactate biosensors).
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-teal-400 mt-1">&#x2714;</span>
-                                <div>
-                                    <strong class="text-white block">Patent Landscape Analysis</strong>
-                                    Search for existing IP utilizing "frequency sweeps" for EMS or targeted trigger point electrical therapy to ensure freedom to operate.
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Phase 2 Content -->
-                    <div id="phase2" class="tab-content hidden animate-fade-in">
-                        <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                            <span class="w-8 h-8 rounded bg-teal-600 flex items-center justify-center text-sm">2</span>
-                            Prototyping & Algorithms
-                        </h3>
-                        <ul class="space-y-4">
-                            <li class="flex items-start gap-3">
-                                <span class="text-teal-400 mt-1">&#x2714;</span>
-                                <div>
-                                    <strong class="text-white block">Benchtop Hardware</strong>
-                                    Modify an existing programmable multi-channel EMS unit (e.g., using Arduino/Raspberry Pi) to allow granular control over frequency (Hz), pulse width, and amplitude.
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-teal-400 mt-1">&#x2714;</span>
-                                <div>
-                                    <strong class="text-white block">The "Sweep" Algorithm</strong>
-                                    Develop the software to automatically cycle frequencies (e.g., 2Hz to 150Hz).
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-teal-400 mt-1">&#x2714;</span>
-                                <div>
-                                    <strong class="text-white block">Bio-feedback Integration (Crucial step)</strong>
-                                    How does the device <em>know</em> it hit resonance? Investigate incorporating an accelerometer or mechanomyography (MMG) sensor into the pod to detect the point of maximum physical oscillation.
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Phase 3 Content -->
-                    <div id="phase3" class="tab-content hidden animate-fade-in">
-                        <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                            <span class="w-8 h-8 rounded bg-teal-600 flex items-center justify-center text-sm">3</span>
-                            Testing & Validation
-                        </h3>
-                        <ul class="space-y-4">
-                            <li class="flex items-start gap-3">
-                                <span class="text-teal-400 mt-1">&#x2714;</span>
-                                <div>
-                                    <strong class="text-white block">In-Vitro / Animal Models</strong>
-                                    If necessary, test fluid dispersion rates in analogue tissues using dye tracers under different electrical frequencies to prove the "pump" concept visually.
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-teal-400 mt-1">&#x2714;</span>
-                                <div>
-                                    <strong class="text-white block">Human Pilot Study (Small N)</strong>
-                                    Test the prototype on subjects with identifiable trigger points (e.g., Upper Trapezius). Compare subjective pain scales and objective ultrasound density before and after the "Sweep" protocol vs. standard TENS.
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-teal-400 mt-1">&#x2714;</span>
-                                <div>
-                                    <strong class="text-white block">Data Analysis</strong>
-                                    Refine the algorithm based on which frequencies reliably clear the knots fastest. Is it different per muscle group? (e.g., traps vs. calves).
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Phase 4 Content -->
-                    <div id="phase4" class="tab-content hidden animate-fade-in">
-                        <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                            <span class="w-8 h-8 rounded bg-teal-600 flex items-center justify-center text-sm">4</span>
-                            Commercialization
-                        </h3>
-                        <ul class="space-y-4">
-                            <li class="flex items-start gap-3">
-                                <span class="text-teal-400 mt-1">&#x2714;</span>
-                                <div>
-                                    <strong class="text-white block">Regulatory Strategy (FDA/CE)</strong>
-                                    Determine classification. Can it be marketed as a Class II 510(k) exempt device (like many consumer TENS units) by focusing on "muscle relaxation," or does the "fluid pumping" claim require stricter clearance?
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-teal-400 mt-1">&#x2714;</span>
-                                <div>
-                                    <strong class="text-white block">Form Factor Miniaturization</strong>
-                                    Design the final product: A small, wireless, rechargeable pod with medical-grade adhesive hydrogels, controlled via a smartphone app.
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-teal-400 mt-1">&#x2714;</span>
-                                <div>
-                                    <strong class="text-white block">Seed Funding & Pitching</strong>
-                                    Compile the data from Phase 3 into a pitch deck to secure venture capital or health-tech grants for mass manufacturing.
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-slate-950 text-slate-500 py-8 text-center text-sm">
-        <p>Personal concept. Documented for future reference.</p>
-    </footer>
-
-    <!-- JavaScript Logic -->
-    <script>
-        // --- UI Interactions ---
-
-        // Simple function to toggle hidden details in Pathology cards
-        function toggleCardInfo(id) {
-            const el = document.getElementById(id);
-            if (el.classList.contains('hidden')) {
-                el.classList.remove('hidden');
-            } else {
-                el.classList.add('hidden');
-            }
-        }
-
-        // Tab Navigation Logic
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active states
-                tabBtns.forEach(b => {
-                    b.classList.remove('bg-teal-900/40', 'text-teal-300', 'border-teal-500');
-                    b.classList.add('hover:bg-slate-800', 'border-transparent');
-                    b.querySelector('.text-slate-500')?.classList.remove('text-teal-400');
-                    b.querySelector('.text-slate-500')?.classList.add('text-slate-500');
-                    b.querySelector('.text-white')?.classList.remove('text-white');
-                });
-                tabContents.forEach(c => c.classList.add('hidden'));
-
-                // Add active state to clicked
-                btn.classList.remove('hover:bg-slate-800', 'border-transparent');
-                btn.classList.add('bg-teal-900/40', 'text-teal-300', 'border-teal-500');
-                
-                const targetId = btn.getAttribute('data-target');
-                document.getElementById(targetId).classList.remove('hidden');
-            });
-        });
-
-        // --- Data & Chart Logic (The core simulation) ---
-        
-        // Generate simulated curve data (a bell curve representing resonance)
-        const frequencies = [];
-        const flowRates = [];
-        const peakFrequency = 65; // Simulated resonant peak at 65 Hz
-        
-        for (let hz = 10; hz <= 120; hz += 2) {
-            frequencies.push(`${hz} Hz`);
-            // Bell curve formula to simulate amplitude peaking at resonant frequency
-            const amplitude = 10 + 90 * Math.exp(-Math.pow(hz - peakFrequency, 2) / 400); 
-            flowRates.push(amplitude);
-        }
-
-        const ctx = document.getElementById('resonanceChart').getContext('2d');
-        
-        // Setup Chart.js
-        const chartConfig = {
-            type: 'line',
-            data: {
-                labels: frequencies,
-                datasets: [{
-                    label: 'Fluid Flow / Muscle Contraction Amplitude (%)',
-                    data: flowRates,
-                    borderColor: '#0d9488', // teal-600
-                    backgroundColor: 'rgba(20, 184, 166, 0.1)',
-                    borderWidth: 3,
-                    tension: 0.4,
-                    fill: true,
-                    pointRadius: 0,
-                    pointHitRadius: 10
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false, // CRITICAL for chart container fit
-                interaction: {
-                    intersect: false,
-                    mode: 'index',
-                },
-                plugins: {
-                    legend: {
-                        position: 'top',
-                        labels: { font: { family: 'Inter' } }
-                    },
-                    tooltip: {
-                        backgroundColor: 'rgba(15, 23, 42, 0.9)',
-                        titleFont: { family: 'Inter', size: 13 },
-                        bodyFont: { family: 'Inter', size: 13 },
-                        padding: 10,
-                        displayColors: false,
-                        callbacks: {
-                            label: function(context) {
-                                return `Amplitude: ${context.parsed.y.toFixed(1)}%`;
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        title: { display: true, text: 'Stimulation Frequency (Hz)', font: { family: 'Inter', weight: 'bold' } },
-                        grid: { display: false }
-                    },
-                    y: {
-                        title: { display: true, text: 'Pumping Efficiency', font: { family: 'Inter', weight: 'bold' } },
-                        min: 0,
-                        max: 110,
-                        ticks: { display: false },
-                        grid: { color: '#f1f5f9' }
-                    }
-                }
-            }
-        };
-
-        const resonanceChart = new Chart(ctx, chartConfig);
-
-        // --- Sweep Animation Logic ---
-        const sweepBtn = document.getElementById('triggerSweepBtn');
-        const scanLine = document.getElementById('scanLine');
-        const indicator = document.getElementById('resonanceIndicator');
-        let isSweeping = false;
-
-        sweepBtn.addEventListener('click', () => {
-            if (isSweeping) return;
-            isSweeping = true;
-            
-            // UI Reset
-            sweepBtn.textContent = "Scanning Frequencies...";
-            sweepBtn.classList.remove('bg-teal-50', 'text-teal-700');
-            sweepBtn.classList.add('bg-slate-200', 'text-slate-500', 'cursor-not-allowed');
-            indicator.classList.add('hidden');
-            
-            // Animate scan line
-            scanLine.style.opacity = '1';
-            scanLine.style.transition = 'left 3s linear';
-            
-            // Start left, move to right
-            scanLine.style.left = '8%'; // roughly chart start padding
-            
-            setTimeout(() => {
-                scanLine.style.left = '92%'; // roughly chart end padding
-            }, 50);
-
-            // Calculate when it hits the peak (65Hz is roughly exactly in the middle of 10-120 range)
-            setTimeout(() => {
-                indicator.classList.remove('hidden');
-                // Optional: Trigger a chart update to highlight the point
-            }, 1500); // Halfway through the 3s transition
-
-            // Reset after animation
-            setTimeout(() => {
-                scanLine.style.opacity = '0';
-                scanLine.style.transition = 'opacity 0.3s ease';
-                scanLine.style.left = '10%'; // reset pos
-                
-                sweepBtn.textContent = "Run Simulation Sweep";
-                sweepBtn.classList.remove('bg-slate-200', 'text-slate-500', 'cursor-not-allowed');
-                sweepBtn.classList.add('bg-teal-50', 'text-teal-700');
-                
-                isSweeping = false;
-            }, 3500);
-        });
-
-        // Add some basic custom CSS animations for the tabs dynamically
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes fadeIn {
-                from { opacity: 0; transform: translateY(10px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-            .animate-fade-in {
-                animation: fadeIn 0.4s ease-out forwards;
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
+  <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+  <script src="../../../lightbox.js"></script>
 </body>
 </html>
