@@ -36,7 +36,6 @@
 
       <header class="page-header">
         <h1>About</h1>
-        <p>Invention engineer. AI builder. Hobbyist maker.</p>
       </header>
 
       <div class="about-intro">
@@ -48,11 +47,34 @@
         </p>
       </div>
 
-      <!-- Split timeline: education left, experience right, most recent first -->
+      <!-- Split timeline: education left, experience right -->
+      <!-- Scale: 25px/month. Reference: Jun 2026 = top (0px). -->
       <div class="split-timeline">
+        <div class="tl-col-label tl-col-left">Education</div>
+        <div class="tl-col-label tl-col-right">Experience</div>
+
+        <!-- Year markers -->
+        <div class="tl-year" style="top:0">Now</div>
+        <div class="tl-year" style="top:125px">2026</div>
+        <div class="tl-year" style="top:425px">2025</div>
+        <div class="tl-year" style="top:725px">2024</div>
+        <div class="tl-year" style="top:1025px">2023</div>
+        <div class="tl-year" style="top:1325px">2022</div>
+        <div class="tl-year" style="top:1625px">2021</div>
+        <div class="tl-year" style="top:1925px">2020</div>
+
+        <!-- ── BlueDot Impact ────────────────────────────── -->
+        <div class="tl-entry tl-left tl-edu" style="top:75px;--tl-dur:75px">
+          <p class="timeline-date">Mar 2026 – Present</p>
+          <p class="timeline-title">BlueDot Biosecurity</p>
+          <p class="timeline-org">BlueDot Impact, Remote</p>
+          <p class="timeline-body">
+            Selective seminar-style course run with biosecurity and AI experts, focused on pandemic prevention and AI-assisted biohardening. Participating as a cross-domain technical expert.
+          </p>
+        </div>
 
         <!-- ── Iprova: Senior ─────────────────────────────── -->
-        <div class="tl-entry tl-right tl-work">
+        <div class="tl-entry tl-right tl-work" style="top:200px;--tl-dur:200px">
           <p class="timeline-date">Oct 2025 – Present</p>
           <p class="timeline-title">Senior Invention Engineer</p>
           <p class="timeline-org">Iprova, London</p>
@@ -66,7 +88,7 @@
         </div>
 
         <!-- ── Iprova: Invention Engineer ────────────────── -->
-        <div class="tl-entry tl-right tl-work">
+        <div class="tl-entry tl-right tl-work" style="top:350px;--tl-dur:150px">
           <p class="timeline-date">Apr 2025 – Oct 2025</p>
           <p class="timeline-title">Invention Engineer</p>
           <p class="timeline-org">Iprova, London</p>
@@ -79,7 +101,7 @@
         </div>
 
         <!-- ── Iprova: Junior ─────────────────────────────── -->
-        <div class="tl-entry tl-right tl-work">
+        <div class="tl-entry tl-right tl-work" style="top:575px;--tl-dur:225px">
           <p class="timeline-date">Jul 2024 – Apr 2025</p>
           <p class="timeline-title">Junior Invention Engineer</p>
           <p class="timeline-org">Iprova, London</p>
@@ -91,7 +113,7 @@
         </div>
 
         <!-- ── Leeds: masters year ────────────────────────── -->
-        <div class="tl-entry tl-left tl-edu">
+        <div class="tl-entry tl-left tl-edu" style="top:825px;--tl-dur:225px">
           <p class="timeline-date">Sep 2023 – Jun 2024</p>
           <p class="timeline-title">MEng — Masters Year</p>
           <p class="timeline-org">University of Leeds</p>
@@ -115,7 +137,7 @@
         </div>
 
         <!-- ── Barclays ───────────────────────────────────── -->
-        <div class="tl-entry tl-right tl-intern">
+        <div class="tl-entry tl-right tl-intern" style="top:900px;--tl-dur:50px">
           <p class="timeline-date">Jun 2023 – Aug 2023</p>
           <p class="timeline-title">Technology Analyst</p>
           <p class="timeline-org">Barclays, Knutsford</p>
@@ -127,7 +149,7 @@
         </div>
 
         <!-- ── TTP ────────────────────────────────────────── -->
-        <div class="tl-entry tl-right tl-intern">
+        <div class="tl-entry tl-right tl-intern" style="top:1150px;--tl-dur:250px">
           <p class="timeline-date">Aug 2022 – Jun 2023</p>
           <p class="timeline-title">Mechanical Engineering Consultant</p>
           <p class="timeline-org">TTP plc., Cambridge</p>
@@ -140,8 +162,8 @@
         </div>
 
         <!-- ── MedTech Foundation ──────────────────────────── -->
-        <div class="tl-entry tl-right tl-volunteer">
-          <p class="timeline-date">Oct 2021 – Aug 2022 <span class="timeline-tag tl-tag-concurrent">Concurrent</span></p>
+        <div class="tl-entry tl-right tl-volunteer" style="top:1400px;--tl-dur:250px">
+          <p class="timeline-date">Oct 2021 – Aug 2022</p>
           <p class="timeline-title">MEDx Lead</p>
           <p class="timeline-org">MedTech Foundation Leeds</p>
           <p class="timeline-body">
@@ -152,7 +174,7 @@
         </div>
 
         <!-- ── Siemens ─────────────────────────────────────── -->
-        <div class="tl-entry tl-right tl-intern">
+        <div class="tl-entry tl-right tl-intern" style="top:1500px;--tl-dur:50px">
           <p class="timeline-date">Jun 2021 – Aug 2021</p>
           <p class="timeline-title">Process Engineer</p>
           <p class="timeline-org">Siemens Healthineers, Oxfordshire</p>
@@ -166,7 +188,7 @@
         </div>
 
         <!-- ── Domino's ────────────────────────────────────── -->
-        <div class="tl-entry tl-right tl-intern">
+        <div class="tl-entry tl-right tl-intern" style="top:1850px;--tl-dur:100px">
           <p class="timeline-date">Apr 2020 – Aug 2020 <span class="timeline-tag tl-tag-parttime">Part-time</span></p>
           <p class="timeline-title">Delivery Driver</p>
           <p class="timeline-org">Domino's, Crosby</p>
@@ -176,7 +198,7 @@
         </div>
 
         <!-- ── Leeds: undergraduate ────────────────────────── -->
-        <div class="tl-entry tl-left tl-edu">
+        <div class="tl-entry tl-left tl-edu" style="top:2025px;--tl-dur:825px">
           <p class="timeline-date">Sep 2019 – Jun 2022</p>
           <p class="timeline-title">MEng Medical &amp; Mechanical Engineering</p>
           <p class="timeline-org">University of Leeds</p>
