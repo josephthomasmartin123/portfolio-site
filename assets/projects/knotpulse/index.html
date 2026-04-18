@@ -36,7 +36,7 @@
 
       <header class="page-header">
         <h1>KnotPulse</h1>
-        <p>A concept for targeted resonant electrical muscle therapy — using the muscle's own elastic resonance to break up knots from the inside.</p>
+        <p>A concept for targeted resonant electrical muscle therapy — using frequency sweeps to selectively activate and release deep muscle knots.</p>
       </header>
 
       <img class="project-banner" src="knotpulse-content/images/image7.png" alt="KnotPulse — AI generated concept" />
@@ -49,71 +49,86 @@
           <span><strong>Status</strong> Pre-prototype</span>
         </div>
 
-        <p>
-          A muscle knot releasing device that uses the muscles themselves to generate the mechanical deformation required to break up muscle knots — by pulsing them with electricity at their mechanical resonant frequency.
-        </p>
-
         <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
 
         <h2>Motivation</h2>
 
         <p>
-          Picture me. A chronic gym-goer for many years, plagued with the disease of "CBA to stretch." This culminated in years of muscle knots I thought were just a fundamental part of my physiology.
+          Picture me. A chronic goer of gym for many years, plagued with the disease of 'CBA to stretch'. This culminated in many years of muscle knots that I thought were a fundamental part of my physiology.
         </p>
 
         <p>
-          Then I went to Thailand, and got my first Thai massage. Some poor Thai lady was tasked with removing knots I didn't even know I had — apparently some of the biggest she'd ever seen. It was magical, and something I'd love to have on demand. Massage guns don't really do it for me, and prices for actual massage are cooked in the UK.
-        </p>
-
-        <p>
-          So whilst lying on the table in a fairly dreamy state, I started thinking about how to build a device that could melt away muscle knots. What's written here is largely what I came up with in that session — it was nice to brainstorm without any stimulus or internet for once.
+          I was also lucky enough to go on holiday to Thailand, where I got my first Thai massage. It was here that some poor Thai lady was tasked with removing these knots that I didn't even know I had, some of the biggest she had ever seen apparently! This experience was magical and it's something I would love to have on demand, but massage guns don't really do it for me and prices are COOKED in the UK. So whilst on the table in a dreamy state I got to thinking about how I can make a device to melt away muscle knots. The concept written up here is largely the same as dreamt up on the table — it was quite nice to brainstorm without any stimulus or internet to help out for once.
         </p>
 
         <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
 
-        <h2>Background: What Is a Muscle Knot?</h2>
+        <h2>Abstract</h2>
+
+        <p>
+          <strong>A muscle knot releasing device that uses the muscles themselves to generate the mechanical deformation required to break up muscle knots by pulsing them with electricity at the mechanical resonant frequency of the muscle itself.</strong>
+        </p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
+
+        <h2>Introduction to Muscle Knots (crash course)</h2>
 
         <p>It's fairly well understood that:</p>
 
         <ul>
-          <li>Muscles contract when stimulated by nerve impulses — electrical signals through the nervous system.</li>
-          <li>When muscles contract, ATP (the energy currency of cells) is consumed to create work.</li>
-          <li>Muscle knots are localised regions of muscle tissue that can't relax. They're void of ATP but can't cross the energy threshold to release — analogous to a company going under but still accruing debt.</li>
-          <li>Within a knot is a poor biochemical environment: low pH, lots of lactic acid, cut off from normal blood circulation.</li>
-          <li>Massage works partly by mechanically forcing fluid in and out of the knot — flushing it.</li>
+          <li>Muscles contract when stimulated by nerve impulses, which takes the form of an electrical signal through the nervous system</li>
+          <li>When these muscles contract, there is a biomechanical reaction where ATP of cells (consider it the currency of muscle energy) is utilised to create work.</li>
+          <li>Muscle knots are localised regions of muscle tissue that can't relax — they're actually void of ATP but can't actually cross that energy threshold to relax. You can think analogously of it as a company going under with debt.</li>
+          <li>Within that muscle knot is actually a really poor biochemical environment, primarily characterised as a low pH (lots of lactic acid), that can't be flushed with the surrounding blood, hence the cramping.</li>
+          <li>When massaging, fluid is pushed in and out of the knot which is one of the fundamental mechanisms that releases it</li>
         </ul>
 
-        <p>That's a massive oversimplification, but it was my working model on the table, and it holds up at a high level.</p>
+        <p>That's a massive oversimplification, but it was my understanding of muscle knots on the table, and I validated it at a high level upon writing this up.</p>
 
         <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
 
-        <h2>The Concept</h2>
+        <h2>Concepting</h2>
 
         <p>
-          The goal is to move fluid through muscle knots using mechanical deformation. External pressure from a massage gun often fails to reach deep fibres. Inspired by a particularly deep thigh massage, I wondered whether you could massage tissue <em>from within</em> — by using electrical stimulation to trigger the muscle's own elastic resonance, creating significant internal deformation and fluid flow without any external compression.
+          The goal is to move fluid through muscle knots using mechanical deformation.
+          Inspired by a deep thigh massage, I wondered if we could massage tissue from within since external pressure often fails to reach deep fibers. By using electrical stimulation to trigger the muscle's own elastic resonance, we could create significant internal deformation and fluid flow. The challenge lies in identifying and driving the muscle at its specific resonant frequency, which likely varies based on muscle type, hydration, and biochemical state. Therefore can we run live frequency sweeps with sensors to identify the resonant frequency of the muscle in that particular condition?
+        </p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
+
+        <h2>Concept</h2>
+
+        <p>
+          A muscle knot releasing device that uses the muscles themselves to generate the mechanical deformation required to break up muscle knots by pulsing them with electricity at the mechanical resonant frequency of the muscle itself. The device sweeps through a range of activation frequencies to identify resonance, then resonates the muscle. The system may alternate with the resonant frequency of the lymphatic system to encourage lactic drainage.
         </p>
 
         <p>
-          The challenge is identifying and driving the muscle at its specific resonant frequency, which likely varies by muscle type, hydration, and biochemical state. The answer: run live frequency sweeps with onboard sensors to find the resonant frequency in real time.
+          The device is based on a TENS machine with built in sensors, such as an accelerometer, that can measure the spatial displacement and acceleration of the muscle.
         </p>
 
-        <p>
-          The device is TENS-based with built-in sensors — primarily an accelerometer — to measure the spatial displacement and acceleration of the muscle as it's being stimulated. It sweeps through a range of activation frequencies, identifies resonance from the sensor response, then locks in and drives the muscle at that frequency. The system may also alternate with the resonant frequency of the lymphatic system to encourage lactic acid drainage.
-        </p>
+        <p style="color:var(--muted);font-size:0.9rem;">AI generated concepting images:</p>
 
-        <div class="project-image-pair" style="margin:1.5rem 0;">
-          <figure style="margin:0;">
-            <img class="gallery-img" src="knotpulse-content/images/image7.png" alt="AI generated concept — KnotPulse device" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
-            <figcaption style="font-size:0.78rem;color:var(--muted);margin-top:0.35rem;">AI generated concept</figcaption>
-          </figure>
-          <figure style="margin:0;">
-            <img class="gallery-img" src="knotpulse-content/images/image8.png" alt="AI generated concept — KnotPulse device" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
-            <figcaption style="font-size:0.78rem;color:var(--muted);margin-top:0.35rem;">AI generated concept</figcaption>
-          </figure>
+        <div class="project-image-pair" style="margin:1rem 0 1.5rem;">
+          <img class="gallery-img" src="knotpulse-content/images/image7.png" alt="AI generated concept — KnotPulse device" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
+          <img class="gallery-img" src="knotpulse-content/images/image8.png" alt="AI generated concept — KnotPulse device" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
         </div>
 
-        <img class="gallery-img" src="knotpulse-content/images/image5.png" alt="Resonant frequencies of individual body parts" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);margin:1rem 0;" />
-        <p style="font-size:0.8rem;color:var(--muted);margin-top:-0.5rem;margin-bottom:1.5rem;font-style:italic;">Resonant frequencies of individual body parts. <a href="https://www.researchgate.net/figure/Biomechanical-human-body-model-showing-the-resonance-frequencies-of-individual-organs-5_fig5_336820094" target="_blank" rel="noopener">Source</a>.</p>
+        <p>Resonant frequency of different body parts (<a href="https://www.researchgate.net/figure/Biomechanical-human-body-model-showing-the-resonance-frequencies-of-individual-organs-5_fig5_336820094" target="_blank" rel="noopener">source</a>)</p>
+
+        <img class="gallery-img" src="knotpulse-content/images/image5.png" alt="Resonant frequencies of individual body parts" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);margin:0.75rem 0 0.35rem;" />
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1.5rem;">Simulated response</p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
+
+        <h2>Prototyping</h2>
+
+        <p>
+          This can be prototyped with an existing TENS machine, a set of relays, a controller and accelerometers to monitor the resonance effects.
+        </p>
+
+        <p>
+          This is something I intend to do once I finish my speaker project — as I am forcing myself to be diligent to not start multiple projects concurrently.
+        </p>
 
         <div class="project-image-pair" style="margin:1.5rem 0;">
           <figure style="margin:0;">
@@ -128,48 +143,27 @@
 
         <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
 
-        <h2>Prototyping</h2>
-
-        <p>
-          This can be prototyped with an existing TENS machine, a set of relays, a microcontroller, and accelerometers to monitor the resonance response. Fairly accessible parts list.
-        </p>
-
-        <p>
-          I intend to build this once I've finished the speaker project — I'm trying to be disciplined about not running multiple hardware builds at the same time.
-        </p>
-
-        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
-
-        <h2>Similar Products</h2>
-
-        <p>There are existing TENS and NMES devices on the market, though none specifically target knot release via resonant frequency identification.</p>
+        <h2>Similar products</h2>
 
         <div class="project-image-pair" style="margin:1.5rem 0;">
-          <figure style="margin:0;">
-            <img class="gallery-img" src="knotpulse-content/images/image10.png" alt="Saebostick NMES device" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
-          </figure>
-          <figure style="margin:0;">
-            <img class="gallery-img" src="knotpulse-content/images/image3.png" alt="Saebostick NMES device" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
-          </figure>
+          <img class="gallery-img" src="knotpulse-content/images/image10.png" alt="Saebostick NMES device" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
+          <img class="gallery-img" src="knotpulse-content/images/image3.png" alt="Saebostick NMES device" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
         </div>
-        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1.5rem;"><a href="https://uk.saebo.com/shop/saebostim-one/" target="_blank" rel="noopener">Saebostick</a> — a wireless, wearable NMES device marketed for muscle strengthening and re-education. Closer to the physio end of the spectrum.</p>
+        <p style="margin-bottom:1.5rem;"><a href="https://uk.saebo.com/shop/saebostim-one/" target="_blank" rel="noopener">Saebostick</a> — All-body wireless, wearable neuromuscular electrical stimulation (NMES) device that works to strengthen, re-educate muscles, and help relieve pain</p>
 
         <div class="project-image-pair" style="margin:1.5rem 0;">
-          <figure style="margin:0;">
-            <img class="gallery-img" src="knotpulse-content/images/image1.png" alt="Flowlife TENS device" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
-          </figure>
-          <figure style="margin:0;">
-            <img class="gallery-img" src="knotpulse-content/images/image6.png" alt="Flowlife app" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
-          </figure>
+          <img class="gallery-img" src="knotpulse-content/images/image1.png" alt="Flowlife TENS device" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
+          <img class="gallery-img" src="knotpulse-content/images/image6.png" alt="Flowlife app" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);" />
         </div>
-        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.75rem;"><a href="https://www.flowlife.com/uk/product/tens-by-flowlife/" target="_blank" rel="noopener">Flowlife TENS</a> — broadly marketed for pain and recovery. Most interesting as a proof that these devices can cause significant muscle contractions. The video below shows this clearly.</p>
+        <p><a href="https://www.flowlife.com/uk/product/tens-by-flowlife/" target="_blank" rel="noopener">Flowlife</a> — which shows that this device can cause significant contractions (see video below). Generally marketed for 'everything'.</p>
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.75rem;">Flowtens Connect provides three treatment options for personalized pain relief tailored to various needs and situations. Use our RECOVERY programs to reduce tension in muscles and joints, our MUSCLE PAIN programs to manage muscle pain after exercise and long workdays, and our six specially designed PERIOD PAIN programs to alleviate menstrual pain. With these versatile solutions, Flowtens Connect can help you achieve optimal health and well-being regardless of your challenges. The Flowlife TENS app, compatible with iOS and Android, allows you to easily select your desired treatment and specify how long you want to treat the painful area.</p>
 
         <video controls style="width:100%;border-radius:var(--radius);border:1px solid var(--border);margin-bottom:1.5rem;">
           <source src="../Flowlifevid%20example.mp4" type="video/mp4">
         </video>
 
-        <img class="gallery-img" src="knotpulse-content/images/image9.png" alt="Amazon TENS devices" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);margin:1rem 0;" />
-        <p style="font-size:0.85rem;color:var(--muted);margin-top:-0.5rem;margin-bottom:1rem;">Generic TENS devices on <a href="https://www.amazon.co.uk/s?k=tens+machine&i=drugstore" target="_blank" rel="noopener">Amazon</a> — now a pure commodity market. One thing I noticed: a wireless charging case design, very AirPods-like. Nice form factor idea for something that has to live in a bag.</p>
+        <p style="margin-bottom:0.75rem;">Random <a href="https://www.amazon.co.uk/s?k=tens+machine&i=drugstore" target="_blank" rel="noopener">amazon</a> product — love the wireless charging case, akin to airpods.</p>
+        <img class="gallery-img" src="knotpulse-content/images/image9.png" alt="Amazon TENS devices" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);margin-bottom:1.5rem;" />
 
         <div class="project-nav">
           <a href="../../../projects.html">&larr; All projects</a>
