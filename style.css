@@ -357,25 +357,11 @@ footer {
 }
 
 /* ── Split timeline ──────────────────────────────────────────── */
-/* Scale: 25px per month. Jun 2026 = 0 (top). Container height 2300px. */
-
-.tl-col-label {
-  position: absolute;
-  top: -1.8rem;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.tl-col-left  { right: 52%; }
-.tl-col-right { left: 52%; }
-
 .split-timeline {
   position: relative;
-  height: 2300px;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .split-timeline::before {
@@ -389,60 +375,23 @@ footer {
   transform: translateX(-50%);
 }
 
-/* Year markers straddling the center line */
-.tl-year {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.6rem;
-  font-weight: 500;
-  color: var(--muted);
-  background: var(--bg);
-  padding: 1px 0.3rem;
-  line-height: 1;
-  z-index: 1;
-  pointer-events: none;
-  user-select: none;
-}
-
 .tl-entry {
-  position: absolute;
+  position: relative;
+  margin-bottom: 2rem;
 }
 
 .tl-entry.tl-left {
-  right: 50%;
-  width: calc(50% - 2.5rem);
+  margin-right: 50%;
   padding-right: 2.5rem;
   text-align: right;
 }
 
 .tl-entry.tl-right {
-  left: 50%;
-  width: calc(50% - 2.5rem);
+  margin-left: 50%;
   padding-left: 2.5rem;
 }
 
-/* Duration bar — rises from start-date dot toward present */
-.tl-entry::before {
-  content: '';
-  position: absolute;
-  top: calc(0.35rem + 4.5px);
-  width: 3px;
-  height: var(--tl-dur, 0px);
-  border-radius: 1.5px 1.5px 0 0;
-  transform: translateY(-100%);
-  opacity: 0.5;
-}
-
-.tl-entry.tl-left::before  { right: -0.5px; }
-.tl-entry.tl-right::before { left: -0.5px; }
-
-.tl-entry.tl-edu::before       { background: #7c3aed; }
-.tl-entry.tl-work::before      { background: var(--accent); }
-.tl-entry.tl-intern::before    { background: #0891b2; }
-.tl-entry.tl-volunteer::before { background: #059669; }
-
-/* Dot on the center line */
+/* Dot sitting on the center line */
 .tl-entry::after {
   content: '';
   position: absolute;
@@ -452,18 +401,18 @@ footer {
   border-radius: 50%;
   background: var(--surface);
   border: 2px solid var(--border);
-  z-index: 2;
 }
 
 .tl-entry.tl-left::after  { right: -5px; }
 .tl-entry.tl-right::after { left: -5px; }
 
+/* Type colours */
 .tl-entry.tl-edu::after       { border-color: #7c3aed; background: #7c3aed; }
 .tl-entry.tl-work::after      { border-color: var(--accent); background: var(--accent); }
 .tl-entry.tl-intern::after    { border-color: #0891b2; background: var(--surface); }
 .tl-entry.tl-volunteer::after { border-color: #059669; background: var(--surface); }
 
-/* Module collapsibles */
+/* Module collapsibles inside left-side entries */
 .tl-modules {
   margin-top: 0.5rem;
   text-align: left;
@@ -516,30 +465,14 @@ footer {
   white-space: nowrap;
 }
 
-/* Mobile: revert to flow layout */
+/* Mobile: collapse to single left-aligned column */
 @media (max-width: 700px) {
-  .split-timeline {
-    height: auto;
-  }
-
   .split-timeline::before { left: 0.4rem; transform: none; }
-
-  .tl-col-label,
-  .tl-year { display: none; }
-
-  .tl-entry {
-    position: relative;
-    top: auto !important;
-    left: auto;
-    right: auto;
-    width: auto;
-    margin-bottom: 1.5rem;
-  }
-
-  .tl-entry::before { display: none; }
 
   .tl-entry.tl-left,
   .tl-entry.tl-right {
+    margin-left: 0;
+    margin-right: 0;
     padding-left: 1.75rem;
     padding-right: 0;
     text-align: left;
