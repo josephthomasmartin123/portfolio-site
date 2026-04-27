@@ -1137,6 +1137,31 @@ main img:not(.card-image) {
   border-radius: 3px;
 }
 
+.feed-entry--update {
+  padding: 0.6rem 0;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--border);
+  margin-left: 0;
+}
+
+.feed-entry--update .feed-title {
+  font-size: 0.855rem;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.feed-update-tag {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+  background: #eff6ff;
+  padding: 0.05rem 0.35rem;
+  border-radius: 3px;
+}
+
 @media (max-width: 640px) {
   .feed-entry {
     grid-template-columns: 1fr;

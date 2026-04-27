@@ -137,6 +137,48 @@
 
         <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
 
+        <h2>Does the maths work out?</h2>
+
+        <p>
+          I went back and ran some numbers to check whether this is actually physically viable. The core question: given a 222nm LED array on a glasses frame, does the dose a pathogen receives during a single transit through the irradiation veil exceed the kill threshold?
+        </p>
+
+        <p>
+          The model is straightforward. A particle crossing a veil of thickness <em>t</em> at velocity <em>v</em> spends time <em>t/v</em> in the irradiated zone, accumulating dose = irradiance &times; time. Irradiance at the veil drops with the inverse square of distance from the LEDs. Published kill constants for coronaviruses (from the <a href="https://blueprintbiosecurity.org/u/2025/06/Blueprint-for-Far-UVC-V1.0-9.22.25.pdf" target="_blank" rel="noopener">Blueprint for Far-UVC 2025</a>) give the lethal dose thresholds. Sedentary breathing pulls air through the veil at roughly 1&ndash;3 cm/s, which means even a 5mm-thick veil gives the pathogen about a quarter of a second of irradiation - a surprisingly useful time budget.
+        </p>
+
+        <p>
+          The chart below shows the result across a range of breathing speeds and pathogen susceptibility estimates.
+        </p>
+
+        <img class="gallery-img" src="simulation/output/fig3_operating_window.png" alt="Operating window — LEDs required for 90% kill vs breathing velocity" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);margin:1rem 0;" />
+        <p style="font-size:0.8rem;color:var(--muted);margin-top:-0.5rem;margin-bottom:1.5rem;font-style:italic;">Operating window at h&nbsp;=&nbsp;10&nbsp;cm. All three pathogen scenarios (pessimistic through optimistic) sit solidly in the red &ldquo;impractical&rdquo; zone across the full breathing speed range. The dotted line shows the 500&nbsp;mA total current limit - roughly 2 LEDs at current technology.</p>
+
+        <p>
+          At 10cm LED-to-veil distance, you need between 1,000 and 5,500 LEDs for 90% kill during normal breathing, depending on which pathogen you&rsquo;re modelling. State-of-the-art 222nm LED chips (FBH Berlin, 2024) produce 0.2&nbsp;mW at 222nm each, driven at 200&nbsp;mA. That puts the device somewhere between 200&nbsp;A and 1,100&nbsp;A of total current draw. That&rsquo;s not a glasses, it&rsquo;s a power station.
+        </p>
+
+        <div class="project-callout">
+          <p><strong>The physics works. The LEDs don&rsquo;t - yet.</strong> This is a technology readiness problem, not a fundamental flaw in the concept. The required dose is physically achievable; the bottleneck is that 222nm LED efficiency is currently around 0.02% EQE, roughly two orders of magnitude below what the application needs.</p>
+        </div>
+
+        <p>
+          An obvious question: if room-scale UVC systems work, why doesn&rsquo;t this? The answer is timescale. Room systems don&rsquo;t kill pathogens in a single transit - they irradiate the air continuously and pathogens linger for minutes. At a typical room fluence rate of 1&nbsp;&mu;W/cm&sup2;, D90 takes about 9 minutes of air dwell time. That&rsquo;s fine when aerosols hang in the air for half an hour. But it also means room UVC provides almost no protection against direct close-range exposure - the exhaled plume from someone talking at you reaches you in 1&ndash;2 seconds, delivering roughly 0.4% of the D90 dose. The personal device concept is solving a genuinely different problem that room systems can&rsquo;t address.
+        </p>
+
+        <p>
+          The chart below shows what LED improvement would be needed to reach feasibility.
+        </p>
+
+        <img class="gallery-img" src="simulation/output/fig5_technology_gap.png" alt="Technology gap — optical power per LED chip required for feasibility" style="width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);margin:1rem 0;" />
+        <p style="font-size:0.8rem;color:var(--muted);margin-top:-0.5rem;margin-bottom:1.5rem;font-style:italic;">Technology gap at nominal conditions (h&nbsp;=&nbsp;10&nbsp;cm, t&nbsp;=&nbsp;5&nbsp;mm, v&nbsp;=&nbsp;2&nbsp;cm/s). Vertical lines show published FBH Berlin LED performance at 222&ndash;233&nbsp;nm. The conservative-case feasibility boundary (N&nbsp;&le;&nbsp;15 LEDs) requires roughly 47&nbsp;mW per chip &mdash; a 235&times; improvement on current 222&nbsp;nm SOTA, equivalent to moving from 0.02% to ~4.3% EQE. Longer wavelengths already approach this (233&nbsp;nm reaches 1.1% EQE), but they&rsquo;re further from the safe operating window for skin exposure.</p>
+
+        <p>
+          Getting to ~2&ndash;5% EQE at 222nm is aggressive but not implausible &mdash; the same improvement happened at 270nm over the last decade and is now close to happening at 254nm. Blueprint Biosecurity forecasts competitive 222nm LEDs on a roughly ten-year horizon. If that trajectory holds, the wearable form factor starts to become physically realistic.
+        </p>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0;">
+
         <h2>Why Not Just Use Masks?</h2>
 
         <p>Masks work, but they require you to actually wear them correctly, all the time.</p>
