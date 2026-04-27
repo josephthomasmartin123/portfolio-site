@@ -1138,16 +1138,26 @@ main img:not(.card-image) {
 }
 
 .feed-entry--update {
-  padding: 0.6rem 0;
-  padding-left: 0.85rem;
+  display: block;
+  padding: 0.65rem 0 0.65rem 0.85rem;
   border-left: 2px solid var(--border);
-  margin-left: 0;
 }
 
 .feed-entry--update .feed-title {
   font-size: 0.855rem;
   font-weight: 500;
   margin-bottom: 0;
+}
+
+.feed-update-project {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.feed-update-date {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-left: auto;
 }
 
 .feed-update-tag {
@@ -1194,6 +1204,15 @@ main img:not(.card-image) {
   min-width: 210px;
   z-index: 200;
   padding: 0.35rem 0;
+}
+
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 0;
+  right: 0;
+  height: 8px;
 }
 
 .nav-dropdown:hover .dropdown-menu,
