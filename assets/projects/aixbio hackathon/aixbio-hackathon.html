@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AIxBio Hackathon &mdash; Joseph Martin</title>
+  <title>AIxBio Hackathon - Joseph Martin</title>
   <link rel="stylesheet" href="../../../style.css" />
 </head>
 <body>
@@ -37,7 +37,7 @@
 
       <header class="page-header">
         <h1>AIxBio Hackathon</h1>
-        <p>Exploring the solution space of AI-enabled bioterrorism.</p>
+        <p>Exploring the solution space of AI-enabled biothreats.</p>
       </header>
 
       <div class="project-meta">
@@ -108,23 +108,13 @@
           legitimate actors matters just as much as blocking bad ones.
         </p>
 
-        <!-- ── High Level Objective ───────────────────────────────── -->
-        <h2 id="objective">High Level Objective</h2>
-
         <div class="project-callout">
           <strong>Core objective:</strong> Generate a large, high-fidelity synthetic dataset of action
-          sequences &mdash; "stories" &mdash; modelling how different types of actors might attempt
+          sequences - "stories" - modelling how different types of actors might attempt
           each stage of a biological threat pathway. By knowing the full space of realistic ways
           an actor could complete a given step, policymakers can identify chokepoints, evaluate
           friction imposed on legitimate researchers, and discover gaps in current screening regimes.
         </div>
-
-        <p>
-          The dataset is intended to feed a simulation engine that stress-tests biosecurity
-          detection and intervention policies. Knowing the full space of realistic approaches
-          lets policymakers identify chokepoints, evaluate the friction imposed on legitimate
-          researchers by a given policy, and discover gaps in current screening regimes.
-        </p>
 
         <img class="project-image" src="images/image3.png" alt="High-level diagram of the hackathon project architecture" loading="lazy" />
         <p style="font-size:0.8rem; color: var(--muted); margin-top: 0.4rem;">
@@ -135,21 +125,10 @@
         <h2 id="dataset">Dataset Generation</h2>
 
         <p>
-          The biological threat lifecycle was broken down into a series of steps &mdash;
+          The biological threat lifecycle was broken down into a series of steps -
           milestones that an actor must pass through to achieve a bioweapon. This is modelled
           as a <a href="https://www.youtube.com/watch?v=1Yh5S-S6wsI" target="_blank" rel="noopener">directed acyclic graph (DAG)</a>
-          with dependency functions between nodes. An obfuscated example:
-        </p>
-
-        <ol>
-          <li>Acquiring the know-how to make a virus</li>
-          <li>Acquiring the materials</li>
-          <li>Manufacturing the virus</li>
-          <li>etc.</li>
-        </ol>
-
-        <p>
-          Logically, you can't proceed from one step without completing the prior.
+          with dependency functions between nodes. Logically, you can't proceed from one step without completing the prior.
           <em>Note: this is not the real DAG, which was redacted as it's not something to share publicly.</em>
         </p>
 
@@ -158,14 +137,14 @@
             <img src="images/image1.png" alt="Obfuscated DAG outline showing threat milestone sequence" loading="lazy"
               style="max-height: 480px; width: auto; display: block;" />
             <p style="font-size:0.8rem; color: var(--muted); margin-top: 0.4rem; max-width: 200px;">
-              The obfuscated DAG outline &mdash; each node is a milestone in the threat pathway.
+              The obfuscated DAG outline - each node is a milestone in the threat pathway.
             </p>
           </div>
           <div style="flex: 1; min-width: 260px;">
             <img src="images/image2.png" alt="DAG representation for a single step, showing the solution space across multiple routes" loading="lazy"
               style="max-width: 100%; display: block;" />
             <p style="font-size:0.8rem; color: var(--muted); margin-top: 0.4rem;">
-              A representation of the DAG for a single step &mdash; the potential solution space
+              A representation of the DAG for a single step - the potential solution space
               for acquiring knowledge can pass through different points or combinations of nodes.
             </p>
           </div>
@@ -181,7 +160,7 @@
         </p>
 
         <p>
-          To generate the solution space, we simulated a range of personas &mdash; nefarious
+          To generate the solution space, we simulated a range of personas - nefarious
           and virtuous versions of PhD researchers, lab technicians, students, public servants,
           and others. Some personas are only worth simulating in a nefarious mode (primarily
           non-scientists operating at home). For each persona, at each stage in the DAG, we
@@ -211,7 +190,7 @@
 
         <p>
           Before the specific findings, it's worth thinking about what the most important
-          stages for intervention are &mdash; and it's at those points of potential process failure
+          stages for intervention are, and it's at those points of potential process failure
           and being caught. The models knew they were circumventing monitors for harmful
           behaviour (through things like ChatGPT) and therefore brainstormed around it.
         </p>
@@ -221,7 +200,7 @@
           non-obvious to a genuine bad actor, but still surprising to see recommended by an LLM.</em>
         </p>
 
-        <h3>Intervention point 1 &mdash; securing biological samples</h3>
+        <h3>Intervention point 1 - securing biological samples</h3>
         <div class="project-callout">
           <strong>Strongest intervention point:</strong> securing biological samples (e.g. ordering DNA).
           There are only a limited number of ways of achieving this, making it a natural chokepoint
@@ -233,13 +212,13 @@
           <li>Splitting samples across multiple separate orders</li>
           <li>Colluding with a network to order under different names</li>
           <li>Exploiting biologists already with credentials (e.g. radicalised lab technicians)</li>
-          <li>Blackmail &mdash; and strategies to elicit the blackmail of people positioned to acquire materials</li>
+          <li>Blackmail - and strategies to elicit the blackmail of people positioned to acquire materials</li>
         </ul>
 
-        <h3>Intervention point 2 &mdash; knowledge acquisition</h3>
+        <h3>Intervention point 2 - knowledge acquisition</h3>
         <div class="project-callout">
           <strong>Knowledge acquisition is hard to control.</strong> The models were adept at
-          framing requests in ways that avoid triggering safety filters &mdash; exploiting the gap
+          framing requests in ways that avoid triggering safety filters - exploiting the gap
           between obvious harmful language and genuine adversarial intent.
         </div>
         <p>Common techniques included:</p>
@@ -248,7 +227,7 @@
           <li>Tricking the AI into believing it was assisting with alignment research or red-teaming</li>
         </ul>
 
-        <h3>Intervention point 3 &mdash; hardware</h3>
+        <h3>Intervention point 3 - hardware</h3>
         <div class="project-callout">
           <strong>Hardware is very hard to control.</strong> For every piece of equipment required,
           an LLM can be engineered to find acquisition routes that don't pass through any effective
@@ -257,13 +236,13 @@
         <p>Common workarounds included:</p>
         <ul>
           <li>Prepaid credit cards, crypto payments, and online vendors like AliExpress</li>
-          <li>Dual-use of common equipment &mdash; pressure cooker sterilisation systems, DIY centrifuges, etc.</li>
+          <li>Dual-use of common equipment - pressure cooker sterilisation systems, DIY centrifuges, etc.</li>
         </ul>
 
-        <h3>The most surprising finding &mdash; multi-step strategic thinking</h3>
+        <h3>The most surprising finding - multi-step strategic thinking</h3>
         <div class="project-callout">
           <strong>The sequencing was what made it genuinely surprising.</strong> The models weren't
-          responding to isolated questions &mdash; they were generating strategies that anticipated
+          responding to isolated questions - they were generating strategies that anticipated
           being caught at later stages and worked backwards from that to adjust what they did earlier.
           That kind of multi-step thinking across a whole threat lifecycle is not what most people
           picture when they think about what these systems are capable of.
@@ -272,8 +251,8 @@
         <p>
           Something that connects well here is an article on how
           <a href="https://labelbox.com/blog/the-ai-safety-illusion-why-current-safety-datasets-fool-us-on-model-safety/" target="_blank" rel="noopener">safety benchmarks are inflated because AI safety datasets don't reflect genuine adversarial behaviour</a>.
-          The finding is that current benchmarks are full of prompts with obvious harmful language &mdash;
-          explicit statements of malicious intent &mdash; and models have learned to refuse those patterns.
+          The finding is that current benchmarks are full of prompts with obvious harmful language -
+          explicit statements of malicious intent - and models have learned to refuse those patterns.
           But if you preserve the harmful intent and reframe it in more neutral language ("intent
           laundering"), the same models that appeared safe become unsafe in the majority of cases.
         </p>
@@ -281,7 +260,7 @@
         <p>
           This is directly relevant to what we found: the personas we simulated had no incentive
           to use obvious language, so the stories naturally ended up looking less like the kind
-          of prompt a safety benchmark would flag. To close the circle &mdash; what we found was that
+          of prompt a safety benchmark would flag. To close the circle - what we found was that
           the agents were researching "how to make kombucha" to get around AI safety filters that
           stop them making bioweapons, with the knowledge that the methods are transferable.
         </p>
