@@ -1,0 +1,79 @@
+<svg viewBox="0 0 900 780" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b6b6b" />
+    </marker>
+  </defs>
+
+  <!-- Me, CEO -->
+  <rect x="380" y="16" width="140" height="52" rx="8" fill="#f5efe6" stroke="#c9b896" />
+  <text x="450" y="47" text-anchor="middle" font-size="15" font-weight="600" fill="#1a1a1a">Me, CEO</text>
+
+  <!-- arrow CEO -> Chief of Staff -->
+  <line x1="450" y1="68" x2="450" y2="118" stroke="#6b6b6b" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="466" y="90" font-size="11.5" fill="#6b6b6b">Telegram /</text>
+  <text x="466" y="104" font-size="11.5" fill="#6b6b6b">Claude CLI</text>
+
+  <!-- wiki boundary -->
+  <rect x="40" y="118" width="820" height="440" rx="14" fill="#f2f0fb" stroke="#c9c2ec" />
+  <rect x="60" y="136" width="185" height="26" rx="5" fill="#e2ddf7" />
+  <text x="70" y="153" font-size="12" fill="#4a4370">Obsidian company wiki</text>
+
+  <!-- Chief of Staff -->
+  <rect x="375" y="128" width="150" height="60" rx="8" fill="#dcf3e4" stroke="#8fd1a8" />
+  <text x="450" y="153" text-anchor="middle" font-size="14" font-weight="600" fill="#1a1a1a">Chief of Staff</text>
+  <text x="450" y="171" text-anchor="middle" font-size="12" fill="#4b6b57">(Cowork)</text>
+
+  <!-- lines to CTO/CMO/CFO -->
+  <line x1="450" y1="188" x2="270" y2="258" stroke="#6b6b6b" stroke-width="1.5" marker-end="url(#arrow)" />
+  <line x1="450" y1="188" x2="450" y2="258" stroke="#6b6b6b" stroke-width="1.5" marker-end="url(#arrow)" />
+  <line x1="450" y1="188" x2="700" y2="258" stroke="#6b6b6b" stroke-width="1.5" marker-end="url(#arrow)" />
+
+  <!-- CTO -->
+  <rect x="185" y="262" width="170" height="60" rx="8" fill="#d7f0ee" stroke="#7cc9c3" />
+  <text x="270" y="287" text-anchor="middle" font-size="14" font-weight="600" fill="#1a1a1a">CTO</text>
+  <text x="270" y="305" text-anchor="middle" font-size="12" fill="#3c6663">(Claude Code)</text>
+
+  <!-- CMO -->
+  <rect x="370" y="262" width="160" height="60" rx="8" fill="#fbe1e0" stroke="#e5a6a3" />
+  <text x="450" y="287" text-anchor="middle" font-size="14" font-weight="600" fill="#1a1a1a">CMO</text>
+  <text x="450" y="305" text-anchor="middle" font-size="12" fill="#7a4442">(Cowork)</text>
+
+  <!-- CFO -->
+  <rect x="620" y="262" width="160" height="60" rx="8" fill="#fdf1cf" stroke="#e6cd7e" />
+  <text x="700" y="287" text-anchor="middle" font-size="14" font-weight="600" fill="#1a1a1a">CFO</text>
+  <text x="700" y="305" text-anchor="middle" font-size="12" fill="#7a6a2e">(Cowork)</text>
+
+  <!-- CTO -> Product / Web Dev / DevOps -->
+  <line x1="230" y1="322" x2="120" y2="392" stroke="#6b6b6b" stroke-width="1.5" marker-end="url(#arrow)" />
+  <line x1="270" y1="322" x2="270" y2="392" stroke="#6b6b6b" stroke-width="1.5" marker-end="url(#arrow)" />
+  <line x1="310" y1="322" x2="410" y2="392" stroke="#6b6b6b" stroke-width="1.5" marker-end="url(#arrow)" />
+
+  <!-- Product -->
+  <rect x="60" y="396" width="150" height="60" rx="8" fill="#dbe9fb" stroke="#8fb8ea" />
+  <text x="135" y="421" text-anchor="middle" font-size="14" font-weight="600" fill="#1a1a1a">Product</text>
+  <text x="135" y="439" text-anchor="middle" font-size="12" fill="#39537a">(n8n)</text>
+
+  <!-- Web Dev -->
+  <rect x="230" y="396" width="150" height="60" rx="8" fill="#dbe9fb" stroke="#8fb8ea" />
+  <text x="305" y="428" text-anchor="middle" font-size="14" font-weight="600" fill="#1a1a1a">Web Dev</text>
+
+  <!-- DevOps -->
+  <rect x="400" y="396" width="150" height="60" rx="8" fill="#dbe9fb" stroke="#8fb8ea" />
+  <text x="475" y="428" text-anchor="middle" font-size="14" font-weight="600" fill="#1a1a1a">DevOps</text>
+
+  <!-- convergence lines to Mission Control -->
+  <line x1="135" y1="456" x2="450" y2="618" stroke="#6b6b6b" stroke-width="1.5" />
+  <line x1="305" y1="456" x2="450" y2="618" stroke="#6b6b6b" stroke-width="1.5" />
+  <line x1="475" y1="456" x2="450" y2="618" stroke="#6b6b6b" stroke-width="1.5" />
+  <line x1="450" y1="322" x2="450" y2="618" stroke="#6b6b6b" stroke-width="1.5" />
+  <line x1="700" y1="322" x2="450" y2="618" stroke="#6b6b6b" stroke-width="1.5" marker-end="url(#arrow)" />
+
+  <!-- Mission Control -->
+  <rect x="370" y="622" width="160" height="64" rx="8" fill="#dcf3e4" stroke="#8fd1a8" />
+  <text x="450" y="649" text-anchor="middle" font-size="14" font-weight="600" fill="#1a1a1a">Mission</text>
+  <text x="450" y="667" text-anchor="middle" font-size="14" font-weight="600" fill="#1a1a1a">Control</text>
+
+  <!-- feedback loop back to CEO -->
+  <path d="M 370 654 C 60 654, 30 250, 30 130 C 30 60, 200 42, 378 40" fill="none" stroke="#6b6b6b" stroke-width="1.5" marker-end="url(#arrow)" />
+</svg>

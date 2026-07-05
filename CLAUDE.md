@@ -50,9 +50,12 @@ Every page shares the same nav. Active page uses `aria-current="page"`. CV is em
           <li><a href="assets/projects/Fitnessinsights/fitness_portfolio.html">Fitness Insights</a></li>
           <li><a href="assets/projects/knotpulse/index.html">KnotPulse</a></li>
           <li><a href="assets/projects/TechConnect/Sitedemo.html">TechConnect</a></li>
+          <li><a href="assets/projects/UVCGlasses/index.html">Far UVC Glasses</a></li>
           <li class="dropdown-divider"></li>
           <li><a href="assets/projects/Multi%20agent%20eval%20arena/multi-agent-arena.html">Multi Agent Arena</a></li>
           <li><a href="assets/projects/red%20team%20sim/red-team-sim.html">LLM Red-Teaming</a></li>
+          <li><a href="assets/projects/aixbio%20hackathon/aixbio-hackathon.html">AIxBio Hackathon</a></li>
+          <li><a href="assets/projects/Iris%20Briefings/iris-briefings.html">Iris Briefings</a></li>
           <!-- /AUTO-SYNC -->
         </ul>
       </li>
@@ -96,11 +99,14 @@ For project pages (three levels deep), all hrefs need `../../../` prefix.
 |---|---|---|
 | Nixie Tube Speakers | `assets/projects/Nixie speakers/` | `nixie-speakers.html` |
 | 3D-Printed Speakers | `assets/projects/Speaker project 2/` | `3d-speakers.html` |
+| Fitness Insights | `assets/projects/Fitnessinsights/` | `fitness_portfolio.html` |
+| KnotPulse | `assets/projects/knotpulse/` | `index.html` |
+| TechConnect | `assets/projects/TechConnect/` | `Sitedemo.html` |
+| Far UVC Glasses | `assets/projects/UVCGlasses/` | `index.html` |
 | Multi Agent Arena | `assets/projects/Multi agent eval arena/` | `multi-agent-arena.html` |
 | Red Team Sim | `assets/projects/red team sim/` | `red-team-sim.html` |
-| KnotPulse | `assets/projects/knotpulse/` | `index.html` |
-| FitnessInsights | `assets/projects/Fitnessinsights/` | `fitness_portfolio.html` |
-| TechConnect | `assets/projects/TechConnect/` | `Sitedemo.html` |
+| AIxBio Hackathon | `assets/projects/aixbio hackathon/` | `aixbio-hackathon.html` |
+| Iris Briefings | `assets/projects/Iris Briefings/` | `iris-briefings.html` |
 <!-- /AUTO-SYNC -->
 
 ### KnotPulse & FitnessInsights

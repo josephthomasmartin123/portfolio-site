@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iris Briefings — Joseph Martin</title>
+  <link rel="stylesheet" href="../../../style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a class="nav-brand" href="../../../index.html">Joseph Martin</a>
+      <ul class="nav-links">
+        <li class="nav-dropdown">
+          <a href="../../../projects.html">Projects</a>
+          <ul class="dropdown-menu">
+            <li><a href="../../../assets/projects/Nixie%20speakers/nixie-speakers.html">Nixie Tube Speakers</a></li>
+            <li><a href="../../../assets/projects/Speaker%20project%202/3d-speakers.html">3D-Printed Speakers</a></li>
+            <li><a href="../../../assets/projects/Fitnessinsights/fitness_portfolio.html">Fitness Insights</a></li>
+            <li><a href="../../../assets/projects/knotpulse/index.html">KnotPulse</a></li>
+            <li><a href="../../../assets/projects/TechConnect/Sitedemo.html">TechConnect</a></li>
+            <li><a href="../../../assets/projects/UVCGlasses/index.html">Far UVC Glasses</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a href="../../../assets/projects/Multi%20agent%20eval%20arena/multi-agent-arena.html">Multi Agent Arena</a></li>
+            <li><a href="../../../assets/projects/red%20team%20sim/red-team-sim.html">LLM Red-Teaming</a></li>
+            <li><a href="../../../assets/projects/aixbio%20hackathon/aixbio-hackathon.html">AIxBio Hackathon</a></li>
+            <li><a href="../../../assets/projects/Iris%20Briefings/iris-briefings.html">Iris Briefings</a></li>
+          </ul>
+        </li>
+        <li><a href="../../../about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <header class="page-header">
+        <h1>Iris Briefings</h1>
+        <p>An AI-agent-run company — a team of Claude agents with their own roles, wiki, and inboxes, running the business day to day.</p>
+      </header>
+
+      <div class="project-meta">
+        <span><strong>Type</strong> AI-run company</span>
+        <span><strong>Site</strong> <a href="https://irisbriefings.com/about" target="_blank" rel="noopener">irisbriefings.com/about</a></span>
+        <span><strong>Stack</strong> Claude Code, Cowork, n8n, MCP servers</span>
+      </div>
+
+      <div class="project-body">
+
+        <p style="font-size: 0.85rem; color: var(--muted); font-style: italic;">
+          Quick note: this is an AI-generated posting, requested by Joe, to get something up documenting the work on Iris while the fuller writeup is still in progress.
+        </p>
+
+        <p>
+          Iris Briefings is a company I've been building that's run almost entirely by AI agents.
+          I'm the CEO, but the day-to-day — strategy, engineering, marketing, finance, ops — is
+          handled by a team of Claude agents, each with their own role, that coordinate with each
+          other rather than with me directly. The full story, and what Iris actually does, lives on
+          the <a href="https://irisbriefings.com/about" target="_blank" rel="noopener">about page</a> —
+          that's the best place to start. I'll be writing more here about how the agent company
+          itself is built as the project develops.
+        </p>
+
+        <h2>An AI-run company structure</h2>
+        <p>
+          Instructions flow down from me to a Chief of Staff agent (running in Cowork), which I talk
+          to over Telegram or the Claude CLI. From there, the Chief of Staff delegates to a CTO
+          (Claude Code), a CMO, and a CFO (both Cowork), each of whom run their own reports —
+          Product on n8n, Web Dev, and DevOps sit under the CTO. Everything converges on a shared
+          Mission Control, and results flow back up to me.
+        </p>
+
+        <img class="project-image"
+          src="images/org-chart.svg"
+          alt="Iris Briefings org chart — CEO to Chief of Staff to CTO, CMO, CFO, down to Product, Web Dev, DevOps, and Mission Control"
+          loading="lazy" />
+
+        <p>
+          The part I find most interesting isn't the org chart itself, it's how the agents actually
+          coordinate. There's no shared codebase of state the way a normal app would have — instead,
+          every agent reads and writes to a shared Obsidian company wiki, and sends messages to each
+          other through individual agent inboxes. An agent picks up its inbox, checks the wiki for
+          context, does its work, updates the wiki, and messages whoever needs to know next. It's a
+          slower, more legible substitute for the kind of shared memory a single process would have,
+          and it means I can go back and read exactly what any agent knew and decided at any point.
+        </p>
+
+        <h2>What it's built with</h2>
+        <p>
+          Roughly the stack and skills that went into this, in no particular order:
+        </p>
+        <ul>
+          <li><strong>Agentic tooling</strong> — Claude Code and Cowork running the actual agent roles, coordinating through MCP servers</li>
+          <li><strong>Company wiki &amp; comms</strong> — an Obsidian vault as the shared company wiki, with per-agent inboxes for message passing between roles</li>
+          <li><strong>Workflow automation</strong> — n8n for the Product function and other scheduled/triggered work</li>
+          <li><strong>Research</strong> — SERP API, Tavily, and Exa for web search and information gathering</li>
+          <li><strong>Media generation</strong> — image gen-AI, ffmpeg for video/audio processing, and the ElevenLabs API for voice</li>
+          <li><strong>Web &amp; infrastructure</strong> — web design, Railway and Vercel for hosting, and payment gating for the product itself</li>
+        </ul>
+
+        <div class="project-callout">
+          More posts on how the agent company is built, what's broken, and what I've changed since
+          launch will follow. For now, <a href="https://irisbriefings.com/about" target="_blank" rel="noopener">irisbriefings.com/about</a>
+          is the place to go for what Iris actually is.
+        </div>
+
+      </div>
+
+      <div class="project-nav">
+        <a href="../../../projects.html">&larr; All projects</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; <span id="yr"></span> Joseph Martin &mdash;
+      <a href="https://www.linkedin.com/in/joseph-martin1/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+  <script src="../../../lightbox.js"></script>
+</body>
+</html>
