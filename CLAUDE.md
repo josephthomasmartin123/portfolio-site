@@ -8,11 +8,10 @@ Plain HTML/CSS/vanilla JS. No frameworks, no build tools, no npm.
 portfolio-site/
 ├── index.html          # Homepage (shows all projects)
 ├── projects.html       # Projects listing
-├── about.html          # About + CV (merged)
+├── about.html          # About page
 ├── style.css           # Single stylesheet — all styles live here
 ├── lightbox.js         # Lightbox for project page images
 └── assets/
-    ├── Joseph Martin CV March 2026.pdf
     └── projects/
         └── <Project Name>/   # One folder per project
             ├── <page>.html   # Project detail page
@@ -34,7 +33,7 @@ Using `../../` is a **common bug** — it resolves to `assets/style.css` which d
 
 ## Nav
 
-Every page shares the same nav. Active page uses `aria-current="page"`. CV is embedded at the bottom of about.html — there is no separate CV nav link.
+Every page shares the same nav. Active page uses `aria-current="page"`. Don't add a CV page, CV link, or CV PDF to the site — the repo is public and the CV was deliberately removed.
 
 ```html
 <nav>
