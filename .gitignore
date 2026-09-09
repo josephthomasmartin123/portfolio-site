@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Personal files — never commit these, the repo is deployed publicly.
+# Anything in the deployed folder is served at a URL regardless of repo visibility.
+Photography/
+screenshots/
+# CVs / loose PDFs at the top level or in assets root.
+# Project whitepapers under assets/projects/ are fine and stay tracked.
+/*.pdf
+/assets/*.pdf
+
+# Editor
+.vscode/
+.idea/
+
+# Originals awaiting conversion (convert to .jpg before committing)
+*.HEIC
+*.heic
